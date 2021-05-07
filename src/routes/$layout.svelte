@@ -1,5 +1,5 @@
 <script lang="ts">
-		import { page } from '$app/stores';
+	import { page } from '$app/stores';
 	import '../app.css';
 </script>
 
@@ -15,6 +15,7 @@
 			<ul>
 				<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
 				<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
+				<li class:active={$page.path === '/work'}><a sveltekit:prefetch href="/work">Work</a></li>
 				<li class:active={$page.path === '/contact'}><a sveltekit:prefetch href="/contact">Contact</a></li>
 			</ul>
 		  <!-- <a class="sidebar-nav-item{% if page.title == "Web Developer" %} active{% endif %}" href="/">Home<i class="fa fa-circle-thin"></i><i class="fa fa-circle"></i></a>
@@ -60,10 +61,6 @@
 <main class="page-wrapper">
 	<slot />
 </main>
-
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
 
 <label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu"><i class="fa fa-circle-thin"></i></label>
 
@@ -289,23 +286,11 @@ input[type=checkbox] {
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
-	}
+.container {
+	max-width: 38rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>

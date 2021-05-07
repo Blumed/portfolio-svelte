@@ -14,32 +14,50 @@
 	export const prerender = true;
 </script>
 
+<script lang="ts">
+	import Twitter from '$lib/Twitter/index.svelte';
+	import Selfie from '$lib/Selfie/index.svelte';
+</script>
+
 <svelte:head>
 	<title>About</title>
 </svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+	<h1 class="page-title">About</h1>
+<Selfie />
+	
 
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
+		<section>
+			<p>Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised in Minneapolis, Minnesota. I am 100% self taught so I code a lot during my free time. Besides coding I like to <a href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a> and <a href="https://youtu.be/qbZn07rZJ88">bike</a> everywhere all year round. Main purpose of this site is to organize my thoughts about web development. Show my work and to flex my self expression muscle.</p>
+		</section>
+		<section>
+			<h3>Nerd Stuff</h3>
+			<ul>
+				<li><a href="https://developers.google.com/web/progressive-web-apps/">Progressive Web Apps</a> are sweet. My site just so happens to be one.</li>
+				<li>Currently using <a href="https://github.com/sondr3/generator-jekyllized">Jekyllized</a>, which is a <a href="http://jekyllrb.com">Jekyll</a> and <a href="http://gulpjs.com/">gulp</a> build system.</li>
+				<li>My IDE of choice up untill recently was <a href="http://www.sublimetext.com/">Sublime Text 3</a> and now I have joined the darkside <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</li>
+				<li>Favorite theme is <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Design</a></li>
+				<li>Hosted my sites at <a href="https://mediatemple.net/">Media Temple</a> for ever but recently moved them over to <a href="https://aws.amazon.com/">Amazon Web Services</a>. The power and speed is addicting.</li>
+				<li>I love unix!</li>
+				<li>Version Controlled with <a href="https://github.com/Blumed/portfolio">git</a>.</li>
+				<li>My fuel of choice is the blackest office coffee while listening to <a href="http://4ad.com/artists/arielpinkshauntedgraffiti">Ariel Pinks Haunted Graffiti</a>.</li>
+				<li>If you would like to know even more nerdy facts about my site feel free to peep my <a href="/humans.txt">humans.txt</a> file.</li>
+				<li>This site has a public <a href="https://trello.com/b/WXxWYHWj">Trello board</a> if you have nothing else going on feel free to check it out.</li>
+			</ul>
+		</section>
+		<!-- <section>
+			<h3>Music</h3>
+			<div class="music-list">
+				<div id="row-one"></div>
+			</div>
+		</section> -->
+		<section>
+			<h3>Twitter</h3> 
+			<Twitter/>
+		</section>
+	
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
-</div>
 
 <style>
 	.content {
