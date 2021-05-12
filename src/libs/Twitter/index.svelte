@@ -1,0 +1,8 @@
+<script lang="ts">
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    })
+</script>
+<a class="twitter-timeline" data-chrome="noheader noborders nofooter transparent" data-dnt="true" href="https://twitter.com/CullanLuther" data-widget-id="683549306909933568">Tweets by @CullanLuther</a>

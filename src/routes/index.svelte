@@ -2,9 +2,9 @@
 	export const prerender = true;
 </script>
 
-<script lang="ts">
-	import Counter from '$lib/Counter/index.svelte';
-</script>
+<!-- <script lang="ts">
+	import Counter from 'src/components/Counter/index.svelte';
+</script> -->
 
 <svelte:head>
 	<title>Home</title>

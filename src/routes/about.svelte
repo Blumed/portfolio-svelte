@@ -15,15 +15,15 @@
 </script>
 
 <script lang="ts">
-	import Twitter from '$lib/Twitter/index.svelte';
-	import Selfie from '$lib/Selfie/index.svelte';
+	import Twitter from '../libs/Twitter/index.svelte';
+	import Selfie from '../libs/Selfy/index.svelte';
 </script>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
 
-
+<div class="container-small">
 	<h1 class="page-title">About</h1>
 <Selfie />
 	
@@ -57,7 +57,7 @@
 			<Twitter/>
 		</section>
 	
-
+	</div>
 
 <style>
 	.content {

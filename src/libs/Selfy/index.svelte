@@ -3,7 +3,6 @@
 <div class="-hidden-wrap">
     <figure class="me-yo" id="selfie">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="sup-yo polylion" viewBox="0 0 720 500" preserveAspectRatio="xMidYMid meet">
-            <!-- <rect x="0" y="0" width="720" height="720" fill="#bcbcbc" /> -->
             <g transform="scale(2.5) translate(0.5 0.5)">
                 <polygon fill="#121212" fill-opacity="0.501961" points="155,-2 69,44 114,271" />
                 <polygon fill="#ffffff" fill-opacity="0.501961" points="12,271 101,-16 -16,3" />

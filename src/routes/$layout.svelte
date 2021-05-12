@@ -9,10 +9,9 @@
 		</a> -->
 		<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 	
-
 	<div class="sidebar" id="sidebar">
 		<nav class="sidebar-navigation">
-			<ul>
+			<ul class="sidebar-items">
 				<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
 				<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
 				<li class:active={$page.path === '/work'}><a sveltekit:prefetch href="/work">Work</a></li>
@@ -20,14 +19,7 @@
 			</ul>
 		  <!-- <a class="sidebar-nav-item{% if page.title == "Web Developer" %} active{% endif %}" href="/">Home<i class="fa fa-circle-thin"></i><i class="fa fa-circle"></i></a>
 	  
-		  {% assign pages_list = site.pages | sort: "order" %}
-		  {% for node in pages_list %}
-			{% if node.title != null %}
-			  {% if node.sidebar == true %}
-				<a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}<i class="fa fa-circle-thin"></i><i class="fa fa-circle"></i></a>
-			  {% endif %}
-			{% endif %}
-		  {% endfor %} -->
+
 		  <!-- <div class="social">
 			<a class="sidebar-nav-social-item" href="https://github.com/blumed"><i class="fa fa-github"></i></a>
 			<a class="sidebar-nav-social-item" href="{{ site.author.twitter }}"><i class="fa fa-twitter"></i></a>
@@ -75,11 +67,12 @@
   visibility: hidden;
   overflow-y: auto;
   font-size: 0.875rem;
+  padding-top: 118px;
   z-index: 1;
   color: rgba(255, 255, 255, 0.6);
   background-color: #202020;
   transition: all 0.3s ease-in-out;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .sidebar a {
   font-weight: normal;
@@ -88,6 +81,11 @@
 
 .sidebar-item {
   padding: 1.5rem;
+}
+
+.sidebar-item p {
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.6);
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;

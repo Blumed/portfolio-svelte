@@ -1,9 +1,34 @@
+<script lang="ts">
+     import { Tabs, TabList, TabPanel, Tab } from '../libs/Tabs/tabs';
+</script>
+
 <div class="container-small">
+
+    
+    <Tabs>
+        <TabList>
+            <Tab>one</Tab>
+            <Tab>two</Tab>
+            <Tab>three</Tab>
+        </TabList>
+    
+        <TabPanel>
+            <h2>First panel</h2>
+        </TabPanel>
+    
+        <TabPanel>
+            <h2>Second panel</h2>
+        </TabPanel>
+    
+        <TabPanel>
+            <h2>Third panel</h2>
+        </TabPanel>
+    </Tabs>
     <nav class="tabs" >
-    <button class="tab active" id="all">All</button>
-    <button  class="tab" id="projects">Projects</button>
-    <button  class="tab" id="sites">Sites</button>
-</nav>
+        <button class="tab active" id="all">All</button>
+        <button  class="tab" id="projects">Projects</button>
+        <button  class="tab" id="sites">Sites</button>
+    </nav>
 <h1 class="page-title">Work</h1>
 <section class="work is-site">
     <a href="https://www.caribouperks.com/"><img class="is-full-width is-hard" src="/work/caribou/caribou_logo.jpg" alt="Caribou Perks Website"></a>
