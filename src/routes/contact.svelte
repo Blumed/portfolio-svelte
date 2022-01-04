@@ -1,31 +1,5 @@
-<!-- <script>
-   
-   import { onMount } from 'svelte';
 
-   onMount(() => {
-    const floatingLabel = document.querySelector('.grouped-field input, .grouped-field textarea');
-
-
-    //Floating Label Pattern
-    floatingLabel.addEventListener('focus',function() {
-        console.log('yep', this.value);
-      if (!this.value) {
-        console.log('no value');
-    this.siblings('label')
-                .toggleClass('floating-label');
-        }
-    });
-
-    floatingLabel.addEventListener('blur',function() {
-        if (!this.val()) {
-            this.siblings('label')
-                .toggleClass('floating-label');
-        }
-    });
-});
-
-</script> -->
-<div class="container-small">
+<div class="container">
     <h1 class="page-title">Contact</h1>
 <section>
     <h3>Leave a message after the . . . . beep</h3>
@@ -46,7 +20,7 @@
             </div>
         </div>
         <input type="text" name="_gotcha" style="display:none" />
-        <input type="submit" value="Send">
+        <button type="submit" class="button">Send</button>
         <input type="hidden" name="_next" value="/thanks" />
     </form>
 </section>
@@ -96,6 +70,7 @@
 label, input, textarea {
   transition: all 0.2s;
   touch-action: manipulation;
+  padding-left: 0.5rem;
 }
 
 input, textarea {
@@ -160,6 +135,9 @@ textarea:not(:placeholder-shown) + label,
 textarea:focus + label {
   transform: translate(0, 0) scale(1);
   cursor: pointer;
+}
+textarea {
+  max-height: 200px;
 }
 @media (max-width: 30rem) {
     form input:not(:last-child), textarea.-m-break {

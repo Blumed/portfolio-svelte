@@ -1,36 +1,69 @@
 <script lang="ts">
-     import { Tabs, TabList, TabPanel, Tab } from '../libs/Tabs/tabs';
+     import { Tabs, TabList, TabPanel, Tab } from '$lib/Tabs/tabs';
+
+import data from '$lib/data/work.json';
+import { fade, blur, fly, slide, scale } from "svelte/transition";
+
+    
+
+const dataAll = data.data.map(item => item);
+const projects = data.data.filter(item => item.type === 'project');
+const sites = data.data.filter(item => item.type === 'site');
+
 </script>
 
-<div class="container-small">
-
-    
+<div class="container">
+    <h1 class="page-title">Work</h1>
     <Tabs>
         <TabList>
-            <Tab>one</Tab>
-            <Tab>two</Tab>
-            <Tab>three</Tab>
+            <Tab>All</Tab>
+            <Tab>Projects</Tab>
+            <Tab>Sites</Tab>
         </TabList>
-    
         <TabPanel>
-            <h2>First panel</h2>
+            {#each dataAll as all}
+                <section class="work" in:scale out:fade>
+                    <a href={all.link}>
+                        <figure>
+                            <img src={all.image} alt="replace me" />
+                        </figure>
+                    </a>
+                    <a href={all.link}><h2>{all.title}</h2></a>
+                    <p>{all.copy}</p>
+                </section>
+            {/each}
+        </TabPanel>
+        <TabPanel>
+            {#each projects as project}
+                <section class="work" in:scale out:scale>
+                    <a href={project.link}>
+                        <figure>
+                            <img src={project.image} alt="replace me" />
+                        </figure>
+                    </a>
+                    <a href={project.link}><h2>{project.title}</h2></a>
+                    <p>{project.copy}</p>
+                </section>
+            {/each}
         </TabPanel>
     
         <TabPanel>
-            <h2>Second panel</h2>
-        </TabPanel>
-    
-        <TabPanel>
-            <h2>Third panel</h2>
+            {#each sites as site}
+                <section class="work" in:scale out:scale>
+                    <a href={site.link}>
+                        <figure>
+                            <img src={site.image} alt="replace me" />
+                        </figure>
+                    </a>
+                    <a href={site.link}><h2>{site.title}</h2></a>
+                    <p>{site.copy}</p>
+                </section>
+            {/each}
         </TabPanel>
     </Tabs>
-    <nav class="tabs" >
-        <button class="tab active" id="all">All</button>
-        <button  class="tab" id="projects">Projects</button>
-        <button  class="tab" id="sites">Sites</button>
-    </nav>
-<h1 class="page-title">Work</h1>
-<section class="work is-site">
+
+
+<!-- <section class="work is-site">
     <a href="https://www.caribouperks.com/"><img class="is-full-width is-hard" src="/work/caribou/caribou_logo.jpg" alt="Caribou Perks Website"></a>
     <h2><a href="https://www.caribouperks.com/">Caribou Perks</a></h2>
     <p>My first project with Horizontal Integration. Caribou is often changing their look and feel. We had an awesome oportunity to updated their perks section. My first time using HI's Hive build system, which was really fun and powerful. Go over and peep the web app we made. Proud of how well this project turned out.</p>
@@ -209,11 +242,19 @@
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
     </div>
-</section>
+</section> -->
 </div>
 
 <style>
     .work img {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
+    .work {
+        transition: height 0.5s ease-in-out;
+    }
+    .work figure {
+        margin: 0;
+    }
+
 </style>

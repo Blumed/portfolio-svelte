@@ -6,15 +6,14 @@
 }
 
 :root {
-	font-family: 'BrandonText', Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'BrandonText', Arial, -apple-system, sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--font-base: 16px;
 	--pure-white: #ffffff;
-	--primary-color: #b9c6d2;
+	--primary-color: #303030;
 	--secondary-color: #d0dde9;
 	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
+	--accent-color: #E3A6C2;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -27,6 +26,7 @@ body {
 	margin: 0;
 	background-color: var(--pure-white);
 	font-size: var(--font-base);
+	color: var(--primary-color)
 }
 
 body::before {
@@ -53,9 +53,11 @@ body::before {
 
 h1,
 h2,
+h3,
 p {
 	font-weight: 400;
-	color: var(--heading-color);
+	color: inherit;
+	text-rendering: optimizeLegibility;
 }
 
 p {
@@ -109,7 +111,14 @@ button:focus:not(:focus-visible) {
 .page-title {
 	line-height: 1.25;
 	text-transform: uppercase;
-    text-rendering: optimizeLegibility;
+	color: inherit;
+}
+.container {
+	max-width: 760px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 .container-small {
 	max-width: 38rem;
@@ -133,4 +142,42 @@ button:focus:not(:focus-visible) {
     vertical-align: middle;
     position: relative;
     top: 2px;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:after {
+  content: "";
+  background-color: var(--accent-color);
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+ transition: 0.2s;
+}
+
+.button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 13px 50px 13px;
+  }
 }

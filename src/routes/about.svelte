@@ -1,29 +1,33 @@
-<script context="module">
-	import { browser, dev } from '$app/env';
 
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
-
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
-
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
-	export const prerender = true;
-</script>
 
 <script lang="ts">
-	import Twitter from '../libs/Twitter/index.svelte';
-	import Selfie from '../libs/Selfy/index.svelte';
+	import Twitter from '$lib/Twitter/index.svelte';
+	import Selfie from '$lib/Selfy/index.svelte';
+
+	export async function postData(url = 'https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=copcircles&limit=12&api_key=f7816da1f6c9d00d09ee8e5e92c935c6&format=json&callback=myTopArtists', data = {}) {
+		const response = await fetch(url, {
+			method: 'POST', // *GET, POST, PUT, DELETE, etc.
+			mode: 'cors', // no-cors, *cors, same-origin
+			cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+			credentials: 'same-origin', // include, *same-origin, omit
+			headers: {
+			'Content-Type': 'application/json'
+			},
+			redirect: 'follow', // manual, *follow, error
+			referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+			body: JSON.stringify(data) // body data type must match "Content-Type" header
+	})
+  	return response.text();
+  }
+
+	console.log(typeof postData());
 </script>
 
 <svelte:head>
 	<title>About</title>
 </svelte:head>
 
-<div class="container-small">
+<div class="container">
 	<h1 class="page-title">About</h1>
 <Selfie />
 	
