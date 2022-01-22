@@ -5,9 +5,9 @@
 	import GithubIcon from '$lib/Icons/IconGithub.svelte';
 	import TwitterIcon from '$lib/Icons/IconTwitter.svelte';
 	import LinkedInIcon from '$lib/Icons/IconLinkedIn.svelte';
+
 	let toggleNav = false;
-	let currentPage = false;
-  const closeNav = () => toggleNav = false
+	const closeNav = () => toggleNav = false
 </script>
 
 
@@ -19,38 +19,38 @@
 			<li>
 				<a 
         class="sidebar-nav-item" 
-        class:active={$page.path === '/'} 
+        class:active={$page.url.pathname === '/'} 
         sveltekit:prefetch 
         on:click={closeNav}
         href="/"
-					>Home <CircleIcon toggle={$page.path === '/'} /></a
+					>Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
 				>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.path === '/about'}
+					class:active={$page.url.pathname === '/about'}
 					sveltekit:prefetch
           on:click={closeNav}
-					href="/about">About <CircleIcon toggle={$page.path === '/about'} />
+					href="/about">About <CircleIcon toggle={$page.url.pathname === '/about'} />
           </a>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.path === '/work'}
+					class:active={$page.url.pathname === '/work'}
 					sveltekit:prefetch
           on:click={closeNav}
-					href="/work">Work <CircleIcon toggle={$page.path === '/work'} /></a
+					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
 				>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.path === '/contact'}
+					class:active={$page.url.pathname === '/contact'}
 					sveltekit:prefetch
           on:click={closeNav}
-					href="/contact">Contact <CircleIcon toggle={$page.path === '/contact'} /></a
+					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
 				>
 			</li>
 		</ul>
@@ -65,17 +65,6 @@
 			<a class="sidebar-nav-social-item" href="https://www.linkedin.com/in/cullan-luther-55812234"
 				><LinkedInIcon/></a
 			>
-		</div>
-		<div class="social">
-			<a class="sidebar-nav-social-item" href="http://feeds.feedburner.com/CullanLuther">
-				<i class="fa fa-rss" />
-			</a>
-			<a class="sidebar-nav-social-item" href="/humans.txt">
-				<i class="fa fa-male" />
-			</a>
-			<a class="sidebar-nav-social-item" href="https://www.linkedin.com/in/cullan-luther-55812234">
-				<i class="fa fa-linkedin-square" />
-			</a>
 		</div>
 	</nav>
 
