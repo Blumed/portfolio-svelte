@@ -50,9 +50,10 @@
         outline: none;
         border-bottom: 2px solid currentColor;
     }
-    form textarea.-m-break {
+    form textarea {
             height: 30vh;
-            width: 24.3rem;
+            width: 100%;
+            max-width: 24.3rem;
             resize: none;
         }
 

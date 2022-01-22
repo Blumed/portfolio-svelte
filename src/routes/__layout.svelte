@@ -5,20 +5,24 @@
 	import GithubIcon from '$lib/Icons/IconGithub.svelte';
 	import TwitterIcon from '$lib/Icons/IconTwitter.svelte';
 	import LinkedInIcon from '$lib/Icons/IconLinkedIn.svelte';
-	let openNav = false;
+	let toggleNav = false;
 	let currentPage = false;
+  const closeNav = () => toggleNav = false
 </script>
 
-<!-- <a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a> -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={openNav} />
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} />
 
 <div class="sidebar" id="sidebar">
 	<nav class="sidebar-nav">
 		<ul class="sidebar-items">
 			<li>
-				<a class="sidebar-nav-item" class:active={$page.path === '/'} sveltekit:prefetch href="/"
+				<a 
+        class="sidebar-nav-item" 
+        class:active={$page.path === '/'} 
+        sveltekit:prefetch 
+        on:click={closeNav}
+        href="/"
 					>Home <CircleIcon toggle={$page.path === '/'} /></a
 				>
 			</li>
@@ -27,14 +31,16 @@
 					class="sidebar-nav-item"
 					class:active={$page.path === '/about'}
 					sveltekit:prefetch
-					href="/about">About <CircleIcon toggle={$page.path === '/about'} /></a
-				>
+          on:click={closeNav}
+					href="/about">About <CircleIcon toggle={$page.path === '/about'} />
+          </a>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.path === '/work'}
 					sveltekit:prefetch
+          on:click={closeNav}
 					href="/work">Work <CircleIcon toggle={$page.path === '/work'} /></a
 				>
 			</li>
@@ -43,6 +49,7 @@
 					class="sidebar-nav-item"
 					class:active={$page.path === '/contact'}
 					sveltekit:prefetch
+          on:click={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.path === '/contact'} /></a
 				>
 			</li>
@@ -72,7 +79,7 @@
 		</div>
 	</nav>
 
-	<a class="button hire" href="/contact"><span class="text-center">Hire Me</span></a>
+	<a class="button hire" href="/contact" on:click={closeNav}><span class="text-center">Hire Me</span></a>
 
 	<div class="sidebar-item">
 		<p>
@@ -86,12 +93,12 @@
 </main>
 
 <label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu"
-	><CircleIcon toggle={openNav} /></label
+	><CircleIcon toggle={toggleNav} /></label
 >
 
 <style>
 	.page-wrapper {
-		padding-top: 80px;
+		padding-top: 94px;
 	}
 	.sidebar {
 		position: fixed;
@@ -149,11 +156,6 @@
 		position: absolute;
 		right: 15%;
 		width: 12.5px;
-	}
-
-	.sidebar-btn {
-		width: 100%;
-		padding: 0 3rem;
 	}
 
 	a.sidebar-nav-item {
