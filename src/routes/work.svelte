@@ -116,7 +116,7 @@ const sites = data.data.filter(item => item.type === 'site');
     .work li {
         color: #666;
     }
-    .work li:after {
+    .work li:not(:last-child):after {
         content: ',';
         margin-right: 5px;
     }

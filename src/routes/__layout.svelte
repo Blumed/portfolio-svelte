@@ -129,6 +129,7 @@
 
 	.sidebar-nav-item {
 		display: block;
+		font-size: 1rem;
 		padding: 0.5rem 1rem;
 		border-top-width: 1px;
 		border-top-style: solid;
@@ -250,10 +251,11 @@
 	}
 	.social {
 		display: flex;
-		flex-direction: row justified;
+		flex-direction: row;
 		flex-flow: row wrap;
 		align-items: center;
 		justify-content: center;
+		margin-bottom: 1rem;
 	}
 	.social a {
 		flex: 1 1 auto;
