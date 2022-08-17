@@ -16,7 +16,7 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: Blumed/s3-deploy@v3
+          uses: Blumed/s3-deploy
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
