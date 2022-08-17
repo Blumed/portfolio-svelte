@@ -7,7 +7,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
-        - uses: actions/checkout@v3
+        - uses: actions/checkout
 
         - name: Install dependencies
           run: yarn
@@ -16,7 +16,7 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: reggionick/s3-deploy@v3
+          uses: Blumed/s3-deploy
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
