@@ -1,3 +1,8 @@
+<script>
+	import Seo from '$lib/SEO/index.svelte';
+</script>
+
+<Seo title="Contact" pageCanonicalUrl="/contact" />
 
 <div class="container">
     <h1 class="page-title">Contact</h1>

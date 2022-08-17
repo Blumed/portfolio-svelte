@@ -1,16 +1,15 @@
 <script lang="ts">
-     import { Tabs, TabList, TabPanel, Tab } from '$lib/Tabs/tabs';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/Tabs/tabs';
+    import data from '$lib/data/work.json';
+    import { scale } from "svelte/transition";
+    import Seo from '$lib/SEO/index.svelte';
 
-import data from '$lib/data/work.json';
-import { scale } from "svelte/transition";
-
-    
-
-const dataAll = data.data.map(item => item);
-const projects = data.data.filter(item => item.type === 'project');
-const sites = data.data.filter(item => item.type === 'site');
-
+    const dataAll = data.data.map(item => item);
+    const projects = data.data.filter(item => item.type === 'project');
+    const sites = data.data.filter(item => item.type === 'site');
 </script>
+
+<Seo title="Work" pageCanonicalUrl="/work" />
 
 <div class="container">
     <h1 class="page-title">Work</h1>
@@ -25,7 +24,7 @@ const sites = data.data.filter(item => item.type === 'site');
                 <section class="work" in:scale out:scale>
                     <a href={all.link}>
                         <figure>
-                            <img src={all.image} alt="replace me" />
+                            <img loading="lazy" src={all.image} alt={all.alt}  />
                         </figure>
                     </a>
                     <h2><a href={all.link}>{all.title}</a></h2>
@@ -45,7 +44,7 @@ const sites = data.data.filter(item => item.type === 'site');
                 <section class="work" in:scale out:scale>
                     <a href={project.link}>
                         <figure>
-                            <img src={project.image} alt="replace me" />
+                            <img  loading="lazy" src={project.image} alt={project.alt} />
                         </figure>
                     </a>
                     <h2><a href={project.link}>{project.title}</a></h2>
@@ -65,7 +64,7 @@ const sites = data.data.filter(item => item.type === 'site');
                 <section class="work" in:scale out:scale>
                     <a href={site.link}>
                         <figure>
-                            <img src={site.image} alt="replace me" />
+                            <img loading="lazy" src={site.image} alt={site.alt}  />
                         </figure>
                     </a>
                     <h2><a href={site.link}>{site.title}</a></h2>

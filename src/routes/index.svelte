@@ -6,9 +6,11 @@
 	import Counter from 'src/components/Counter/index.svelte';
 </script> -->
 
-<svelte:head>
-	<title>Home</title>
-</svelte:head>
+<script>
+	import Seo from '$lib/SEO/index.svelte';
+</script>
+
+<Seo title="Home" pageCanonicalUrl="/" />
 
 <section>
 Play Area
