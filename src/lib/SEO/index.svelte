@@ -6,8 +6,8 @@
     export let pageMetaDescription = '';
 
 	export const baseUrl = 'https://cullanluther.com';
-	export const ogImage = 'https://cullanluther.com/default-og-image.png';
-	export const twitterImage = 'https://cullanluther.com/default-twitter-image.png';
+	export const ogImage = 'https://cullanluther.com/default-og-image.webp';
+	export const twitterImage = 'https://cullanluther.com/default-twitter-image.webp';
 	// export const relativeUrl = $page.path;
 
 	export let seo = {

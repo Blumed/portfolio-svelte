@@ -6,18 +6,22 @@
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "lint": "prettier --check . && eslint --ignore-path .gitignore .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "clean": "find . -name \".DS_Store\" -print -delete"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "1.0.0-next.26",
     "@sveltejs/kit": "1.0.0-next.239",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
+    "date-fns": "^2.29.2",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-svelte3": "^3.2.0",
+    "googleapis": "^107.0.0",
     "prettier": "~2.5.1",
     "prettier-plugin-svelte": "^2.2.0",
+    "sass": "^1.54.5",
     "svelte": "^3.46.2",
     "svelte-preprocess": "^4.10.2",
     "tslib": "^2.0.0",

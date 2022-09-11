@@ -1,4 +1,5 @@
 <script>
+  export const prerender = true
 	import Seo from '$lib/SEO/index.svelte';
 </script>
 

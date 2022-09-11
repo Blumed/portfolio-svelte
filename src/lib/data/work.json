@@ -24,7 +24,7 @@
 			"type": "project",
 			"title": "Looksee",
 			"link": "https://chrome.google.com/webstore/detail/looksee/mbfdhnjobheppodaolenppfegicnhmhp",
-			"copy": "My first project with Horizontal Integration. Caribou is often changing their look and feel. We had an awesome oportunity to updated their perks section. My first time using HI's Hive build system, which was really fun and powerful. Go over and peep the web app we made. Proud of how well this project turned out.",
+			"copy": "I made a Chrome Extension for debugging layout on the fly. All you need to do is add a class, id, or selector. Concat them with a coma. It uses the power of sizzle syntax found in jQuery. Additionally you can apply a shader as well. This gives you a little peek as to how elements are layering in your window. The chrome extension is constently changing. Give it a shot! I would love your feedback.",
 			"repo": "https://github.com/Blumed/looksee",
 			"image": "/work/looksee/looksee-css-border-debugging-chrome-extension.webp",
 			"alt": "Looksee Logo",
@@ -45,7 +45,7 @@
 			"title": "Device Info",
 			"link": "https://deviceinfo.io",
 			"copy": "Device Info IO are a few tools I created to help fellow web developers and clients communicate about devices for accurete bug tracking. It started out as a bookmarklet and instructions on how to install them on all your devices. The company I currently work for relies heavily on browserstack. My bookmarklet is not easily installed in that environment, so I made a chrome extension that pulls the same data and copies it to your clipboard for easy use.",
-			"repo": "",
+			"repo": "https://github.com/Blumed/deviceinfo",
 			"image": "/work/deviceinfo/deviceinfo-logo.webp",
 			"alt": "Device Info Logo",
 			"technologies": ["Scss", "jQuery", "Jekyll", "Sketch", "Regex", "Chrome Extension Api"]

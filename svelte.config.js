@@ -14,10 +14,15 @@ const config = {
 			crawl: true,
 			enabled: true,
 			onError: 'continue',
-			entries: ['*'],
+			entries: ['*']
 		},
 		trailingSlash: 'never',
-		target: '#svelte'
+		target: '#svelte',
+		vite: {
+			build: {
+				minify: true
+			}
+		}
 	}
 };
 

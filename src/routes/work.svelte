@@ -1,4 +1,5 @@
 <script lang="ts">
+    export const prerender = true;
     import { Tabs, TabList, TabPanel, Tab } from '$lib/Tabs/tabs';
     import data from '$lib/data/work.json';
     import { scale } from "svelte/transition";
@@ -7,6 +8,7 @@
     const dataAll = data.data.map(item => item);
     const projects = data.data.filter(item => item.type === 'project');
     const sites = data.data.filter(item => item.type === 'site');
+
 </script>
 
 <Seo title="Work" pageCanonicalUrl="/work" />
@@ -30,6 +32,9 @@
                     <h2><a href={all.link}>{all.title}</a></h2>
                     <p>{all.copy}</p>
                     <h3 class="work-type">Type: <span>{all.type}</span></h3>
+                    {#if all.repo}
+                        <h3 class="work-type">Repo: <a href={all.repo} target="_blank" rel="noopener noreferrer">Check it out</a></h3>
+                    {/if}
                     <h3 class="list-title">Technologies: </h3>
                     <ul>
                         {#each all.technologies as technology}
@@ -49,6 +54,7 @@
                     </a>
                     <h2><a href={project.link}>{project.title}</a></h2>
                     <p>{project.copy}</p>
+                    <h3 class="work-type">Repo: <a href={project.repo} target="_blank" rel="noopener noreferrer">Check it out</a></h3>
                     <h3 class="list-title">Technologies &mdash;</h3>
                     <ul>
                         {#each project.technologies as technology}

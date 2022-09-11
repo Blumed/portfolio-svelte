@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '../app.css';
+
 	import CircleIcon from '$lib/Icons/IconCircle.svelte';
 	import GithubIcon from '$lib/Icons/IconGithub.svelte';
 	import TwitterIcon from '$lib/Icons/IconTwitter.svelte';
@@ -11,7 +12,7 @@
 </script>
 
 
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} />
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} tabindex={1} />
 
 <div class="sidebar" id="sidebar">
 	<nav class="sidebar-nav">
@@ -158,7 +159,8 @@
 	}
 
 	.sidebar-checkbox {
-		display: none;
+		visibility: hidden;
+		height: 0;
 	}
 
 	input[type='checkbox']:before {
