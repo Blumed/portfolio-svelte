@@ -1,5 +1,5 @@
 <script>
-	export const prerender = true;
+	//export const prerender = true;
 	import Seo from '$lib/SEO/index.svelte';
 	import { differenceInYears } from 'date-fns';
 	const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));

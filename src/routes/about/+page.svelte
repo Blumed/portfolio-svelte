@@ -1,5 +1,4 @@
 <script lang="ts">
-	export const prerender = true;
 	import Twitter from '$lib/Twitter/index.svelte';
 	import Selfie from '$lib/Selfy/index.svelte';
 	import Seo from '$lib/SEO/index.svelte';
