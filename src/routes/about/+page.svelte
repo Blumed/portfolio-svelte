@@ -48,7 +48,8 @@
 			</li>
 			<li>
 				Hosted my sites at <a href="https://mediatemple.net/">Media Temple</a> forever but now I
-				enjoy the pain of <a href="https://aws.amazon.com/">Amazon Web Services</a>. And no I didn't use Amplify. Cobbled everything together myself.
+				enjoy the pain of <a href="https://aws.amazon.com/">Amazon Web Services</a>. And no I didn't
+				use Amplify. Cobbled everything together myself.
 			</li>
 			<li>I love unix!</li>
 			<li>Version Controlled with <a href="https://github.com/Blumed/portfolio">git</a>.</li>
@@ -83,10 +84,13 @@
 	</section>
 	<section>
 		<header>
-			<h2>Twitter</h2>
+			<h2>Social Media</h2>
 		</header>
-		<p>I don't often tweet myself but I do retweet things I find interesting.</p>
-		<Twitter />
+		<p>
+			This section used to have my social media feeds. I was a pretty active Twitter user but as of
+			the changes made in late 2022 I had to say goodbye. Once I find another social media outlit I
+			support you can expect some more feeds again.
+		</p>
 	</section>
 </div>
 
@@ -99,16 +103,16 @@
 		position: relative;
 		height: 380px;
 		overflow: hidden;
-		&::after{
-				content: '';
-				position: absolute;
-				z-index: 5;
-				right: 0;
-				height: 379px;
-				width: 66px;
-				top: 0;
-				background-image: url('/spotify-facade-side.webp');
-			}
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 5;
+			right: 0;
+			height: 379px;
+			width: 66px;
+			top: 0;
+			background-image: url('/spotify-facade-side.webp');
+		}
 		.button {
 			position: absolute;
 			top: 50%;
@@ -127,5 +131,9 @@
 	ul {
 		list-style: circle;
 		padding-left: 26px;
+		li {
+			line-height: 1.6rem;
+			margin-bottom: 5px;
+		}
 	}
 </style>

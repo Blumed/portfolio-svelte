@@ -6,6 +6,7 @@
 			"link": "https://wheniwork.com",
 			"copy": "Brought on to support the marketing team with development needs and to update the site. Converted their Laravel site to a headless cms with a Gatsby frontend. No longer did a developer need to be bogged down updating copy which was in the markup of the old site. The new site is also much faster and performant, which help with SEO and UX.",
 			"repo": "",
+			"url": "https://wheniwork.com",
 			"image": "/work/wheniwork/wheniwork-logo.svg",
 			"alt": "When I Work Logo",
 			"technologies": ["Scss", "Wordpress", "Gatsby", "Sketch", "React"]

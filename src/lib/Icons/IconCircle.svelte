@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let toggle;
+	export let toggle: boolean;
 </script>
 
 {#if toggle}
@@ -8,7 +8,7 @@
 		focusable="false"
 		data-prefix="fas"
 		data-icon="circle"
-		class="svg-inline--fa fa-circle fa-w-16"
+		class="svg-inline--fa fa-circle fa-w-16 {$$restProps.class || ''}"
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"
@@ -23,7 +23,7 @@
 		focusable="false"
 		data-prefix="far"
 		data-icon="circle"
-		class="svg-inline--fa fa-circle fa-w-16"
+		class="svg-inline--fa fa-circle fa-w-16 {$$restProps.class || ''}"
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"
@@ -33,3 +33,11 @@
 		/></svg
 	>
 {/if}
+
+<style>
+	@media (min-width: 769px) {
+		.svg-inline--fa.fa-circle.fa-w-16.regular-old-circle {
+			display: none;
+		}
+	}
+</style>

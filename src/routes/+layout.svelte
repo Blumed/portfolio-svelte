@@ -4,44 +4,49 @@
 
 	import CircleIcon from '$lib/Icons/IconCircle.svelte';
 	import GithubIcon from '$lib/Icons/IconGithub.svelte';
-	import TwitterIcon from '$lib/Icons/IconTwitter.svelte';
 	import LinkedInIcon from '$lib/Icons/IconLinkedIn.svelte';
+	import Eye from '$lib/navigation/Eye.svelte';
 
 	let toggleNav = false;
-	const closeNav = () => toggleNav = false
+	const closeNav = () => (toggleNav = false);
 </script>
 
-
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} tabindex={1} />
+<input
+	type="checkbox"
+	class="sidebar-checkbox"
+	id="sidebar-checkbox"
+	bind:checked={toggleNav}
+	tabindex={1}
+/>
 
 <div class="sidebar" id="sidebar">
 	<nav class="sidebar-nav">
 		<ul class="sidebar-items">
 			<li>
-				<a 
-        class="sidebar-nav-item" 
-        class:active={$page.url.pathname === '/'} 
-        sveltekit:prefetch 
-        on:click={closeNav}
-        href="/"
-					>Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
+				<a
+					class="sidebar-nav-item"
+					class:active={$page.url.pathname === '/'}
+					data-sveltekit-prefetch
+					on:click={closeNav}
+					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
 				>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/about'}
-					sveltekit:prefetch
-          on:click={closeNav}
-					href="/about">About <CircleIcon toggle={$page.url.pathname === '/about'} />
-          </a>
+					data-sveltekit-prefetch
+					on:click={closeNav}
+					href="/about"
+					>About <CircleIcon toggle={$page.url.pathname === '/about'} />
+				</a>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/work'}
-					sveltekit:prefetch
-          on:click={closeNav}
+					data-sveltekit-prefetch
+					on:click={closeNav}
 					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
 				>
 			</li>
@@ -49,27 +54,24 @@
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/contact'}
-					sveltekit:prefetch
-          on:click={closeNav}
+					data-sveltekit-prefetch
+					on:click={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
 				>
 			</li>
 		</ul>
 
 		<div class="social">
-			<a class="sidebar-nav-social-item" href="https://github.com/blumed"
-				><GithubIcon/></a
-			>
-			<a class="sidebar-nav-social-item" href="https://twitter.com/CullanLuther"
-				><TwitterIcon/></a
-			>
+			<a class="sidebar-nav-social-item" href="https://github.com/blumed"><GithubIcon /></a>
 			<a class="sidebar-nav-social-item" href="https://www.linkedin.com/in/cullan-luther-55812234"
-				><LinkedInIcon/></a
+				><LinkedInIcon /></a
 			>
 		</div>
 	</nav>
 
-	<a class="button hire" href="/contact" on:click={closeNav}><span class="text-center">Hire Me</span></a>
+	<a class="button hire" href="/contact" on:click={closeNav}
+		><span class="text-center">Hire Me</span></a
+	>
 
 	<div class="sidebar-item">
 		<p>
@@ -82,9 +84,10 @@
 	<slot />
 </main>
 
-<label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu"
-	><CircleIcon toggle={toggleNav} /></label
->
+<label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu">
+	<Eye toggle={toggleNav} />
+	<CircleIcon class="regular-old-circle" toggle={toggleNav} />
+</label>
 
 <style>
 	.page-wrapper {
@@ -193,12 +196,13 @@
 		border-right: 100px solid transparent;
 		border-left: 0;
 		border-bottom: 0;
+		z-index: 5;
 	}
 	.sidebar-items {
 		padding: 0;
 		list-style: none;
 	}
-	:global(.sidebar-toggle.triangle svg) {
+	:global(.sidebar-toggle.triangle svg.fa-circle) {
 		display: inline-block;
 		width: 20.5px;
 		font-size: 1.2rem;
@@ -266,9 +270,9 @@
 		text-align: center;
 		transition: all 0.3s ease-in-out;
 	}
-  :global(.social a svg) {
-    width: 12.5px;
-  }
+	:global(.social a svg) {
+		width: 12.5px;
+	}
 	:global(.social a:hover svg) {
 		transform: scale(1.3);
 	}

@@ -1,5 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-  </script>
-  
-  <h1>{$page.status}: {$page.error.message}</h1>
+	import { browser } from '$app/environment';
+</script>
+
+<div class="container">
+	<h1>{$page.status} error 😭 can't find <strong>{browser && window.location.pathname}</strong></h1>
+</div>
