@@ -23,7 +23,7 @@
 		bundles, server configs, third party scripts, and so much more. The fact is slow sites effect a
 		bottom line.
 	</p>
-	<h2>Freelance and Consulting</h2>
+	<h2><strong>Freelance and Consulting</strong></h2>
 	<p>
 		Currently open to small projects. If you have a need for a new site or you can't get a hold of
 		your previous developer feel free to drop me a line. A loose list of technologies I use
