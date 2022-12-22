@@ -33,11 +33,3 @@
 		/></svg
 	>
 {/if}
-
-<style>
-	@media (min-width: 769px) {
-		.svg-inline--fa.fa-circle.fa-w-16.regular-old-circle {
-			display: none;
-		}
-	}
-</style>

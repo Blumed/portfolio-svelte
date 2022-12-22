@@ -9,7 +9,13 @@
 			"url": "https://wheniwork.com",
 			"image": "/work/wheniwork/wheniwork-logo.svg",
 			"alt": "When I Work Logo",
-			"technologies": ["Scss", "Wordpress", "Gatsby", "Sketch", "React"]
+			"technologies": [
+				"Scss",
+				"Wordpress",
+				"Gatsby",
+				"Sketch",
+				"React"
+			]
 		},
 		{
 			"type": "site",
@@ -19,7 +25,13 @@
 			"repo": "",
 			"image": "/work/caribou/caribou_logo.webp",
 			"alt": "Caribou Coffee Logo",
-			"technologies": ["Scss", "Nunjucks", "Gulp", "jQuery", "Bootstrap"]
+			"technologies": [
+				"Scss",
+				"Nunjucks",
+				"Gulp",
+				"jQuery",
+				"Bootstrap"
+			]
 		},
 		{
 			"type": "project",
@@ -29,7 +41,10 @@
 			"repo": "https://github.com/Blumed/looksee",
 			"image": "/work/looksee/looksee-css-border-debugging-chrome-extension.webp",
 			"alt": "Looksee Logo",
-			"technologies": ["Scss", "jQuery"]
+			"technologies": [
+				"Scss",
+				"jQuery"
+			]
 		},
 		{
 			"type": "site",
@@ -39,7 +54,27 @@
 			"repo": "",
 			"image": "/work/sleepnumber/sleepnumber.webp",
 			"alt": "Snapshot of Sleep Number website.",
-			"technologies": ["Scss", "jQuery", "Grunt", "Bootstrap", "Jade", "Yeogurt"]
+			"technologies": [
+				"Scss",
+				"jQuery",
+				"Grunt",
+				"Bootstrap",
+				"Jade",
+				"Yeogurt"
+			]
+		},
+		{
+			"type": "site",
+			"title": "Adam Biel Audio",
+			"link": "https://adambielaudio.com/",
+			"copy": "Made a 100% free site using modern web tools for a buddy of mine. I wanted to build something in Sveltekit because it is so much fun to work with. Created a decoupled website that uses google spreadsheets as our CMS. Sveltekit for the frontend and served with Netlify. He lets me know when he has updated some content and press the deploy button in Netlify and boom updated content goes live. All and all it was a super fun project. If you have any need for audio production give him a shout. Super talented guy.",
+			"repo": "",
+			"image": "/work/adam-biel/adam-biel-audio.webp",
+			"alt": "Adam Biel holding sound equipment",
+			"technologies": [
+				"Scss",
+				"sveltekit"
+			]
 		},
 		{
 			"type": "project",
@@ -49,7 +84,14 @@
 			"repo": "https://github.com/Blumed/deviceinfo",
 			"image": "/work/deviceinfo/deviceinfo-logo.webp",
 			"alt": "Device Info Logo",
-			"technologies": ["Scss", "jQuery", "Jekyll", "Sketch", "Regex", "Chrome Extension Api"]
+			"technologies": [
+				"Scss",
+				"jQuery",
+				"Jekyll",
+				"Sketch",
+				"Regex",
+				"Chrome Extension Api"
+			]
 		}
 	]
 }

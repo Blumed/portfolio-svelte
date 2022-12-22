@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Twitter from '$lib/Twitter/index.svelte';
-	import Selfie from '$lib/Selfy/index.svelte';
-	import Seo from '$lib/SEO/index.svelte';
+	import Selfie from '$lib/components/svgz/Selfie.svelte';
+	import Seo from '$lib/components/seo/page-meta.svelte';
 
 	let userClicked = false;
 
@@ -34,11 +33,17 @@
 		<ul>
 			<li>
 				This site fist launched in 2011. Originally it was artisnally written in html, css, and
-				javascript. A few other formations occured using Wordpress, Jekyll, and now Svelte.
+				javascript. A few other formations occurred using Wordpress, Jekyll, and now Svelte.
 			</li>
 			<li>
-				My IDE of choice is <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Before
-				VS Code I was a <a href="http://www.sublimetext.com/">Sublime Text</a> guy.
+				My IDE of choice is <a
+					href="https://code.visualstudio.com/"
+					target="_blank"
+					rel="noopener noreferrer">Visual Studio Code</a
+				>. Before VS Code I was a
+				<a href="http://www.sublimetext.com/" target="_blank" rel="noopener noreferrer"
+					>Sublime Text</a
+				> guy.
 			</li>
 			<li>
 				Favorite theme is <a
@@ -47,12 +52,31 @@
 				>
 			</li>
 			<li>
-				Hosted my sites at <a href="https://mediatemple.net/">Media Temple</a> forever but now I
-				enjoy the pain of <a href="https://aws.amazon.com/">Amazon Web Services</a>. And no I didn't
-				use Amplify. Cobbled everything together myself.
+				Hosted my sites at <a
+					href="https://mediatemple.net/"
+					target="_blank"
+					rel="noopener noreferrer">Media Temple</a
+				>
+				forever but now I enjoy the pain of
+				<a href="https://aws.amazon.com/">Amazon Web Services</a>. And no I didn't use Amplify.
+				Cobbled everything together myself.
 			</li>
 			<li>I love unix!</li>
-			<li>Version Controlled with <a href="https://github.com/Blumed/portfolio">git</a>.</li>
+			<li>
+				Version Controlled with <a
+					href="https://github.com/Blumed/portfolio"
+					target="_blank"
+					rel="noopener noreferrer">git</a
+				>.
+			</li>
+			<li>
+				Have used Trello sinced it launched to keep stuff organized. Great tool for keeping my site
+				organized and get my ideas out. Feel free to <a
+					href="https://trello.com/invite/b/7DQLWOSL/ATTI91d30ae988d635b50eecddd5f40da62dAF315B9C/portfolio-site"
+					target="_blank"
+					rel="noopener noreferrer">take a peek.</a
+				>
+			</li>
 		</ul>
 	</section>
 	<section>

@@ -1,6 +1,6 @@
 <script>
 	export const prerender = true;
-	import Seo from '$lib/SEO/index.svelte';
+	import Seo from '$lib/components/seo/page-meta.svelte';
 </script>
 
 <Seo title="Contact" pageCanonicalUrl="/contact" />
@@ -55,9 +55,9 @@
 </div>
 
 <style>
-  h3 {
-    margin-bottom: 0;
-  }
+	h3 {
+		margin-bottom: 0;
+	}
 	form {
 		position: relative;
 	}
