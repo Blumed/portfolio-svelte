@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import Seo from '$lib/SEO/index.svelte';
+	import Seo from '$lib/components/seo/page-meta.svelte';
 	export const CODE_DROPS_URL = `https://tympanus.net/codrops/feed/`;
 	const getFeed = async () => {
 		const codeDropsResponse = await fetch(CODE_DROPS_URL);

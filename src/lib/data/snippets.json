@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "url": "/snippets/intercom-facade",
+            "title": "Pure JS Intercom Facade",
+            "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magni sit odit iusto consequuntur quod laudantium cumque libero ullam quae.",
+            "technologies": [
+                "Javascript"
+            ]
+        },
+        {
+            "url": "/snippets/quick-file-list",
+            "title": "Quick File List",
+            "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magni sit odit iusto consequuntur quod laudantium cumque libero ullam quae.",
+            "technologies": [
+                "Bash"
+            ]
+        }
+    ]
+}

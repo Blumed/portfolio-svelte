@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import '../app.css';
+	import '../app.scss';
 
-	import CircleIcon from '$lib/Icons/IconCircle.svelte';
-	import GithubIcon from '$lib/Icons/IconGithub.svelte';
-	import LinkedInIcon from '$lib/Icons/IconLinkedIn.svelte';
-	import Eye from '$lib/navigation/Eye.svelte';
+	import CircleIcon from '$lib/components/svgz/IconCircle.svelte';
+	import GithubIcon from '$lib/components/svgz/IconGithub.svelte';
+	import LinkedInIcon from '$lib/components/svgz/IconLinkedIn.svelte';
+	import Switch from '$lib/components/theme-controler/Switch.svelte';
 
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
 </script>
+
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <input
 	type="checkbox"
@@ -26,7 +28,6 @@
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/'}
-					data-sveltekit-prefetch
 					on:click={closeNav}
 					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
 				>
@@ -35,7 +36,6 @@
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/about'}
-					data-sveltekit-prefetch
 					on:click={closeNav}
 					href="/about"
 					>About <CircleIcon toggle={$page.url.pathname === '/about'} />
@@ -45,7 +45,6 @@
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/work'}
-					data-sveltekit-prefetch
 					on:click={closeNav}
 					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
 				>
@@ -53,8 +52,16 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
+					class:active={$page.url.pathname.includes('/snippets')}
+					on:click={closeNav}
+					href="/snippets"
+					>Snippets <CircleIcon toggle={$page.url.pathname.includes('/snippets')} /></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/contact'}
-					data-sveltekit-prefetch
 					on:click={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
 				>
@@ -62,16 +69,23 @@
 		</ul>
 
 		<div class="social">
-			<a class="sidebar-nav-social-item" href="https://github.com/blumed"><GithubIcon /></a>
-			<a class="sidebar-nav-social-item" href="https://www.linkedin.com/in/cullan-luther-55812234"
-				><LinkedInIcon /></a
-			>
+			<a
+				class="sidebar-nav-social-item"
+				href="https://github.com/blumed"
+				target="_blank"
+				rel="noopener noreferrer"
+				><GithubIcon />
+			</a>
+			<a
+				class="sidebar-nav-social-item"
+				href="https://www.linkedin.com/in/cullan-luther-55812234"
+				target="_blank"
+				rel="noopener noreferrer"
+				><LinkedInIcon />
+			</a>
 		</div>
+		<Switch />
 	</nav>
-
-	<a class="button hire" href="/contact" on:click={closeNav}
-		><span class="text-center">Hire Me</span></a
-	>
 
 	<div class="sidebar-item">
 		<p>
@@ -80,16 +94,15 @@
 	</div>
 </div>
 
-<main class="page-wrapper">
+<main class="page-wrapper" id="main">
 	<slot />
 </main>
 
 <label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu">
-	<Eye toggle={toggleNav} />
 	<CircleIcon class="regular-old-circle" toggle={toggleNav} />
 </label>
 
-<style>
+<style lang="scss">
 	.page-wrapper {
 		padding-top: 94px;
 	}
@@ -248,13 +261,6 @@
 		-ms-transform: translateX(14rem);
 		transform: translateX(14rem);
 	}
-	.button.hire {
-		border-color: white;
-		padding-left: 1.8rem;
-		padding-right: 1.8rem;
-		display: inline-block;
-		margin-left: 3rem;
-	}
 	.social {
 		display: flex;
 		flex-direction: row;
@@ -262,13 +268,16 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 1rem;
+		padding: 0 1.5rem;
 	}
 	.social a {
 		flex: 1 1 auto;
-		float: left;
-		padding: 0.5rem;
-		text-align: center;
+		padding: 0.5rem 0;
 		transition: all 0.3s ease-in-out;
+	}
+	:global(.social a:last-of-type svg) {
+		margin-left: auto;
+		display: block;
 	}
 	:global(.social a svg) {
 		width: 12.5px;
