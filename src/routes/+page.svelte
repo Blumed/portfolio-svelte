@@ -86,9 +86,19 @@
 		margin-bottom: 30px;
 	}
 	.button {
-		color: #000;
+		color: inherit;
 		display: inline-block;
 		margin-bottom: 15px;
+	}
+	select {
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		background-color: transparent;
+		color: inherit;
+		appearance: none;
+		border-radius: 0;
+		border-bottom: 1px solid currentColor;
 	}
 	@media (min-width: 768px) {
 		h1 {

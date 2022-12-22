@@ -11,7 +11,7 @@
 	const closeNav = () => (toggleNav = false);
 </script>
 
-<a href="#main" class="skip-link">Skip to main content</a>
+<a href="#main" class="skip-link sr-only">Skip to main content</a>
 
 <input
 	type="checkbox"
@@ -268,7 +268,8 @@
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 1rem;
-		padding: 0 1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.6rem;
 	}
 	.social a {
 		flex: 1 1 auto;
@@ -287,6 +288,20 @@
 	}
 	:global(.social a svg) {
 		transition: all 0.3s ease-in-out;
+	}
+
+	.sr-only {
+		border: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px) !important;
+		-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;
+		height: 1px !important;
+		overflow: hidden !important;
+		margin: -1px !important;
+		padding: 0 !important;
+		position: absolute !important;
+		width: 1px !important;
+		white-space: nowrap !important;
 	}
 
 	@media (min-width: 30rem) {

@@ -28,9 +28,8 @@
 </script>
 
 <div class="theme-control">
-	<span>Dark Mode</span>
+	<label for="theme-toggle">Dark Mode</label>
 	<input checked={darkMode} on:click={handleSwitchDarkMode} type="checkbox" id="theme-toggle" />
-	<label for="theme-toggle" />
 </div>
 
 <style lang="scss">
@@ -53,18 +52,26 @@
 				width: 20px;
 				height: 20px;
 				border-radius: 50%;
-				background: #fff;
+				background-color: #fff;
 				position: absolute;
 				top: 0;
 				left: 0;
 				transition: 0.5s;
 			}
 			&:checked {
-				background: #00ed64;
+				background: transparent;
 				&:before {
 					transform: translateX(100%);
 					background: #fff;
 				}
+			}
+		}
+	}
+	.dark .theme-control {
+		input {
+			box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.5);
+			&:before {
+				background-color: var(--primary-color);
 			}
 		}
 	}
