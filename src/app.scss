@@ -73,28 +73,34 @@ html.dark body {
 			color: var(--primary-color) !important;
 		}
 
-		.theme-control span {
+		.theme-control label {
 			color: var(--primary-color);
 		}
 	}
 
 	//Work
-	.tab-list {
-		border-color: white;
+	.tabs {
+		.tab-list {
+			border-color: white;
 
-		button {
-			border-color: transparent;
-			color: white;
+			button {
+				border-color: transparent;
+				color: white;
 
-			&.selected {
-				border-left-color: white;
-				border-top-color: white;
-				border-right-color: white;
+				&.selected {
+					border-left-color: white;
+					border-top-color: white;
+					border-right-color: white;
 
-				&:after {
-					background-color: var(--primary-color);
+					&:after {
+						background-color: var(--primary-color);
+					}
 				}
 			}
+		}
+
+		h2 {
+			color: inherit !important;
 		}
 	}
 
@@ -212,7 +218,8 @@ button:focus:not(:focus-visible) {
 	letter-spacing: 1px;
 	padding: 13px 20px 13px;
 	outline: 0;
-	border: 2px solid var(--primary-color);
+	border: 2px solid currentColor;
+	color: inherit;
 	cursor: pointer;
 	position: relative;
 	background-color: rgba(0, 0, 0, 0);

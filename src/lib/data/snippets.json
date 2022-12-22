@@ -3,7 +3,7 @@
         {
             "url": "/snippets/intercom-facade",
             "title": "Pure JS Intercom Facade",
-            "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magni sit odit iusto consequuntur quod laudantium cumque libero ullam quae.",
+            "copy": "An Intercom facade snippet with built in bypass for urls with timed messaging functionality.",
             "technologies": [
                 "Javascript"
             ]
@@ -11,7 +11,7 @@
         {
             "url": "/snippets/quick-file-list",
             "title": "Quick File List",
-            "copy": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores magni sit odit iusto consequuntur quod laudantium cumque libero ullam quae.",
+            "copy": "A handy tool for grabbing specific file types in large unorganized folders.",
             "technologies": [
                 "Bash"
             ]

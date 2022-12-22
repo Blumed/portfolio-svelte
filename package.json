@@ -1,7 +1,9 @@
 {
-	"name": "~TODO~",
+	"name": "cullans-portfolio-v4",
 	"version": "0.0.1",
+	"license": "UNLICENSED",
 	"scripts": {
+		"start": "dev",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",

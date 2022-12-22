@@ -20,7 +20,6 @@
 						name="name"
 						required
 						autocomplete="name"
-						focus
 					/>
 					<label for="frmName">Full Name</label>
 				</div>
@@ -54,7 +53,7 @@
 	</section>
 </div>
 
-<style>
+<style lang="scss">
 	h3 {
 		margin-bottom: 0;
 	}
@@ -117,6 +116,9 @@
 		border-radius: 0;
 		padding: 0;
 		cursor: text;
+		background-color: transparent;
+		color: inherit;
+		padding-left: 1.8rem;
 	}
 
 	input:focus,
