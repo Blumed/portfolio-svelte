@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo/page-meta.svelte';
-	import CardsList from '$lib/components/cards/List.svelte';
+	import CardsList from '$lib/components/cards/list.svelte';
 	import data from '$lib/data/snippets.json';
 </script>
 

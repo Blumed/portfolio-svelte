@@ -2,10 +2,10 @@
 	import { page } from '$app/stores';
 	import '../app.scss';
 
-	import CircleIcon from '$lib/components/svgz/IconCircle.svelte';
-	import GithubIcon from '$lib/components/svgz/IconGithub.svelte';
-	import LinkedInIcon from '$lib/components/svgz/IconLinkedIn.svelte';
-	import Switch from '$lib/components/theme-controler/Switch.svelte';
+	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
+	import GithubIcon from '$lib/components/svgz/icon-github.svelte';
+	import LinkedInIcon from '$lib/components/svgz/icon-linkedIn.svelte';
+	import Switch from '$lib/components/theme-controler/switch.svelte';
 
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
@@ -13,13 +13,7 @@
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
-<input
-	type="checkbox"
-	class="sidebar-checkbox"
-	id="sidebar-checkbox"
-	bind:checked={toggleNav}
-	tabindex={1}
-/>
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} />
 
 <div class="sidebar" id="sidebar">
 	<nav class="sidebar-nav">
@@ -116,7 +110,7 @@
 		overflow-y: auto;
 		font-size: 0.875rem;
 		padding-top: 118px;
-		z-index: 1;
+		z-index: 6;
 		color: rgba(255, 255, 255, 0.6);
 		background-color: #202020;
 		transition: all 0.3s ease-in-out;
@@ -174,11 +168,6 @@
 		transform: scale(1.1);
 	}
 
-	.sidebar-checkbox {
-		visibility: hidden;
-		height: 0;
-	}
-
 	input[type='checkbox']:before {
 		content: '';
 	}
@@ -214,8 +203,12 @@
 	.sidebar-items {
 		padding: 0;
 		list-style: none;
+		li {
+			line-height: 1.3;
+			margin-bottom: 0;
+		}
 	}
-	:global(.sidebar-toggle.triangle svg.fa-circle) {
+	:global(.sidebar-toggle.triangle svg.svg-circle) {
 		display: inline-block;
 		width: 20.5px;
 		font-size: 1.2rem;
@@ -223,7 +216,6 @@
 		top: -80px;
 		left: 37px;
 		color: #fff;
-		-webkit-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
 	}
 	:global(.sidebar-toggle.triangle:hover svg) {
@@ -239,26 +231,27 @@
 	.page-wrapper,
 	.sidebar,
 	.sidebar-toggle {
-		-webkit-backface-visibility: hidden;
-		-ms-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
 
 	.page-wrapper,
 	.sidebar-toggle {
-		-webkit-transition: -webkit-transform 0.3s ease-in-out;
 		transition: transform 0.3s ease-in-out;
 	}
+	.sidebar-checkbox {
+		position: fixed;
+		&:focus-visible ~ .sidebar-toggle {
+			outline: Highlight auto 1px;
+		}
+	}
 
-	#sidebar-checkbox:checked + .sidebar {
+	.sidebar-checkbox:checked + .sidebar {
 		visibility: visible;
 	}
 
-	#sidebar-checkbox:checked ~ .sidebar,
-	#sidebar-checkbox:checked ~ .page-wrapper,
-	#sidebar-checkbox:checked ~ .sidebar-toggle {
-		-webkit-transform: translateX(14rem);
-		-ms-transform: translateX(14rem);
+	.sidebar-checkbox:checked ~ .sidebar,
+	.sidebar-checkbox:checked ~ .page-wrapper,
+	.sidebar-checkbox:checked ~ .sidebar-toggle {
 		transform: translateX(14rem);
 	}
 	.social {
@@ -293,7 +286,6 @@
 	.sr-only {
 		border: 0 !important;
 		clip: rect(1px, 1px, 1px, 1px) !important;
-		-webkit-clip-path: inset(50%) !important;
 		clip-path: inset(50%) !important;
 		height: 1px !important;
 		overflow: hidden !important;

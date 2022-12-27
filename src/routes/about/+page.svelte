@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Selfie from '$lib/components/svgz/Selfie.svelte';
+	import Selfie from '$lib/components/svgz/selfie.svelte';
 	import Seo from '$lib/components/seo/page-meta.svelte';
 
 	let userClicked = false;
@@ -155,9 +155,5 @@
 	ul {
 		list-style: circle;
 		padding-left: 26px;
-		li {
-			line-height: 1.6rem;
-			margin-bottom: 5px;
-		}
 	}
 </style>

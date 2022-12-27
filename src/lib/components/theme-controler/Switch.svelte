@@ -38,24 +38,26 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		label {
+			padding-top: 4px;
+		}
 		input {
 			position: relative;
-			width: 40px;
-			height: 20px;
-			-webkit-appearance: none;
+			width: 38px;
+			height: 18px;
 			appearance: none;
 			border-radius: 2rem;
 			cursor: pointer;
-			box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+			outline: 1px solid #fff;
 			&:before {
 				content: '';
-				width: 20px;
-				height: 20px;
+				width: 18px;
+				height: 18px;
 				border-radius: 50%;
 				background-color: #fff;
 				position: absolute;
 				top: 0;
-				left: 0;
+				left: -1px;
 				transition: 0.5s;
 			}
 			&:checked {
@@ -69,9 +71,10 @@
 	}
 	.dark .theme-control {
 		input {
-			box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.5);
+			outline-color: var(--primary-color);
 			&:before {
 				background-color: var(--primary-color);
+				left: 2px;
 			}
 		}
 	}

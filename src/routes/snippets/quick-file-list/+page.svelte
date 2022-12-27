@@ -1,6 +1,24 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo/page-meta.svelte';
-	import Gist from '$lib/components/Gist/index.svelte';
+	import Prism from '$lib/utils/prisma-js.svelte';
+
+	const fileList = `filelist() {
+
+if [ $# -gt 0 ]; then
+  shopt -s nullglob
+  for ext in "$@"; do
+	printf '%s\n' *.$ext
+  done | pbcopy
+  echo "copied listing for $@ files to clipboard"
+else
+ shopt -s nullglob
+for ext in *.*; do
+  echo "$ext"
+done | pbcopy
+  echo "copied listing for all files to clipboard"
+fi
+
+}`;
 </script>
 
 <Seo title="Quick File List" pageCanonicalUrl="/snippet/quick-filter-list" />
@@ -13,5 +31,8 @@
 		automatically to your clipboard. No need to cat just paste. I have some improvements I am
 		working on already, but if you have some ideas I would love to hear about them.
 	</p>
-	<Gist gistUri="Blumed/a782c162398062b4e524af2860c18d9d" />
+	<Prism language="bash" code={fileList} />
+	<button type="button" class="button" on:click={() => navigator.clipboard.writeText(fileList)}
+		>Copy Script</button
+	>
 </div>

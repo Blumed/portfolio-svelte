@@ -167,6 +167,11 @@ ol,
 ul {
 	list-style: none;
 	padding: 0;
+	line-height: 2rem;
+
+	li {
+		margin-bottom: 5px;
+	}
 }
 
 button:focus:not(:focus-visible) {
