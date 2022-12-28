@@ -17,6 +17,15 @@
             "technologies": [
                 "Bash"
             ]
+        },
+        {
+            "id": 2,
+            "url": "/snippets/gatsby-wordpress-grapqhl",
+            "title": "Gatsby Wordpress Graphql",
+            "copy": "A small list of snippets I find usefull when using and debugging Gatsby Wordpress Grafql data.",
+            "technologies": [
+                "Graphql"
+            ]
         }
     ]
 }

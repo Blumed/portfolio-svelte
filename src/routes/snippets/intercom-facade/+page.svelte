@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo/page-meta.svelte';
 
-	import Prism from '$lib/utils/prisma-js.svelte';
+	import Prism from '$lib/utils/prism/prisma-js.svelte';
 	import jsFacade from './js-facade';
 	import jsFacadeMinified from './js-facade-minified';
 	import gtmJsFacade from './gtm-js-facade';

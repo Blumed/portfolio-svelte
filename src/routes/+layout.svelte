@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import '../app.scss';
+	import '$lib/styles/global.scss';
 
 	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
 	import GithubIcon from '$lib/components/svgz/icon-github.svelte';

@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
+	import './prism.css';
+
 	export let language: string;
 	export let code: string;
 	export let header: string | undefined = undefined;
 
 	onMount(() => {
 		let script = document.createElement('script');
-		script.src = 'https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism.js';
+		script.src = '/prism-syntax.js';
 		document.head.append(script);
 
 		script.onload = () => {
@@ -43,6 +45,10 @@
 					lang_module = 'https://prismjs.com/components/prism-html.js';
 					langJS = true;
 					break;
+				case 'graphql':
+					lang_module = 'https://prismjs.com/components/prism-graphql.js';
+					langJS = true;
+					break;
 			}
 
 			if (langJS == true) {
@@ -60,17 +66,6 @@
 		};
 	});
 </script>
-
-<svelte:head>
-	<link
-		rel="stylesheet"
-		href="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism_okaidia.css"
-		type="text/css"
-	/>
-	<script
-		src="https://tutsplus.github.io/syntax-highlighter-demos/highlighters/Prism/prism.js"
-		id="tutsplus"></script>
-</svelte:head>
 
 <div class="code-highlight-container" in:scale>
 	{#if header !== undefined}
