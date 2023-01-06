@@ -64,4 +64,4 @@ config.bypassUrls.length > 0 && config.bypassUrls.map(function (url) {
 if (config.bypassUrls.length === 0 && document.querySelector('.' + config.facadeContainerClass) === null && typeof window.intercomSettings === 'undefined') {
     companynameIntercomFacade();
 }
-</script>`
+</script>`;

@@ -11,88 +11,86 @@
 
 <Seo title="Work" pageCanonicalUrl="/work" />
 
-<div class="container">
-	<h1 class="page-title">Work</h1>
-	<Tabs>
-		<TabList>
-			<Tab>All</Tab>
-			<Tab>Projects</Tab>
-			<Tab>Sites</Tab>
-		</TabList>
-		<TabPanel>
-			{#each dataAll as all}
-				<section class="work" in:scale out:scale>
-					<a href={all.link} target="_blank" rel="noopener noreferrer">
-						<figure>
-							<img loading="lazy" src={all.image} alt={all.alt} />
-						</figure>
-					</a>
-					<h2><a href={all.link} target="_blank" rel="noopener noreferrer">{all.title}</a></h2>
-					<p>{all.copy}</p>
-					<h3 class="work-type">Type: <span>{all.type}</span></h3>
-					{#if all.repo}
-						<h3 class="work-type">
-							Repo: <a href={all.repo} target="_blank" rel="noopener noreferrer">Check it out</a>
-						</h3>
-					{/if}
-					<h3>Url: <a href={all.link}>Link</a></h3>
-					<h3 class="list-title">Technologies:</h3>
-					<ul>
-						{#each all.technologies as technology}
-							<li>{technology}</li>
-						{/each}
-					</ul>
-				</section>
-			{/each}
-		</TabPanel>
-		<TabPanel>
-			{#each projects as project}
-				<section class="work" in:scale out:scale>
-					<a href={project.link} target="_blank" rel="noopener noreferrer">
-						<figure>
-							<img loading="lazy" src={project.image} alt={project.alt} />
-						</figure>
-					</a>
-					<h2>
-						<a href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a>
-					</h2>
-					<p>{project.copy}</p>
+<h1 class="page-title">Work</h1>
+<Tabs>
+	<TabList>
+		<Tab>All</Tab>
+		<Tab>Projects</Tab>
+		<Tab>Sites</Tab>
+	</TabList>
+	<TabPanel>
+		{#each dataAll as all}
+			<section class="work" in:scale out:scale>
+				<a href={all.link} target="_blank" rel="noopener noreferrer">
+					<figure>
+						<img loading="lazy" src={all.image} alt={all.alt} />
+					</figure>
+				</a>
+				<h2><a href={all.link} target="_blank" rel="noopener noreferrer">{all.title}</a></h2>
+				<p>{all.copy}</p>
+				<h3 class="work-type">Type: <span>{all.type}</span></h3>
+				{#if all.repo}
 					<h3 class="work-type">
-						Repo: <a href={project.repo} target="_blank" rel="noopener noreferrer">Check it out</a>
+						Repo: <a href={all.repo} target="_blank" rel="noopener noreferrer">Check it out</a>
 					</h3>
-					<h3>Url: <a href={project.link}>Link</a></h3>
-					<h3 class="list-title">Technologies &mdash;</h3>
-					<ul>
-						{#each project.technologies as technology}
-							<li>{technology}</li>
-						{/each}
-					</ul>
-				</section>
-			{/each}
-		</TabPanel>
+				{/if}
+				<h3>Url: <a href={all.link}>Link</a></h3>
+				<h3 class="list-title">Technologies:</h3>
+				<ul>
+					{#each all.technologies as technology}
+						<li>{technology}</li>
+					{/each}
+				</ul>
+			</section>
+		{/each}
+	</TabPanel>
+	<TabPanel>
+		{#each projects as project}
+			<section class="work" in:scale out:scale>
+				<a href={project.link} target="_blank" rel="noopener noreferrer">
+					<figure>
+						<img loading="lazy" src={project.image} alt={project.alt} />
+					</figure>
+				</a>
+				<h2>
+					<a href={project.link} target="_blank" rel="noopener noreferrer">{project.title}</a>
+				</h2>
+				<p>{project.copy}</p>
+				<h3 class="work-type">
+					Repo: <a href={project.repo} target="_blank" rel="noopener noreferrer">Check it out</a>
+				</h3>
+				<h3>Url: <a href={project.link}>Link</a></h3>
+				<h3 class="list-title">Technologies &mdash;</h3>
+				<ul>
+					{#each project.technologies as technology}
+						<li>{technology}</li>
+					{/each}
+				</ul>
+			</section>
+		{/each}
+	</TabPanel>
 
-		<TabPanel>
-			{#each sites as site}
-				<section class="work" in:scale out:scale>
-					<a href={site.link} target="_blank" rel="noopener noreferrer">
-						<figure>
-							<img loading="lazy" src={site.image} alt={site.alt} />
-						</figure>
-					</a>
-					<h2><a href={site.link} target="_blank" rel="noopener noreferrer">{site.title}</a></h2>
-					<p>{site.copy}</p>
-					<h3>Url: <a href={site.link}>Link</a></h3>
-					<h3 class="list-title">Technologies &mdash;</h3>
-					<ul>
-						{#each site.technologies as technology}
-							<li>{technology}</li>
-						{/each}
-					</ul>
-				</section>
-			{/each}
-		</TabPanel>
-	</Tabs>
-</div>
+	<TabPanel>
+		{#each sites as site}
+			<section class="work" in:scale out:scale>
+				<a href={site.link} target="_blank" rel="noopener noreferrer">
+					<figure>
+						<img loading="lazy" src={site.image} alt={site.alt} />
+					</figure>
+				</a>
+				<h2><a href={site.link} target="_blank" rel="noopener noreferrer">{site.title}</a></h2>
+				<p>{site.copy}</p>
+				<h3>Url: <a href={site.link}>Link</a></h3>
+				<h3 class="list-title">Technologies &mdash;</h3>
+				<ul>
+					{#each site.technologies as technology}
+						<li>{technology}</li>
+					{/each}
+				</ul>
+			</section>
+		{/each}
+	</TabPanel>
+</Tabs>
 
 <style>
 	.work img {

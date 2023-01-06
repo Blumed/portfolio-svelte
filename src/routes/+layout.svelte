@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '$lib/styles/global.scss';
-
 	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
 	import GithubIcon from '$lib/components/svgz/icon-github.svelte';
 	import LinkedInIcon from '$lib/components/svgz/icon-linkedIn.svelte';
@@ -13,7 +12,13 @@
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" bind:checked={toggleNav} />
+<input
+	type="checkbox"
+	class="sidebar-checkbox"
+	id="sidebar-checkbox"
+	aria-hidden="true"
+	bind:checked={toggleNav}
+/>
 
 <div class="sidebar" id="sidebar">
 	<nav class="sidebar-nav">
@@ -21,6 +26,7 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
+					id="first-menu-item"
 					class:active={$page.url.pathname === '/'}
 					on:click={closeNav}
 					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
@@ -88,18 +94,20 @@
 	</div>
 </div>
 
-<main class="page-wrapper" id="main">
+<main class="container" id="main">
 	<slot />
 </main>
 
-<label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu">
+<label
+	for="sidebar-checkbox"
+	class="sidebar-toggle triangle"
+	title="menu"
+	aria-label="Enter and Exit Navigation"
+>
 	<CircleIcon class="regular-old-circle" toggle={toggleNav} />
 </label>
 
 <style lang="scss">
-	.page-wrapper {
-		padding-top: 94px;
-	}
 	.sidebar {
 		position: fixed;
 		top: 0;
@@ -228,13 +236,13 @@
 		padding-bottom: 0.125rem;
 	}
 
-	.page-wrapper,
+	.container,
 	.sidebar,
 	.sidebar-toggle {
 		backface-visibility: hidden;
 	}
 
-	.page-wrapper,
+	.container,
 	.sidebar-toggle {
 		transition: transform 0.3s ease-in-out;
 	}
@@ -250,7 +258,7 @@
 	}
 
 	.sidebar-checkbox:checked ~ .sidebar,
-	.sidebar-checkbox:checked ~ .page-wrapper,
+	.sidebar-checkbox:checked ~ .container,
 	.sidebar-checkbox:checked ~ .sidebar-toggle {
 		transform: translateX(14rem);
 	}
@@ -295,7 +303,16 @@
 		width: 1px !important;
 		white-space: nowrap !important;
 	}
-
+	.container {
+		max-width: 760px;
+		width: 100%;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 4rem;
+		padding-top: 94px;
+	}
 	@media (min-width: 30rem) {
 		.sidebar {
 			font-size: 0.75rem;

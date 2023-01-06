@@ -5,7 +5,9 @@
 
 	export let language: string;
 	export let code: string;
-	export let header: string | undefined = undefined;
+	export let id: string | undefined = undefined;
+	export let copyScript: boolean | undefined = undefined;
+	export let minifiedScript: string | undefined = undefined;
 
 	onMount(() => {
 		let script = document.createElement('script');
@@ -67,22 +69,75 @@
 	});
 </script>
 
-<div class="code-highlight-container" in:scale>
-	{#if header !== undefined}
-		<h2>{header}</h2>
-	{/if}
-
+<div {id} class="code-snippet-container" in:scale>
+	<div class="code-snippet-actions">
+		{#if copyScript}
+			<button
+				type="button"
+				class="button-code-snippet"
+				on:click={() => navigator.clipboard.writeText(code)}>Copy Script</button
+			>
+		{/if}
+		{#if minifiedScript}
+			<button
+				type="button"
+				class="button-code-snippet"
+				on:click={() => navigator.clipboard.writeText(minifiedScript)}>Copy Minified</button
+			>
+		{/if}
+		<span class="code-snippet-language">{language}</span>
+	</div>
 	<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
 			>{code}</code
 		></pre>
 </div>
 
 <style lang="scss">
-	.code-highlight-container {
+	.code-snippet-container {
 		margin-bottom: 35px;
 		pre {
 			background: black;
 			border-radius: 8px;
+		}
+	}
+	.code-snippet-actions {
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom: 1px solid white;
+		//padding: 1rem 1rem 1rem 46px;
+		background-color: black;
+		display: flex;
+		+ pre {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+	.code-snippet-language {
+		color: white;
+		padding: 5px 20px;
+		margin-left: auto;
+	}
+	.button-code-snippet {
+		cursor: pointer;
+		padding: 5px 20px;
+		border: 0;
+		color: white;
+		height: 100%;
+		margin: 0;
+		background-color: transparent;
+		border-right: 1px solid white;
+		transition: background 0.4s ease;
+		&:first-of-type {
+			border-top-left-radius: 8px;
+		}
+		&:hover {
+			background-color: var(--accent-color);
+		}
+	}
+	@media (max-width: 768px) {
+		.button-code-snippet {
+			padding-left: 8px;
+			padding-right: 8px;
 		}
 	}
 </style>

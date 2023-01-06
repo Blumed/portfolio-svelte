@@ -23,7 +23,7 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
     padding: 1em;
-    margin: .5em 0;
+    margin: 0;
     overflow: auto;
     border-radius: 0.3em;
 }
@@ -206,18 +206,4 @@ pre.line-numbers>code {
 
 pre[class*='language-'] {
     position: relative;
-}
-
-pre[class*='language-'][data-language]::before {
-    content: attr(data-language);
-    color: black;
-    background-color: #CFCFCF;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 0.9em;
-    border-radius: 0 0 0 5px;
-    padding: 0 0.5em;
-    text-shadow: none;
 }
