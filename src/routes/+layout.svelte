@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import '../app.scss';
-
-	import CircleIcon from '$lib/components/svgz/IconCircle.svelte';
-	import GithubIcon from '$lib/components/svgz/IconGithub.svelte';
-	import LinkedInIcon from '$lib/components/svgz/IconLinkedIn.svelte';
-	import Switch from '$lib/components/theme-controler/Switch.svelte';
+	import '$lib/styles/global.scss';
+	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
+	import GithubIcon from '$lib/components/svgz/icon-github.svelte';
+	import LinkedInIcon from '$lib/components/svgz/icon-linkedIn.svelte';
+	import Switch from '$lib/components/theme-controler/switch.svelte';
 
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
@@ -17,8 +16,8 @@
 	type="checkbox"
 	class="sidebar-checkbox"
 	id="sidebar-checkbox"
+	aria-hidden="true"
 	bind:checked={toggleNav}
-	tabindex={1}
 />
 
 <div class="sidebar" id="sidebar">
@@ -27,6 +26,7 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
+					id="first-menu-item"
 					class:active={$page.url.pathname === '/'}
 					on:click={closeNav}
 					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
@@ -94,18 +94,20 @@
 	</div>
 </div>
 
-<main class="page-wrapper" id="main">
+<main class="container" id="main">
 	<slot />
 </main>
 
-<label for="sidebar-checkbox" class="sidebar-toggle triangle" title="menu">
+<label
+	for="sidebar-checkbox"
+	class="sidebar-toggle triangle"
+	title="menu"
+	aria-label="Enter and Exit Navigation"
+>
 	<CircleIcon class="regular-old-circle" toggle={toggleNav} />
 </label>
 
 <style lang="scss">
-	.page-wrapper {
-		padding-top: 94px;
-	}
 	.sidebar {
 		position: fixed;
 		top: 0;
@@ -116,7 +118,7 @@
 		overflow-y: auto;
 		font-size: 0.875rem;
 		padding-top: 118px;
-		z-index: 1;
+		z-index: 6;
 		color: rgba(255, 255, 255, 0.6);
 		background-color: #202020;
 		transition: all 0.3s ease-in-out;
@@ -174,11 +176,6 @@
 		transform: scale(1.1);
 	}
 
-	.sidebar-checkbox {
-		visibility: hidden;
-		height: 0;
-	}
-
 	input[type='checkbox']:before {
 		content: '';
 	}
@@ -214,8 +211,12 @@
 	.sidebar-items {
 		padding: 0;
 		list-style: none;
+		li {
+			line-height: 1.3;
+			margin-bottom: 0;
+		}
 	}
-	:global(.sidebar-toggle.triangle svg.fa-circle) {
+	:global(.sidebar-toggle.triangle svg.svg-circle) {
 		display: inline-block;
 		width: 20.5px;
 		font-size: 1.2rem;
@@ -223,7 +224,6 @@
 		top: -80px;
 		left: 37px;
 		color: #fff;
-		-webkit-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
 	}
 	:global(.sidebar-toggle.triangle:hover svg) {
@@ -236,29 +236,30 @@
 		padding-bottom: 0.125rem;
 	}
 
-	.page-wrapper,
+	.container,
 	.sidebar,
 	.sidebar-toggle {
-		-webkit-backface-visibility: hidden;
-		-ms-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
 
-	.page-wrapper,
+	.container,
 	.sidebar-toggle {
-		-webkit-transition: -webkit-transform 0.3s ease-in-out;
 		transition: transform 0.3s ease-in-out;
 	}
+	.sidebar-checkbox {
+		position: fixed;
+		&:focus-visible ~ .sidebar-toggle {
+			outline: Highlight auto 1px;
+		}
+	}
 
-	#sidebar-checkbox:checked + .sidebar {
+	.sidebar-checkbox:checked + .sidebar {
 		visibility: visible;
 	}
 
-	#sidebar-checkbox:checked ~ .sidebar,
-	#sidebar-checkbox:checked ~ .page-wrapper,
-	#sidebar-checkbox:checked ~ .sidebar-toggle {
-		-webkit-transform: translateX(14rem);
-		-ms-transform: translateX(14rem);
+	.sidebar-checkbox:checked ~ .sidebar,
+	.sidebar-checkbox:checked ~ .container,
+	.sidebar-checkbox:checked ~ .sidebar-toggle {
 		transform: translateX(14rem);
 	}
 	.social {
@@ -293,7 +294,6 @@
 	.sr-only {
 		border: 0 !important;
 		clip: rect(1px, 1px, 1px, 1px) !important;
-		-webkit-clip-path: inset(50%) !important;
 		clip-path: inset(50%) !important;
 		height: 1px !important;
 		overflow: hidden !important;
@@ -303,7 +303,16 @@
 		width: 1px !important;
 		white-space: nowrap !important;
 	}
-
+	.container {
+		max-width: 760px;
+		width: 100%;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: 4rem;
+		padding-top: 94px;
+	}
 	@media (min-width: 30rem) {
 		.sidebar {
 			font-size: 0.75rem;

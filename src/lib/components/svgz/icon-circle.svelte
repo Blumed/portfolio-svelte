@@ -6,10 +6,8 @@
 	<svg
 		aria-hidden="true"
 		focusable="false"
-		data-prefix="fas"
-		data-icon="circle"
-		class="svg-inline--fa fa-circle fa-w-16 {$$restProps.class || ''}"
-		role="img"
+		class="svg-circle unfilled {$$restProps.class || ''}"
+		role="presentation"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"
 		><path
@@ -21,10 +19,8 @@
 	<svg
 		aria-hidden="true"
 		focusable="false"
-		data-prefix="far"
-		data-icon="circle"
-		class="svg-inline--fa fa-circle fa-w-16 {$$restProps.class || ''}"
-		role="img"
+		class="svg-circle filled {$$restProps.class || ''}"
+		role="presentation"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"
 		><path

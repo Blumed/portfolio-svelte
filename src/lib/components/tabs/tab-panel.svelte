@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import { TABS } from './Tabs.svelte';
+	import { TABS } from './tabs.svelte';
 
 	const panel = {};
 	const { registerPanel, selectedPanel } = getContext(TABS);
@@ -9,5 +9,5 @@
 </script>
 
 {#if $selectedPanel === panel}
-	<slot></slot>
+	<slot />
 {/if}

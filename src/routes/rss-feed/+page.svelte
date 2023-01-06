@@ -39,11 +39,9 @@
 
 <Seo title="Rss Feed" pageCanonicalUrl="/rss-feed" />
 
-<div class="container">
-	<h1 class="page-title">Rss Feed</h1>
-	{#await promise}
-		<p>...waiting</p>
-	{:catch error}
-		<p style="color: red">{error.message}</p>
-	{/await}
-</div>
+<h1 class="page-title">Rss Feed</h1>
+{#await promise}
+	<p>...waiting</p>
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}

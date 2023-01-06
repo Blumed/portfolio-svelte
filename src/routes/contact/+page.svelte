@@ -5,53 +5,51 @@
 
 <Seo title="Contact" pageCanonicalUrl="/contact" />
 
-<div class="container">
-	<h1 class="page-title">Contact</h1>
-	<section>
-		<h3>Leave a message after the . . . . beep</h3>
-		<form action="//formspree.io/cullan.luther@gmail.com" method="POST">
-			<div class="clear">
-				<div class="field">
-					<input
-						class="-m-break"
-						type="text"
-						id="frmName"
-						placeholder="Jim Gime"
-						name="name"
-						required
-						autocomplete="name"
-					/>
-					<label for="frmName">Full Name</label>
-				</div>
-				<div class="field">
-					<input
-						class="-m-break"
-						type="email"
-						id="frmEmail"
-						placeholder="jim.gime@email.com"
-						name="_replyto"
-						required
-						autocomplete="email"
-					/>
-					<label for="frmEmail">Email</label>
-				</div>
-				<input type="hidden" name="_subject" value="New Blog Submission!" />
-				<div class="field">
-					<textarea
-						class="-m-break"
-						type="text"
-						placeholder="Enter Your Hiko's Here"
-						name="message"
-					/>
-					<label for="frmMessage">Message</label>
-				</div>
+<h1 class="page-title">Contact</h1>
+<section>
+	<h3>Leave a message after the . . . . beep</h3>
+	<form action="//formspree.io/cullan.luther@gmail.com" method="POST">
+		<div class="clear">
+			<div class="field">
+				<input
+					class="-m-break"
+					type="text"
+					id="frmName"
+					placeholder="Jim Gime"
+					name="name"
+					required
+					autocomplete="name"
+				/>
+				<label for="frmName">Full Name</label>
 			</div>
-			<input type="text" name="_gotcha" style="display:none" />
-			<button type="submit" class="button">Send</button>
-			<input type="hidden" name="_next" value="/thanks" />
-		</form>
-	</section>
-</div>
+			<div class="field">
+				<input
+					class="-m-break"
+					type="email"
+					id="frmEmail"
+					placeholder="jim.gime@email.com"
+					name="_replyto"
+					required
+					autocomplete="email"
+				/>
+				<label for="frmEmail">Email</label>
+			</div>
+			<input type="hidden" name="_subject" value="New Blog Submission!" />
+			<div class="field">
+				<textarea
+					class="-m-break"
+					type="text"
+					placeholder="Enter Your Hiko's Here"
+					name="message"
+				/>
+				<label for="frmMessage">Message</label>
+			</div>
+		</div>
+		<input type="text" name="_gotcha" style="display:none" />
+		<button type="submit" class="button">Send</button>
+		<input type="hidden" name="_next" value="/thanks" />
+	</form>
+</section>
 
 <style lang="scss">
 	h3 {

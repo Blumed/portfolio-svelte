@@ -7,45 +7,42 @@
 
 <Seo title="Home" pageCanonicalUrl="/" />
 
-<div class="container">
-	<h1>Hi, my name is Cullan and I am web developer.</h1>
-	<h2><strong>A little about myself</strong></h2>
-	<p>
-		I have been a developer for {workingYears} years. Most of my career I have been focused on large
-		and small marketing sites. I really enjoy solving the types of problems that arise from creating
-		performant informative websites. Past few years I have been creating web applications, which has
-		been a fun skill to learn.
-	</p>
-	<h2><strong>Need a site audit?</strong></h2>
-	<p>
-		It is always helpful to have another set of eyes on site performance. So many things can slow
-		down a site and most of them are created out of good intentions. Large assets, huge javascript
-		bundles, server configs, third party scripts, and so much more. The fact is slow sites effect a
-		bottom line.
-	</p>
-	<h2><strong>Freelance and Consulting</strong></h2>
-	<p>
-		Currently open to small projects. If you have a need for a new site or you can't get a hold of
-		your previous developer feel free to drop me a line. A loose list of technologies I use
-		regularly:
-		<select>
-			<option>React</option>
-			<option>Typescript</option>
-			<option>React Testing Library</option>
-			<option>Gatsby</option>
-			<option>GraphQL</option>
-			<option>Sveltkit</option>
-			<option>PHP</option>
-			<option>Wordpress</option>
-			<option>Scss</option>
-			<option>Webpack</option>
-			<option>Unix</option>
-			<option>AWS</option>
-			<option>Shopify</option>
-		</select>
-	</p>
-	<a class="button" href="/contact"><span class="text-center">Let's Chat</span></a>
-</div>
+<h1>Hi, my name is Cullan and I am web developer.</h1>
+<h2><strong>A little about myself</strong></h2>
+<p>
+	I have been a developer for {workingYears} years. Most of my career I have been focused on large and
+	small marketing sites. I really enjoy solving the types of problems that arise from creating performant
+	informative websites. Past few years I have been creating web applications, which has been a fun skill
+	to learn.
+</p>
+<h2><strong>Need a site audit?</strong></h2>
+<p>
+	It is always helpful to have another set of eyes on site performance. So many things can slow down
+	a site and most of them are created out of good intentions. Large assets, huge javascript bundles,
+	server configs, third party scripts, and so much more. The fact is slow sites effect a bottom
+	line.
+</p>
+<h2><strong>Freelance and Consulting</strong></h2>
+<p>
+	Currently open to small projects. If you have a need for a new site or you can't get a hold of
+	your previous developer feel free to drop me a line. A loose list of technologies I use regularly:
+	<select>
+		<option>React</option>
+		<option>Typescript</option>
+		<option>React Testing Library</option>
+		<option>Gatsby</option>
+		<option>GraphQL</option>
+		<option>Sveltkit</option>
+		<option>PHP</option>
+		<option>Wordpress</option>
+		<option>Scss</option>
+		<option>Webpack</option>
+		<option>Unix</option>
+		<option>AWS</option>
+		<option>Shopify</option>
+	</select>
+</p>
+<a class="button" href="/contact"><span class="text-center">Let's Chat</span></a>
 
 <style type="scss">
 	h1 {
