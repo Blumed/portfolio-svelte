@@ -19,7 +19,7 @@ jobs:
           run: yarn build
 
         - name: Deploy
-          uses: Blumed/checkout@v3
+          uses: checkout@v3
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
