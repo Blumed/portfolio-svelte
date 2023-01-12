@@ -44,7 +44,7 @@
 </p>
 <a class="button" href="/contact"><span class="text-center">Let's Chat</span></a>
 
-<style type="scss">
+<style lang="scss">
 	h1 {
 		margin: 0;
 		font-size: 2.5rem;
