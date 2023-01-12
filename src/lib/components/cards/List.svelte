@@ -6,9 +6,9 @@
 	const cards = cardData.data.map((item) => item);
 </script>
 
-<section class="cards-list-container">
+<article class="cards-list-container">
 	{#each cards as card, i}
-		<div
+		<article
 			class="cards-list-card"
 			on:mouseenter={() => {
 				currentCard = card.id;
@@ -31,9 +31,9 @@
 					{/each}
 				</ul>
 			</footer>
-		</div>
+		</article>
 	{/each}
-</section>
+</article>
 
 <style lang="scss">
 	.cards-list-container {

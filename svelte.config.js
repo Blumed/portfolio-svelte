@@ -11,7 +11,6 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			crawl: true,
-			enabled: true,
 			handleHttpError: 'warn',
 			entries: ['*']
 		},
@@ -19,7 +18,6 @@ const config = {
 			register: true,
 			files: (filepath) => !/\.DS_Store/.test(filepath)
 		  },
-		trailingSlash: 'never',
 	}
 };
 
