@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Selfie from '$lib/components/svgz/selfie.svelte';
+	import Selfie from '$lib/components/svgeez/triangle-me.svelte';
 	import Seo from '$lib/components/seo/page-meta.svelte';
 
 	let userClicked = false;

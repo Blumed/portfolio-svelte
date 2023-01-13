@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '$lib/styles/global.scss';
-	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
-	import GithubIcon from '$lib/components/svgz/icon-github.svelte';
-	import LinkedInIcon from '$lib/components/svgz/icon-linkedIn.svelte';
+	import CircleIcon from '$lib/components/svgeez/icon-circle.svelte';
+	import GithubIcon from '$lib/components/svgeez/icon-github.svelte';
+	import LinkedInIcon from '$lib/components/svgeez/icon-linkedIn.svelte';
 	import Switch from '$lib/components/theme/theme-switch.svelte';
 
 	let toggleNav = false;

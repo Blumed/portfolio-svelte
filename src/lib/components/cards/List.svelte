@@ -1,5 +1,5 @@
 <script>
-	import CircleIcon from '$lib/components/svgz/icon-circle.svelte';
+	import CircleIcon from '$lib/components/svgeez/icon-circle.svelte';
 	export let cardData;
 	export let toggleIcon = false;
 	export let currentCard = 100; //This will be false until current card id value is stored
