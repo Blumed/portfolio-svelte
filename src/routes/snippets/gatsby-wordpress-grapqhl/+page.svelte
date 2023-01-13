@@ -14,7 +14,7 @@
 	following are some helpful snippets for debugging. The following snippets are using the old <a
 		href="https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/"
 		target="_blank"
-		rel="noopener">gatsby-wrodpress-source plugin</a
+		rel="noopener noreferrer">gatsby-wrodpress-source plugin</a
 	>. Someday I will be able to update to the latest version of the plugin but until then here is
 	some code.
 </p>
