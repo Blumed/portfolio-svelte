@@ -20,14 +20,14 @@ jobs:
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: ${{ secrets.S3_BUCKET_REGION }}
+            aws-region: us-east-2
 
         - name: Deploy
           uses: Blumed/s3-deploy@v3
           with:
             folder: build
             bucket: ${{ secrets.S3_BUCKET }}
-            bucket-region: ${{ secrets.S3_BUCKET_REGION }}
+            bucket-region: us-east-2
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
             private: true
