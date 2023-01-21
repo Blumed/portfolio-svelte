@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+            "id": 0,
+            "url": "/tools/minify-json",
+            "title": "Minify and Validate Json",
+            "copy": "Many minification tools out there. Simple, clean, and easy to use client side minification",
+            "technologies": [
+                "Json"
+            ]
+        }
+    ]
+}

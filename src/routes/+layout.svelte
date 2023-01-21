@@ -61,6 +61,14 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
+					class:active={$page.url.pathname.includes('/tools')}
+					on:click={closeNav}
+					href="/tools">Tools <CircleIcon toggle={$page.url.pathname.includes('/tools')} /></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/contact'}
 					on:click={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
@@ -94,7 +102,7 @@
 	</div>
 </div>
 
-<main class="container" id="main">
+<main class={`${$page.url.pathname === '/' ? 'home' : $page.url.pathname} container`} id="main">
 	<slot />
 </main>
 
@@ -291,18 +299,6 @@
 		transition: all 0.3s ease-in-out;
 	}
 
-	.sr-only {
-		border: 0 !important;
-		clip: rect(1px, 1px, 1px, 1px) !important;
-		clip-path: inset(50%) !important;
-		height: 1px !important;
-		overflow: hidden !important;
-		margin: -1px !important;
-		padding: 0 !important;
-		position: absolute !important;
-		width: 1px !important;
-		white-space: nowrap !important;
-	}
 	.container {
 		max-width: 760px;
 		width: 100%;

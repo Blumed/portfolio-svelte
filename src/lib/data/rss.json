@@ -1,0 +1,14 @@
+{
+    "data": [
+        {
+            "title": "Code Drops",
+            "url": "https://tympanus.net/codrops/feed",
+            "color": "#334BF7"
+        },
+        {
+            "title": "Addy Osmani",
+            "url": "https://addyosmani.com/feed",
+            "color": "#f3cf11"
+        }
+    ]
+}
