@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import '$lib/styles/global.scss';
-	import CircleIcon from '$lib/components/svgeez/icon-circle.svelte';
+	import CircleIcon from '$lib/components/svgeez/toggle-circle-icon.svelte';
 	import GithubIcon from '$lib/components/svgeez/icon-github.svelte';
 	import LinkedInIcon from '$lib/components/svgeez/icon-linkedIn.svelte';
 	import Switch from '$lib/components/theme/theme-switch.svelte';
+	import { vibrateSmall } from '$lib/constaints';
 
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
+	$: toggleNav, vibrateSmall();
 </script>
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
@@ -82,6 +84,7 @@
 				href="https://github.com/blumed"
 				target="_blank"
 				rel="noopener noreferrer"
+				on:click={() => vibrateSmall}
 				><GithubIcon />
 			</a>
 			<a
@@ -89,6 +92,7 @@
 				href="https://www.linkedin.com/in/cullan-luther-55812234"
 				target="_blank"
 				rel="noopener noreferrer"
+				on:click={() => vibrateSmall}
 				><LinkedInIcon />
 			</a>
 		</div>
@@ -98,6 +102,7 @@
 	<div class="sidebar-item">
 		<p>
 			&copy; {new Date().getFullYear()}. All rights reserved.
+			<a href="/privacy-policy" on:click={() => (closeNav(), vibrateSmall())}>Privacy Policy</a>
 		</p>
 	</div>
 </div>
@@ -127,14 +132,14 @@
 		font-size: 0.875rem;
 		padding-top: 118px;
 		z-index: 6;
-		color: rgba(255, 255, 255, 0.6);
-		background-color: #202020;
+		color: var(--sidebar-color);
+		background-color: var(--sidebar-background);
 		transition: all 0.3s ease-in-out;
 		backface-visibility: hidden;
 	}
 	.sidebar a {
 		font-weight: normal;
-		color: #fff;
+		color: var(--pure-white);
 	}
 
 	.sidebar-item {
@@ -143,7 +148,7 @@
 
 	.sidebar-item p {
 		font-size: 0.75rem;
-		color: rgba(255, 255, 255, 0.6);
+		color: var(--sidebar-color);
 	}
 	.sidebar-item p:last-child {
 		margin-bottom: 0;
@@ -210,7 +215,7 @@
 		left: -20px;
 		width: 0;
 		height: 0;
-		border-top: 100px solid #202020;
+		border-top: 100px solid var(--sidebar-background);
 		border-right: 100px solid transparent;
 		border-left: 0;
 		border-bottom: 0;
@@ -231,7 +236,7 @@
 		position: absolute;
 		top: -80px;
 		left: 37px;
-		color: #fff;
+		color: var(--pure-white);
 		transition: all 0.3s ease-in-out;
 	}
 	:global(.sidebar-toggle.triangle:hover svg) {
@@ -300,7 +305,7 @@
 	}
 
 	.container {
-		max-width: 760px;
+		max-width: 860px;
 		width: 100%;
 		padding-left: 1rem;
 		padding-right: 1rem;

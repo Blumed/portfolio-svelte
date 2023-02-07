@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import './prism.css';
 
@@ -69,7 +69,7 @@
 	});
 </script>
 
-<div {id} class="code-snippet-container" in:scale>
+<div {id} class="code-snippet-container {$$restProps.class || ''}">
 	<div class="code-snippet-actions">
 		{#if copyScript}
 			<button
@@ -90,6 +90,10 @@
 	<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
 			>{code}</code
 		></pre>
+	<!-- {#key code}
+		<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
+				>{code}</code
+			></pre>{/key} -->
 </div>
 
 <style lang="scss">
@@ -134,6 +138,27 @@
 			background-color: var(--accent-color);
 		}
 	}
+
+	.textarea-code-output {
+		border: 0;
+		height: 100%;
+		background-color: black;
+		display: inline-block;
+		width: 100%;
+		resize: vertical;
+		padding: 0.9rem;
+		color: var(--primary-color);
+		padding: 0 !important;
+		margin-bottom: 0;
+		.code-snippet-actions {
+			display: none;
+		}
+		pre {
+			border-radius: 0;
+			height: 100%;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.button-code-snippet {
 			padding-left: 8px;

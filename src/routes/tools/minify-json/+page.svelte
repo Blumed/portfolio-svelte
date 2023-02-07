@@ -2,7 +2,8 @@
 	import { browser } from '$app/environment';
 	import Seo from '$lib/components/seo/page-meta.svelte';
 	import { slide } from 'svelte/transition';
-
+	import Prism from '$lib/components/code-snippet/prisma-js.svelte';
+	import { onMount } from 'svelte';
 	// Application Settings
 	let auto = true;
 	let language = 'json';
@@ -14,8 +15,13 @@
 	let codeInSize = 0;
 	let codeOutSize = 0;
 	let codeSavings = 0;
+	let toggleCodeOutput = false;
 	let sizeName = 'bytes';
+	let codeOutOneLine = false;
+	let dialog: any;
 
+	// $: toggleDialog, browser && document.getElementById('code-output-fullscreen').showModal();
+	// console.log(dialog);
 	// Reset to default values
 	function defaultValues() {
 		isValid = true;
@@ -25,6 +31,7 @@
 		codeSavings = 0;
 		codeOut = '';
 		codeIn = '';
+		codeOutOneLine = false;
 	}
 
 	function validateJson(jsonString: string) {
@@ -42,13 +49,30 @@
 		return isValid;
 	}
 
-	function processValues() {
+	function minifyValues() {
 		let jsonObject;
 		jsonObject = validateJson(codeIn);
 		codeOut = JSON.stringify(jsonObject, null, 0);
 		codeInSize = new TextEncoder().encode(codeIn).length;
 		codeOutSize = new TextEncoder().encode(codeOut).length;
 		codeSavings = codeInSize - codeOutSize;
+		codeOutOneLine = true;
+		toggleCodeOutput = true;
+	}
+
+	function beautifyValues() {
+		let jsonObject;
+		jsonObject = validateJson(codeIn);
+		codeOut = JSON.stringify(jsonObject, null, 2);
+		codeInSize = new TextEncoder().encode(codeIn).length;
+		codeOutSize = new TextEncoder().encode(codeOut).length;
+		codeOutOneLine = false;
+		toggleCodeOutput = true;
+		if (codeOutSize > codeInSize) {
+			codeSavings = codeOutSize - codeInSize;
+		} else {
+			codeSavings = codeInSize - codeOutSize;
+		}
 	}
 
 	function processBytes(bytes: number) {
@@ -63,11 +87,20 @@
 		return `${bytes}`;
 	}
 
-	if (browser) localStorage.autoProcess === 'false' ? (auto = false) : (auto = true);
+	function toggleDialog(state: boolean) {
+		if (browser) {
+			dialog = document.getElementById('code-output-fullscreen');
+			state === true ? dialog.showModal() : dialog?.close();
+		}
+	}
+
+	if (browser) {
+		localStorage.autoProcess === 'false' ? (auto = false) : (auto = true);
+	}
 
 	// Allow code to process when auto is checked
 	$: if (auto && codeIn.length > 0) {
-		processValues();
+		minifyValues();
 	} else if (auto && codeIn.length === 0) {
 		defaultValues();
 	}
@@ -77,8 +110,11 @@
 		localStorage.setItem('autoProcess', auto.toString());
 	}
 
-	function manualParse() {
-		if (codeIn.length > 0) processValues();
+	function manualMinify() {
+		if (codeIn.length > 0) minifyValues();
+	}
+	function manualBeautify() {
+		if (codeIn.length > 0) beautifyValues();
 	}
 </script>
 
@@ -91,29 +127,48 @@
 		for a fact none my code is stored and harvested for sensitive data. I don't have a server to
 		even process your code, so your code is safe. Check the network if you want to see for yourself.
 	</p>
-	<div class="code-controls">
-		<div class="field">
-			<label class="label-code-auto-run" for="code-auto-run">Auto {processType}</label>
-			<input
-				class="input-code-auto-run"
-				type="checkbox"
-				id="code-auto-run"
-				bind:checked={auto}
-				on:click={storeAutoRun}
-			/>
+	<div class="dashboard">
+		<div class="code-controls">
+			<div class="field">
+				<label class="label-code-auto-run" for="code-auto-run">Auto {processType}</label>
+				<input
+					class="input-code-auto-run"
+					type="checkbox"
+					id="code-auto-run"
+					bind:checked={auto}
+					on:click={storeAutoRun}
+				/>
+			</div>
+		</div>
+		<div class="code-controls-more">
+			<div class="button-group">
+				<button type="button" class="button-action" on:click={manualMinify}
+					><span>{processType}</span></button
+				>
+				<button type="button" class="button-action" on:click={manualBeautify}
+					><span>beautify</span></button
+				>
+				<button type="button" class="button-reset" on:click={defaultValues}
+					><span>reset</span></button
+				>
+			</div>
 		</div>
 
-		{#if !auto}
-			<div class="button-group" in:slide out:slide>
-				<button type="button" class="button-action" on:click={manualParse}>{processType}</button>
-				<button type="button" class="button-reset" on:click={defaultValues}>reset</button>
+		<div class="code-data">
+			<h3>Code Savings</h3>
+			<span class="savings">{processBytes(codeSavings)}</span>
+			{sizeName}
+			<div class="code-sizes">
+				<span class="code-size-label">Before: <span>{processBytes(codeInSize)}</span></span>
+				<span class="code-size-label">After: <span>{processBytes(codeOutSize)}</span></span>
 			</div>
-		{/if}
+		</div>
 	</div>
 
 	<div class="code-input-container">
 		<textarea
-			class={`textarea-code-input ${!isValid ? 'invalid' : ''}`}
+			class="textarea-code-input"
+			class:invalid={!isValid}
 			name="code-input"
 			id="code-input"
 			placeholder="Right Here"
@@ -121,47 +176,106 @@
 		/>
 		<label class="label-code-input" for="code-input">Paste Code Here</label>
 	</div>
-
-	<div class="code-data">
-		<h3>Code Savings</h3>
-		<span class="savings">{processBytes(codeSavings)}</span>
-		{sizeName}
-		<div class="code-sizes">
-			<span class="code-size-label">Before: <span>{processBytes(codeInSize)}</span></span>
-			<span class="code-size-label">After: <span>{processBytes(codeOutSize)}</span></span>
-		</div>
-	</div>
-
-	<div class="code-output-container">
+	{#if codeOut !== 'false' && codeOut.length !== 0 && errorMessage == ''}
 		<button
 			type="button"
-			class="button-copy"
-			on:click={() => navigator.clipboard.writeText(codeOut)}>Copy</button
+			class="button-toggle-output"
+			class:is-toggled={!toggleCodeOutput}
+			on:click={() => (toggleCodeOutput = !toggleCodeOutput)}
 		>
-		{#if errorMessage !== ''}
-			<div class="error-message">
-				<span>{errorMessage}</span>
-			</div>
-		{/if}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="icon icon-chevron-up"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				stroke-width="2"
+				stroke="currentColor"
+				fill="none"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M6 15l6 -6l6 6" />
+			</svg>
+		</button>
+	{/if}
+	{#if codeOut !== 'false' && codeOut.length !== 0 && errorMessage == '' && toggleCodeOutput}
+		<div class="code-output-container" class:is-minified={codeOutOneLine} in:slide out:slide>
+			<label class="label-code-output" class:sr-only={codeOut.length !== 0} for="code-output"
+				>Your {language}</label
+			>
 
-		<label class={`label-code-output ${codeOut.length !== 0 ? 'sr-only' : ''}`} for="code-output"
-			>Your {language}</label
-		>
-
-		{#if codeOut !== 'false' && codeOut.length !== 0}
 			<div class="field-control">
-				<textarea
-					class="textarea-code-output"
-					name="code-output"
-					id="code-output"
-					placeholder="Code will come out here."
-					value={codeOut}
-				/>
+				{#key codeOut}
+					<Prism language="json" code={codeOut} class="textarea-code-output" id="code-output" />
+				{/key}
 			</div>
-		{/if}
-	</div>
+			<div class="code-output-controls">
+				<button
+					type="button"
+					class="button-copy"
+					on:click={() => navigator.clipboard.writeText(codeOut)}>Copy</button
+				>
+				<button type="button" class="button-fullscreen" on:click={() => toggleDialog(true)}
+					><svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-arrows-maximize"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M16 4l4 0l0 4" />
+						<path d="M14 10l6 -6" />
+						<path d="M8 20l-4 0l0 -4" />
+						<path d="M4 20l6 -6" />
+						<path d="M16 20l4 0l0 -4" />
+						<path d="M14 14l6 6" />
+						<path d="M8 4l-4 0l0 4" />
+						<path d="M4 4l6 6" />
+					</svg></button
+				>
+			</div>
+		</div>
+	{/if}
+	{#if errorMessage !== ''}
+		<div class="error-message" in:slide out:slide>
+			<span>{errorMessage}</span>
+		</div>
+	{/if}
 </section>
-<section>
+
+<dialog id="code-output-fullscreen">
+	<button type="button" on:click={() => toggleDialog(false)}
+		><svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="icon icon-tabler icon-tabler-x"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			stroke-width="2"
+			stroke="currentColor"
+			fill="none"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+			<path d="M18 6l-12 12" />
+			<path d="M6 6l12 12" />
+		</svg><span class="sr-only">Close</span></button
+	>
+	{#key codeOut}
+		<Prism language="json" code={codeOut} class="textarea-code-output" id="code-output" />
+	{/key}
+</dialog>
+
+<section class="clean-background">
 	<h2>What is minification?</h2>
 	<p>
 		Formatted code is easier to read for us humans. Computers don't read code like we do. They don't
@@ -183,17 +297,14 @@
 
 <style lang="scss">
 	.app {
-		--primary-color: #303030;
-		--secondary-color: #d0dde9;
-		--tertiary-color: #edf0f8;
-		--accent-color: #e3a6c2;
 		border: 2px solid var(--primary-color);
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: minmax(204px, auto) 50px 200px 100px;
+		grid-template-rows: minmax(234px, auto) 250px 200px auto;
 		grid-column-gap: 0px;
 		grid-row-gap: 0px;
 		margin-bottom: 50px;
+		overflow: hidden;
 	}
 
 	.title {
@@ -214,9 +325,16 @@
 		padding: 2rem;
 		margin: 0;
 		border-bottom: 2px solid var(--primary-color);
+		background-color: var(--pure-white);
+	}
+	.dashboard {
+		grid-area: 2 / 1 / 3 / 7;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: 50px 200px 250px;
 	}
 	.code-controls {
-		grid-area: 2 / 1 / 3 / 4;
+		grid-area: 1 / 1 / 3 / 3;
 		height: 50px;
 		display: flex;
 		align-items: center;
@@ -224,39 +342,50 @@
 		border-bottom: 2px solid var(--primary-color);
 		position: relative;
 		z-index: 1;
-		padding: 0 12px;
+		padding-right: 12px;
 		flex-direction: row-reverse;
+		background-color: var(--pure-white);
 		.field {
 			display: inline-block;
 			margin-bottom: 0;
 		}
 	}
 	.button-group {
-		display: flex;
-		gap: 12px;
-		height: 100%;
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
 		button {
-			background-color: #f8f9fa;
+			background-color: var(--subtle-grey);
 			border: 0;
-			border-left: 2px solid currentColor;
-			border-right: 2px solid currentColor;
+			border-bottom: 2px solid currentColor;
 			color: inherit;
 			cursor: pointer;
 			font-size: 14px;
-			padding-top: 2px;
+			padding: 12px 12px 8px 12px;
 			text-transform: capitalize;
 			margin: 0;
+			&:first-child {
+				border-right: 2px solid var(--primary-color);
+			}
+			&:last-child {
+				border-left: 2px solid var(--primary-color);
+			}
 		}
 	}
+	.button-reset {
+		color: var(--pure-black);
+	}
 	.code-data {
-		grid-area: 2 / 7 / 4 / 4;
+		grid-area: 3 / 6 / 1 / 3;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		text-align: center;
 		border-left: 2px solid var(--primary-color);
+		border-bottom: 2px solid var(--primary-color);
 		padding-top: 12px;
-		background-color: #f8f9fa;
+		background-color: var(--subtle-grey);
 		h3 {
 			font-weight: 600;
 			margin-top: 0;
@@ -268,11 +397,15 @@
 			line-height: 1;
 		}
 		.code-sizes {
-			border-top: 2px solid black;
+			border-top: 2px solid var(--primary-color);
 			display: flex;
 			justify-content: space-around;
 			padding: 9px 0 5px 0;
 		}
+	}
+	.code-controls-more {
+		grid-area: 2 / 3 / 3 / 1;
+		border-bottom: 2px solid var(--primary-color);
 	}
 	#code-input {
 		padding: 1.2rem;
@@ -280,28 +413,31 @@
 		display: block;
 		width: 100%;
 		min-height: 200px;
+		margin: 0;
 	}
 
 	.label-code-auto-run {
-		color: black;
+		color: var(--pure-black);
 		text-transform: capitalize;
 	}
 	.code-input-container {
-		grid-area: 2 / 1 / 4 / 4;
+		grid-area: 3 / 1 / 4 / 7;
 		display: flex;
 		flex-flow: column-reverse;
 	}
 	.field-control {
 		display: flex;
 		height: 100%;
-		width: 100%;
+		width: calc(100% - 65px);
 	}
 	.error-message {
+		grid-area: 4 / 1 / 5 / 7;
 		height: 100%;
 		display: flex;
 		align-items: center;
 		padding: 1rem;
 		width: 100%;
+		color: var(--pure-white);
 		background-color: pink;
 	}
 
@@ -317,10 +453,10 @@
 		cursor: text;
 		max-width: 66.66%;
 		white-space: nowrap;
-		overflow: hidden;
+		//overflow: hidden;
 		text-overflow: ellipsis;
 		transform-origin: left bottom;
-		transform: translate(0, 3.125rem) scale(1.5);
+		transform: translate(0, 2.525rem) scale(1.5);
 	}
 
 	::-webkit-input-placeholder {
@@ -336,11 +472,11 @@
 	textarea:focus + label {
 		transform: translate(0, 0) scale(1);
 		opacity: 0;
-		cursor: pointer;
+		//cursor: pointer;
 	}
 
 	.textarea-code-input {
-		background-color: white;
+		background-color: var(--pure-white);
 		position: relative;
 		border: 0;
 		&.invalid {
@@ -348,12 +484,24 @@
 		}
 	}
 	.code-output-container {
-		grid-area: 4 / 1 / 5 / 7;
-		border-top: 2px solid var(--primary-color);
+		grid-area: 3 / 1 / 4 / 7;
+		background-color: var(--pure-white);
+		position: relative;
+		z-index: 1;
 		display: flex;
+		&.is-minified {
+			:global(.textarea-code-output) {
+				overflow-x: hidden;
+				overflow-y: scroll;
+				resize: none;
+				padding-top: 22px;
+				padding-bottom: 0;
+				min-height: 100%;
+			}
+		}
 	}
 	.label-code-output {
-		color: black;
+		color: var(--pure-black);
 		width: 100%;
 		padding-left: 0;
 		justify-content: center;
@@ -361,33 +509,103 @@
 		display: flex;
 		text-transform: capitalize;
 	}
-	.button-copy {
+	.button-copy,
+	.button-fullscreen,
+	.button-toggle-output {
 		border: 0;
-		border-right: 2px solid var(--primary-color);
 		color: var(--primary-color);
-		background-color: #f8f9fa;
+		background-color: var(--subtle-grey);
 		cursor: pointer;
 		display: inline-block;
 		height: 100%;
+		max-height: 67px;
 		padding: 0 13px;
 		margin: 0;
+		border-bottom: 2px solid var(--primary-color);
 	}
-	.textarea-code-output {
-		border: 0;
-		height: 100%;
-		background-color: white;
-		display: inline-block;
+	.button-copy {
+		border-left: 2px solid var(--primary-color);
+	}
+	.button-fullscreen {
+		border-left: 2px solid var(--primary-color);
+		border-bottom: 0;
+	}
+	.button-toggle-output {
+		grid-area: 3/6/3/7;
+		z-index: 2;
+		position: relative;
+		border-left: 2px solid var(--primary-color);
+		width: 65px;
+		&.is-toggled .icon-chevron-up {
+			transform: none;
+			transition: all 0.3s all;
+		}
+	}
+	.icon-chevron-up {
+		transform: scaleY(-1);
+		transform-style: preserve-3d;
+		transition: all 0.3s ease;
+	}
+
+	.code-output-controls {
+		//width: 62px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	dialog {
+		max-width: 860px;
+		background-color: black;
+		border-color: white;
+		border-width: 2px;
+		padding: 50px;
+		position: relative;
 		width: 100%;
-		resize: none;
-		padding: 1.2rem;
-		color: var(--primary-color);
+		height: fit-content;
+		//overflow: hidden;
+		padding: 50px 0 0;
+		button {
+			position: absolute;
+			top: 0;
+			z-index: 1;
+			right: 0;
+			border: 0;
+			border-left: 2px solid white;
+			color: white;
+			background: transparent;
+			border-bottom: 2px solid white;
+			height: 50px;
+			width: 50px;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
+
 	@media (max-width: 768px) {
-		.code-controls {
+		.dashboard {
 			grid-area: 2/1/3/7;
 		}
+		.code-controls {
+			grid-area: 1/1/3/6;
+		}
+		.button-group {
+			flex-direction: column;
+			height: 100%;
+			justify-content: flex-start;
+			display: flex;
+			button {
+				&:first-child {
+					border-right: 0;
+				}
+				&:last-child {
+					border-left: 0;
+				}
+			}
+		}
 		.code-data {
-			grid-area: 3/7/4/4;
+			grid-area: 2/6/3/3;
 			h3 {
 				margin-bottom: 12px;
 			}
@@ -397,12 +615,12 @@
 			.code-sizes {
 				display: flex;
 				flex-direction: column;
-				.code-size-label {
-					text-align: left;
-					padding-left: 8px;
-					&:last-child span {
-						margin-left: 10px;
-					}
+			}
+			.code-size-label {
+				text-align: left;
+				padding-left: 8px;
+				&:last-child span {
+					margin-left: 10px;
 				}
 			}
 		}

@@ -1,5 +1,5 @@
 <script>
-	import CircleIcon from '$lib/components/svgeez/icon-circle.svelte';
+	import CircleIcon from '$lib/components/svgeez/toggle-circle-icon.svelte';
 	export let cardData;
 	export let toggleIcon = false;
 	export let currentCard = 100; //This will be false until current card id value is stored
@@ -49,6 +49,7 @@
 		outline: 2px solid currentColor;
 		transition: all 0.3s ease;
 		border-radius: 8px;
+		background-color: var(--pure-white);
 		p {
 			opacity: 0.7;
 		}

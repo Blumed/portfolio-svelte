@@ -6,6 +6,7 @@
 	import jsFacadeMinified from './js-facade-minified';
 	import gtmJsFacade from './gtm-js-facade';
 	import facadeConfig from './facade-config';
+	import Button from '$lib/components/buttons/button.svelte';
 	let showJsFacade = false;
 	let showGTMJsFacade = false;
 </script>
@@ -13,7 +14,7 @@
 <Seo title="Intercom Facade" pageCanonicalUrl="/snippet/intercom-facade" />
 
 <h1>Pure JS Intercom Facade</h1>
-<p>
+<p class="clean-background">
 	Intercom.... so slow. If you are loading Intercom using GTM well then you it is 2x slower. As a
 	front end dev always trying to make sites load fast and perform well Intercom has been challenging
 	to contend with. An easy fix is to load UI that looks and behaves like Intercom but waits to
@@ -21,8 +22,8 @@
 	come across point out that if your business uses timed messages then their solution won't work and
 	you'll need to create a bypass on your own. Well I have created one so you don't have to 😁
 </p>
-<hr />
-<section>
+
+<section class="clean-background">
 	<header>
 		<h2>Script Configuration</h2>
 	</header>
@@ -60,13 +61,13 @@
 		</li>
 	</ul>
 
-	<button
+	<Button
 		type="button"
-		class="button"
-		aria-expanded={showJsFacade}
-		aria-controls="jsFacade"
-		on:click={() => (showJsFacade = !showJsFacade)}>{!showJsFacade ? 'Show' : 'Hide'} Script</button
-	>
+		ariaExpanded={showJsFacade}
+		ariaControls="jsFacade"
+		buttonText={`${!showJsFacade ? 'Show' : 'Hide'} Script`}
+		handleClick={() => (showJsFacade = !showJsFacade)}
+	/>
 
 	{#if showJsFacade}
 		<Prism
@@ -78,7 +79,7 @@
 		/>
 	{/if}
 </section>
-<section>
+<section class="clean-background">
 	<header><h2>Google Tag Manager Intercom Facade</h2></header>
 	<p>
 		The following was designed to be used in Google Tag Manager on a SPA website. In my situation
@@ -86,37 +87,27 @@
 		is GTM will minify your code for you so there is no need to minify your code before you paste it
 		into your html tag.
 	</p>
-	<button
+
+	<Button
 		type="button"
-		class="button"
-		aria-expanded={showGTMJsFacade}
-		aria-controls="jsGTMFacade"
-		on:click={() => (showGTMJsFacade = !showGTMJsFacade)}
-		>{!showGTMJsFacade ? 'Show' : 'Hide'} Script</button
-	>
+		ariaExpanded={showGTMJsFacade}
+		ariaControls="jsFacade"
+		buttonText={`${!showGTMJsFacade ? 'Show' : 'Hide'} Script`}
+		handleClick={() => (showGTMJsFacade = !showGTMJsFacade)}
+	/>
 
 	{#if showGTMJsFacade}
 		<Prism language="javascript" code={gtmJsFacade} id="jsGTMFacade" copyScript />
 	{/if}
 </section>
 
-<style lang="scss">
+<!-- <style lang="scss">
 	.button {
 		margin-bottom: 30px;
-	}
-	ul.list-item-circle {
-		list-style: circle;
-		padding-left: 26px;
-	}
-	.highlight-pill {
-		padding: 6px 8px 5px 8px;
-		background-color: #eee;
-		border-radius: 4px;
-		color: var(--primary-color);
 	}
 	@media (max-width: 768px) {
 		.button {
 			margin-bottom: 20px;
 		}
 	}
-</style>
+</style> -->

@@ -21,10 +21,10 @@
 	button {
 		background: none;
 		border: none;
-		border-bottom: 2px solid white;
+		border-bottom: 2px solid var(--pure-white);
 		border-radius: 0;
 		margin: 0;
-		color: #000;
+		color: var(--pure-black);
 	}
 
 	.tab {
@@ -34,19 +34,18 @@
 		position: relative;
 		font-size: 1rem;
 		padding: 0.5rem 0.6rem;
-		top: 2px;
 		outline: 0;
 	}
 	.tab.selected {
 		transition: all 0.2s ease-in-out;
-		border: 2px solid #202020;
+		border: 2px solid var(--sidebar-background);
 		position: relative;
 	}
 	.tab.selected:after {
 		content: '';
 		width: 100%;
 		height: 6px;
-		background: #fff;
+		background: var(--pure-white);
 		display: inline-block;
 		position: absolute;
 		bottom: -4px;

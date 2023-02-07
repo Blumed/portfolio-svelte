@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Selfie from '$lib/components/svgeez/triangle-me.svelte';
 	import Seo from '$lib/components/seo/page-meta.svelte';
-
+	import Button from '$lib/components/buttons/button.svelte';
 	let userClicked = false;
 
 	function removeFacade() {
@@ -15,7 +15,7 @@
 
 <Selfie />
 
-<section>
+<section class="clean-background">
 	<p>
 		Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised
 		in Minneapolis, Minnesota. I am 100% self taught so I code a lot during my free time. Besides
@@ -24,7 +24,7 @@
 		is to organize my thoughts about web development. Show my work and to flex my self expression muscle.
 	</p>
 </section>
-<section>
+<section class="clean-background">
 	<header>
 		<h2>Nerd Stuff</h2>
 	</header>
@@ -77,7 +77,7 @@
 		</li>
 	</ul>
 </section>
-<section>
+<section class="clean-background">
 	<header>
 		<h2>Music</h2>
 	</header>
@@ -87,13 +87,19 @@
 	</p>
 	{#if !userClicked}
 		<div class="spotify-facade">
-			<button type="button" class="button lite" on:click={removeFacade}>Click To Load</button>
+			<Button
+				type="button"
+				class="button-spotify"
+				buttonText="Click to Load"
+				handleClick={removeFacade}
+			/>
 			<img id="spotify" src="/spotify-facade.webp" alt="" />
 		</div>
 	{/if}
 	{#if userClicked}
 		<iframe
 			id="iframe"
+			style="border-radius:12px"
 			title="Music I am into"
 			src="https://open.spotify.com/embed/playlist/5VpvNuzeBvsMrCeQ8PfTpC?utm_source=generator&theme=0"
 			width="100%"
@@ -104,7 +110,7 @@
 		/>
 	{/if}
 </section>
-<section>
+<section class="clean-background">
 	<header>
 		<h2>Social Media</h2>
 	</header>
@@ -138,16 +144,7 @@
 			top: 0;
 			background-image: url('/spotify-facade-side.webp');
 		}
-		.button {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			border-color: #fff;
-			z-index: 2;
-			color: #0a0a0a;
-			background: white;
-		}
+
 		img {
 			position: relative;
 			z-index: 1;

@@ -1,48 +1,51 @@
 <script>
-	//export const prerender = true;
 	import Seo from '$lib/components/seo/page-meta.svelte';
 	import { differenceInYears } from 'date-fns';
+	import Button from '$lib/components/buttons/button.svelte';
 	const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
 </script>
 
 <Seo title="Home" pageCanonicalUrl="/" />
 
-<h1>Hi, my name is Cullan and I am web developer.</h1>
-<h2><strong>A little about myself</strong></h2>
-<p>
-	I have been a developer for {workingYears} years. Most of my career I have been focused on large and
-	small marketing sites. I really enjoy solving the types of problems that arise from creating performant
-	informative websites. Past few years I have been creating web applications, which has been a fun skill
-	to learn.
-</p>
-<h2><strong>Need a site audit?</strong></h2>
-<p>
-	It is always helpful to have another set of eyes on site performance. So many things can slow down
-	a site and most of them are created out of good intentions. Large assets, huge javascript bundles,
-	server configs, third party scripts, and so much more. The fact is slow sites effect a bottom
-	line.
-</p>
-<h2><strong>Freelance and Consulting</strong></h2>
-<p>
-	Currently open to small projects. If you have a need for a new site or you can't get a hold of
-	your previous developer feel free to drop me a line. A loose list of technologies I use regularly:
-	<select>
-		<option>React</option>
-		<option>Typescript</option>
-		<option>React Testing Library</option>
-		<option>Gatsby</option>
-		<option>GraphQL</option>
-		<option>Sveltkit</option>
-		<option>PHP</option>
-		<option>Wordpress</option>
-		<option>Scss</option>
-		<option>Webpack</option>
-		<option>Unix</option>
-		<option>AWS</option>
-		<option>Shopify</option>
-	</select>
-</p>
-<a class="button" href="/contact"><span class="text-center">Let's Chat</span></a>
+<h1>Hi, my name is Cullan and I am a web developer.</h1>
+<section class="clean-background">
+	<h2><strong>A little about myself</strong></h2>
+	<p>
+		I have been a developer for {workingYears} years. Most of my career I have been focused on large
+		and small marketing sites. I really enjoy solving the types of problems that arise from creating
+		performant informative websites. Past few years I have been creating web applications, which has
+		been a fun skill to learn.
+	</p>
+	<h2><strong>Need a site audit?</strong></h2>
+	<p>
+		It is always helpful to have another set of eyes on site performance. So many things can slow
+		down a site and most of them are created out of good intentions. Large assets, huge javascript
+		bundles, server configs, third party scripts, and so much more. The fact is slow sites effect a
+		bottom line.
+	</p>
+	<h2><strong>Freelance and Consulting</strong></h2>
+	<p>
+		Currently open to small projects. If you have a need for a new site or you can't get a hold of
+		your previous developer feel free to drop me a line. A loose list of technologies I use
+		regularly:
+		<select>
+			<option>React</option>
+			<option>Typescript</option>
+			<option>React Testing Library</option>
+			<option>Gatsby</option>
+			<option>GraphQL</option>
+			<option>Sveltkit</option>
+			<option>PHP</option>
+			<option>Wordpress</option>
+			<option>Scss</option>
+			<option>Webpack</option>
+			<option>Unix</option>
+			<option>AWS</option>
+			<option>Shopify</option>
+		</select>
+	</p>
+	<Button href="/contact" buttonText="Let's Chat" />
+</section>
 
 <style lang="scss">
 	h1 {
@@ -61,8 +64,9 @@
 		-webkit-text-stroke-color: black;
 		font-family: arial;
 		position: relative;
+		margin-bottom: 30px;
 		&:after {
-			content: 'Hi, my name is Cullan and I am web developer.';
+			content: 'Hi, my name is Cullan and I am a web developer.';
 			position: absolute;
 			left: -3px;
 			top: -2px;
@@ -82,11 +86,6 @@
 	p {
 		margin-bottom: 30px;
 	}
-	.button {
-		color: inherit;
-		display: inline-block;
-		margin-bottom: 15px;
-	}
 	select {
 		border-top: 0;
 		border-left: 0;
@@ -97,9 +96,14 @@
 		border-radius: 0;
 		border-bottom: 1px solid currentColor;
 	}
-	@media (min-width: 768px) {
+	@media (min-width: 769px) {
 		h1 {
 			font-size: 4rem;
+		}
+	}
+	@media (max-width: 768px) {
+		h1 {
+			margin-bottom: 0;
 		}
 	}
 </style>
