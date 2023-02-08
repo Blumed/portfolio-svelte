@@ -19,15 +19,9 @@
 				UI it will store a cookie so next time you visit it will remember your preference
 			</li>
 		</ul>
+		<li>
+			Use <a href="https://withcabin.com/">Cabin Analytics</a> which is a service for anonymous analytics.
+			I use it for understanding how much traffic occurs and what pages are more popular.
+		</li>
 	</ul>
 </section>
-
-<style lang="scss">
-	ul.list-item-circle {
-		list-style: circle;
-		padding-left: 26px;
-		ul {
-			padding-left: 30px;
-		}
-	}
-</style>

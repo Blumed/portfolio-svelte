@@ -141,7 +141,6 @@
 
 	.textarea-code-output {
 		border: 0;
-		height: 100%;
 		background-color: black;
 		display: inline-block;
 		width: 100%;

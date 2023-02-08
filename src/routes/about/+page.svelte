@@ -18,8 +18,10 @@
 <section class="clean-background">
 	<p>
 		Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised
-		in Minneapolis, Minnesota. I am 100% self taught so I code a lot during my free time. Besides
-		coding I like to <a href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a> and
+		in Minneapolis, Minnesota. Besides coding I like to <a
+			href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a
+		>
+		and
 		<a href="https://youtu.be/qbZn07rZJ88">bike</a> everywhere all year round. Main purpose of this site
 		is to organize my thoughts about web development. Show my work and to flex my self expression muscle.
 	</p>
@@ -126,10 +128,7 @@
 		font-size: 1.5rem;
 		margin-bottom: 0;
 	}
-	ul.list-item-circle {
-		list-style: circle;
-		padding-left: 26px;
-	}
+
 	.spotify-facade {
 		position: relative;
 		height: 380px;

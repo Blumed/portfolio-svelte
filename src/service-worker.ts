@@ -39,6 +39,7 @@ worker.addEventListener('activate', (event) => {
  * Fall back to the cache if the user is offline.
  */
 async function fetchAndCache(request: Request) {
+
 	const cache = await caches.open(`offline${version}`);
 
 	try {

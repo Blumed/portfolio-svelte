@@ -4,7 +4,16 @@
             "id": 0,
             "url": "/tools/minify-json",
             "title": "Minify and Validate Json",
-            "copy": "Many minification tools out there. Simple, clean, and easy to use client side minification",
+            "copy": "Minify and optimize your json",
+            "technologies": [
+                "Json"
+            ]
+        },
+        {
+            "id": 1,
+            "url": "/tools/beautify-json",
+            "title": "Beautify and Validate Json",
+            "copy": "Beautify or pretty print minified json",
             "technologies": [
                 "Json"
             ]

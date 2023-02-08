@@ -25,7 +25,7 @@
 			</header>
 			<a href={card.url} class="cards-list-copy"><p>{card.copy}</p></a>
 			<footer>
-				<ul>
+				<ul class="no-list-style">
 					{#each card.technologies as technology}
 						<li>{technology}</li>
 					{/each}
@@ -40,13 +40,11 @@
 		display: grid;
 		grid-template-columns: auto auto;
 		gap: 30px;
-		&:hover .cards-list-card:not(:hover) {
-			opacity: 0.4;
-		}
 	}
 	.cards-list-card {
 		padding: 20px;
 		outline: 2px solid currentColor;
+		box-shadow: 6px 6px 0 0 var(--primary-color);
 		transition: all 0.3s ease;
 		border-radius: 8px;
 		background-color: var(--pure-white);

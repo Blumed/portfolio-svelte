@@ -5,11 +5,9 @@
 	import GithubIcon from '$lib/components/svgeez/icon-github.svelte';
 	import LinkedInIcon from '$lib/components/svgeez/icon-linkedIn.svelte';
 	import Switch from '$lib/components/theme/theme-switch.svelte';
-	import { vibrateSmall } from '$lib/constaints';
 
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
-	$: toggleNav, vibrateSmall();
 </script>
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
@@ -71,6 +69,17 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
+					class:active={$page.url.pathname.includes('/freelancing-and-consultation')}
+					on:click={closeNav}
+					href="/freelancing-and-consultation"
+					>Freelancing <CircleIcon
+						toggle={$page.url.pathname.includes('/freelancing-and-consultation')}
+					/></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/contact'}
 					on:click={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
@@ -84,7 +93,6 @@
 				href="https://github.com/blumed"
 				target="_blank"
 				rel="noopener noreferrer"
-				on:click={() => vibrateSmall}
 				><GithubIcon />
 			</a>
 			<a
@@ -92,7 +100,6 @@
 				href="https://www.linkedin.com/in/cullan-luther-55812234"
 				target="_blank"
 				rel="noopener noreferrer"
-				on:click={() => vibrateSmall}
 				><LinkedInIcon />
 			</a>
 		</div>
@@ -101,8 +108,8 @@
 
 	<div class="sidebar-item">
 		<p>
-			&copy; {new Date().getFullYear()}. All rights reserved.
-			<a href="/privacy-policy" on:click={() => (closeNav(), vibrateSmall())}>Privacy Policy</a>
+			&copy;2009-{new Date().getFullYear()} All rights reserved.
+			<a href="/privacy-policy" on:click={() => closeNav()}>Privacy Policy</a>
 		</p>
 	</div>
 </div>
@@ -134,7 +141,7 @@
 		z-index: 6;
 		color: var(--sidebar-color);
 		background-color: var(--sidebar-background);
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 		backface-visibility: hidden;
 	}
 	.sidebar a {
@@ -172,7 +179,7 @@
 		position: relative;
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 	}
 	:global(.sidebar-nav-item svg) {
 		position: absolute;
@@ -181,7 +188,7 @@
 	}
 
 	a.sidebar-nav-item {
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 	}
 	a.sidebar-nav-item:hover,
 	a.sidebar-nav-item:focus {
@@ -237,7 +244,7 @@
 		top: -80px;
 		left: 37px;
 		color: var(--pure-white);
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 	}
 	:global(.sidebar-toggle.triangle:hover svg) {
 		transform: scale(1.1);
@@ -288,7 +295,7 @@
 	.social a {
 		flex: 1 1 auto;
 		padding: 0.5rem 0;
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 	}
 	:global(.social a:last-of-type svg) {
 		margin-left: auto;
@@ -301,7 +308,7 @@
 		transform: scale(1.3);
 	}
 	:global(.social a svg) {
-		transition: all 0.3s ease-in-out;
+		transition: var(--global-transition);
 	}
 
 	.container {
@@ -313,6 +320,10 @@
 		margin-right: auto;
 		padding-bottom: 4rem;
 		padding-top: 94px;
+		&.home {
+			height: 100vh;
+			padding-bottom: 0;
+		}
 	}
 	@media (min-width: 30rem) {
 		.sidebar {

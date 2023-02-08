@@ -4,6 +4,7 @@
 	import selfLink from './self-href';
 	import largeAssets from './large-assets';
 	import templateUrls from './show-template-urls';
+	import Comments from '$lib/components/comments/comments.svelte';
 </script>
 
 <Seo title="Gatsby Wordpress Graphql" pageCanonicalUrl="/snippets/gatsby-wordpress-graphql" />
@@ -53,3 +54,5 @@
 	</p>
 	<Prism language="graphql" code={templateUrls} copyScript />
 </section>
+
+<Comments />

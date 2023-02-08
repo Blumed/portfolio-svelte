@@ -7,6 +7,7 @@
 	import gtmJsFacade from './gtm-js-facade';
 	import facadeConfig from './facade-config';
 	import Button from '$lib/components/buttons/button.svelte';
+	import Comments from '$lib/components/comments/comments.svelte';
 	let showJsFacade = false;
 	let showGTMJsFacade = false;
 </script>
@@ -23,7 +24,7 @@
 	you'll need to create a bypass on your own. Well I have created one so you don't have to 😁
 </p>
 
-<section class="clean-background">
+<section class="code-example clean-background">
 	<header>
 		<h2>Script Configuration</h2>
 	</header>
@@ -79,7 +80,7 @@
 		/>
 	{/if}
 </section>
-<section class="clean-background">
+<section class="code-example clean-background">
 	<header><h2>Google Tag Manager Intercom Facade</h2></header>
 	<p>
 		The following was designed to be used in Google Tag Manager on a SPA website. In my situation
@@ -94,6 +95,7 @@
 		ariaControls="jsFacade"
 		buttonText={`${!showGTMJsFacade ? 'Show' : 'Hide'} Script`}
 		handleClick={() => (showGTMJsFacade = !showGTMJsFacade)}
+		class="button-toggle"
 	/>
 
 	{#if showGTMJsFacade}
@@ -101,13 +103,13 @@
 	{/if}
 </section>
 
-<!-- <style lang="scss">
-	.button {
-		margin-bottom: 30px;
-	}
-	@media (max-width: 768px) {
-		.button {
+<Comments />
+
+<style lang="scss">
+	:global(.code-example .button + .code-snippet-container) {
+		margin-top: 30px;
+		@media (max-width: 768px) {
 			margin-bottom: 20px;
 		}
 	}
-</style> -->
+</style>

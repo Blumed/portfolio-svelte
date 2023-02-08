@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Seo from '$lib/components/seo/page-meta.svelte';
 	import Prism from '$lib/components/code-snippet/prisma-js.svelte';
+	import Comments from '$lib/components/comments/comments.svelte';
 	import fileList from './file-list';
 </script>
 
@@ -14,3 +15,5 @@
 	on already, but if you have some ideas I would love to hear about them.
 </p>
 <Prism language="bash" code={fileList} copyScript />
+
+<Comments />

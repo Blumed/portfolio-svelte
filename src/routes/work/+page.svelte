@@ -13,6 +13,10 @@
 <Seo title="Work" pageCanonicalUrl="/work" />
 
 <h1 class="page-title">Work</h1>
+<p class="clean-background">
+	A few note worthy projects and sites I have created over the years. I am currently in the middle
+	of adding more to this page, so stay tuned.
+</p>
 <Tabs>
 	<TabList>
 		<Tab>All</Tab>
@@ -100,16 +104,26 @@
 </Tabs>
 
 <style>
+	.work {
+		transition: height 0.5s ease-in-out;
+		border-radius: 24px;
+		border: 2px solid var(--primary-color);
+		box-shadow: 6px 6px 0 0 var(--primary-color);
+		overflow: hidden;
+		margin-bottom: 30px;
+	}
+	.work > a {
+		overflow: hidden;
+		background-color: var(--primary-color);
+	}
 	.work img {
 		max-width: 100%;
 		height: auto;
 		display: block;
 	}
-	.work {
-		transition: height 0.5s ease-in-out;
-	}
 	.work figure {
 		margin: 0;
+		background-color: var(--primary-color);
 	}
 	.work h2 {
 		font-size: 1.5rem;
@@ -141,13 +155,11 @@
 		margin-right: 5px;
 	}
 	.work-info {
-		margin: 0 0 30px 0;
 		background-color: var(--pure-white);
 		padding: 40px;
 	}
 	@media (max-width: 768px) {
 		.work-info {
-			margin: 0 0 30px 0;
 			background-color: var(--pure-white);
 			padding: 20px 10px;
 		}

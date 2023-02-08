@@ -40,14 +40,14 @@
 				<textarea
 					class="-m-break"
 					type="text"
-					placeholder="Enter Your Hiko's Here"
+					placeholder="Enter Your Haiku's Here"
 					name="message"
 				/>
 				<label for="frmMessage">Message</label>
 			</div>
 		</div>
 		<input type="text" name="_gotcha" style="display:none" />
-		<Button type="submit" buttonText="Send" />
+		<Button type="submit" buttonText="Send" class="button-toggle" />
 		<input type="hidden" name="_next" value="/thanks" />
 	</form>
 </section>

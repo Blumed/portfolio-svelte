@@ -4,9 +4,9 @@
 	import data from '$lib/data/tools.json';
 </script>
 
-<Seo title="Code Tools" pageCanonicalUrl="/tools" />
+<Seo title="Web Development Tools" pageCanonicalUrl="/tools" />
 
-<h1>Code Tools</h1>
+<h1>Web Development Tools</h1>
 <p class="clean-background">
 	A healthy amount of paranoia using random tools found on the internet has inspired me to create my
 	own, and also to learn how they work.

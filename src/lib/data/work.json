@@ -1,39 +1,6 @@
 {
 	"data": [
 		{
-			"type": "site",
-			"title": "When I Work",
-			"link": "https://wheniwork.com",
-			"copy": "Brought on to support the marketing team with development needs and to update the site. Converted their Laravel site to a headless cms with a Gatsby frontend. No longer did a developer need to be bogged down updating copy which was in the markup of the old site. The new site is also much faster and performant, which help with SEO and UX.",
-			"repo": "",
-			"url": "https://wheniwork.com",
-			"image": "/work/wheniwork/wheniwork-logo.svg",
-			"alt": "When I Work Logo",
-			"technologies": [
-				"Scss",
-				"Wordpress",
-				"Gatsby",
-				"Sketch",
-				"React"
-			]
-		},
-		{
-			"type": "site",
-			"title": "Caribou Perks",
-			"link": "https://rewards.cariboucoffee.com",
-			"copy": "My first project with Horizontal Integration. Caribou is often changing their look and feel. We had an awesome oportunity to updated their perks section. My first time using HI's Hive build system, which was really fun and powerful. Go over and peep the web app we made. Proud of how well this project turned out.",
-			"repo": "",
-			"image": "/work/caribou/caribou_logo.webp",
-			"alt": "Caribou Coffee Logo",
-			"technologies": [
-				"Scss",
-				"Nunjucks",
-				"Gulp",
-				"jQuery",
-				"Bootstrap"
-			]
-		},
-		{
 			"type": "project",
 			"title": "Looksee",
 			"link": "https://chrome.google.com/webstore/detail/looksee/mbfdhnjobheppodaolenppfegicnhmhp",
@@ -44,23 +11,6 @@
 			"technologies": [
 				"Scss",
 				"jQuery"
-			]
-		},
-		{
-			"type": "site",
-			"title": "Sleep Number",
-			"link": "https://www.sleepnumber.com",
-			"copy": "Was one of two front end developers working to maintain the code base. Started out as a contractor and was hired on within 6 months. First big role with the company was to help facilitate Hybris enterprise CMS integration. Second big project was the redesign. We made a fully responsive ecommerce site using Yeogurt templating system. Introduced Trello to better organize our agile and diverse digital marketing team.",
-			"repo": "",
-			"image": "/work/sleepnumber/sleepnumber.webp",
-			"alt": "Snapshot of Sleep Number website.",
-			"technologies": [
-				"Scss",
-				"jQuery",
-				"Grunt",
-				"Bootstrap",
-				"Jade",
-				"Yeogurt"
 			]
 		},
 		{
