@@ -15,7 +15,7 @@
 
 <Selfie />
 
-<section class="clean-background">
+<section class="personal-info">
 	<p>
 		Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised
 		in Minneapolis, Minnesota. Besides coding I like to <a
@@ -26,7 +26,7 @@
 		is to organize my thoughts about web development. Show my work and to flex my self expression muscle.
 	</p>
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<header>
 		<h2>Nerd Stuff</h2>
 	</header>
@@ -79,7 +79,7 @@
 		</li>
 	</ul>
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<header>
 		<h2>Music</h2>
 	</header>
@@ -95,7 +95,7 @@
 				buttonText="Click to Load"
 				handleClick={removeFacade}
 			/>
-			<img id="spotify" src="/spotify-facade.webp" alt="" />
+			<img id="spotify" src="https://images.cullanluther.com/spotify-facade.webp" alt="" />
 		</div>
 	{/if}
 	{#if userClicked}
@@ -112,7 +112,7 @@
 		/>
 	{/if}
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<header>
 		<h2>Social Media</h2>
 	</header>
@@ -128,6 +128,11 @@
 		font-size: 1.5rem;
 		margin-bottom: 0;
 	}
+	.personal-info {
+		background-color: var(--pure-white);
+		padding: 50px 40px 40px;
+		margin-bottom: 60px;
+	}
 
 	.spotify-facade {
 		position: relative;
@@ -141,7 +146,7 @@
 			height: 379px;
 			width: 66px;
 			top: 0;
-			background-image: url('/spotify-facade-side.webp');
+			background-image: url('https://images.cullanluther.com/spotify-facade-side.webp');
 		}
 
 		img {

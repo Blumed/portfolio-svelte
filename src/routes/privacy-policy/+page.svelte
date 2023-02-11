@@ -1,6 +1,6 @@
 <h1>Privacy Policy</h1>
 
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>I do not:</h2>
 	<ul class="list-item-circle">
 		<li>Collect any user data on my site</li>
@@ -8,7 +8,7 @@
 		<li>Use 3rd-party tracking or ad server technology</li>
 	</ul>
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>I do:</h2>
 	<ul class="list-item-circle">
 		<li>Create cookies if you interact with parts of my site.</li>

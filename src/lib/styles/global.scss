@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'BrandonText';
-	src: url('/fonts/2E61EA_0_0.woff2') format('woff2');
+	src: url("/fonts/2E61EA_0_0.woff2") format('woff2');
 }
 
 :root {
@@ -191,15 +191,21 @@ button:focus:not(:focus-visible) {
 	margin-right: auto;
 }
 
-.clean-background {
+.decorative-background {
 	padding: 56px 32px 32px;
 	background-color: var(--pure-white);
 	border: 2px solid var(--primary-color);
 	box-shadow: 6px 6px 0 0 var(--primary-color);
 
-	+.clean-background {
+	+.decorative-background {
 		margin-top: 60px;
 	}
+}
+
+.clean-background {
+	background-color: var(--pure-white);
+	padding: 50px 40px 40px;
+	margin-bottom: 60px;
 }
 
 .highlight-pill {
@@ -216,12 +222,16 @@ button:focus:not(:focus-visible) {
 }
 
 @media (max-width: 768px) {
-	.clean-background {
+	.decorative-background {
 		padding: 20px 10px;
 
-		+.clean-background {
+		+.decorative-background {
 			margin-top: 30px;
 		}
+	}
+
+	.clean-background {
+		padding: 20px 10px;
 	}
 
 	.button {

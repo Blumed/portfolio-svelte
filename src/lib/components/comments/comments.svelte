@@ -31,7 +31,7 @@
 	});
 </script>
 
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>Leave a comment</h2>
 	<div id="utterances-comments" />
 </section>

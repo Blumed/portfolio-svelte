@@ -7,7 +7,7 @@
 <Seo title="Contact" pageCanonicalUrl="/contact" />
 
 <h1 class="page-title">Contact</h1>
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>Leave a message after the . . . . beep</h2>
 	<form action="//formspree.io/cullan.luther@gmail.com" method="POST">
 		<div class="clear">
@@ -53,7 +53,7 @@
 </section>
 
 <style lang="scss">
-	.clean-background {
+	.decorative-background {
 		max-width: 586px;
 	}
 	h2 {

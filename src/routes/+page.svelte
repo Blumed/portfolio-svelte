@@ -14,7 +14,11 @@
 	<Button href="/freelancing-and-consultation" buttonText="Need Something Built?" />
 </section>
 
-<img class="its-me" src="/home/its-me.webp" alt="" />
+<img
+	class="its-me"
+	src="https://images.cullanluther.com/its-me.webp"
+	alt="Cullan Luther Smiling At You"
+/>
 
 <style lang="scss">
 	h1 {

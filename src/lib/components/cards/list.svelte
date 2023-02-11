@@ -40,6 +40,7 @@
 		display: grid;
 		grid-template-columns: auto auto;
 		gap: 30px;
+		margin-bottom: 60px;
 	}
 	.cards-list-card {
 		padding: 20px;
@@ -66,6 +67,7 @@
 	@media (max-width: 768px) {
 		.cards-list-container {
 			grid-template-columns: 1fr;
+			margin-bottom: 30px;
 		}
 	}
 </style>

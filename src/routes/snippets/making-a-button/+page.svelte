@@ -4,11 +4,11 @@
 
 <h1>Making a button</h1>
 
-<p class="clean-background">
+<p class="decorative-background">
 	Some opinions and facts about the html button element. This is meant to be a living document.
 </p>
 
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>Opinions Facts, and Accessability</h2>
 
 	<ul class="list-item-circle">
@@ -28,7 +28,7 @@
 		</li>
 		<li>Buttons should never be links. They should be scoped to update UI on the current page.</li>
 		<li>
-			Buttons text should say what it does. This is not a place to be cryptic. Screen readers will
+			Button text should say what it does. This is not a place to be cryptic. Screen readers will
 			use this text.
 		</li>
 		<li>

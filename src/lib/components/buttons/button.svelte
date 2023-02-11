@@ -1,10 +1,19 @@
 <script lang="ts">
-	export let buttonText: string | undefined = undefined;
-	export let type: 'button' | 'submit' | 'reset' | null | undefined = undefined;
-	export let href: string | undefined = undefined;
-	export let ariaExpanded: boolean | undefined = undefined;
-	export let ariaControls: string | undefined = undefined;
-	export let handleClick: () => void | undefined | boolean;
+	interface ButtonProps {
+		buttonText: string | undefined;
+		type: 'button' | 'submit' | 'reset' | null | undefined;
+		href: string | undefined;
+		ariaExpanded: boolean | undefined;
+		ariaControls: string | undefined;
+		handleClick?: () => void | undefined | boolean;
+	}
+
+	export let buttonText: ButtonProps['buttonText'] = undefined;
+	export let type: ButtonProps['type'] = undefined;
+	export let href: ButtonProps['href'] = undefined;
+	export let ariaExpanded: ButtonProps['ariaExpanded'] = undefined;
+	export let ariaControls: ButtonProps['ariaControls'] = undefined;
+	export let handleClick: ButtonProps['handleClick'] = undefined;
 </script>
 
 {#if href}
@@ -122,5 +131,11 @@
 
 	.button-toggle {
 		display: block;
+	}
+	@media (max-width: 768px) {
+		:global(.button + .button) {
+			margin-top: 20px;
+			margin-left: 0;
+		}
 	}
 </style>

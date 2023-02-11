@@ -6,7 +6,7 @@
 <Seo title="Beautify Json" pageCanonicalUrl="/tools/beautify-json" />
 <CodeMutator language="json" processType="beautify" />
 
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>What is beautification?</h2>
 	<p>
 		Formatted code is easier to read for us humans. Computers don't read code like we do. They don't

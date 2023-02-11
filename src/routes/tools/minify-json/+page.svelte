@@ -6,7 +6,7 @@
 <Seo title="Minify Json" pageCanonicalUrl="/tools/minify-json" />
 <CodeMutator language="json" processType="minify" />
 
-<section class="clean-background">
+<section class="decorative-background">
 	<h2>What is minification?</h2>
 	<p>
 		Formatted code is easier to read for us humans. Computers don't read code like we do. They don't

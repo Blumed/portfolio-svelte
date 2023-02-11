@@ -24,7 +24,7 @@
 	you'll need to create a bypass on your own. Well I have created one so you don't have to 😁
 </p>
 
-<section class="code-example clean-background">
+<section class="code-example decorative-background">
 	<header>
 		<h2>Script Configuration</h2>
 	</header>
@@ -80,7 +80,7 @@
 		/>
 	{/if}
 </section>
-<section class="code-example clean-background">
+<section class="code-example decorative-background">
 	<header><h2>Google Tag Manager Intercom Facade</h2></header>
 	<p>
 		The following was designed to be used in Google Tag Manager on a SPA website. In my situation

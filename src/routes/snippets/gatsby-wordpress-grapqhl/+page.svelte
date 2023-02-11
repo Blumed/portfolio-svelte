@@ -20,7 +20,7 @@
 	some code.
 </p>
 
-<section class="clean-background">
+<section class="decorative-background">
 	<header><h2 id="check-wordpress-data">Check data data coming from Wordpress</h2></header>
 	<p>
 		This snippet is crucial when data doesn't match what is coming from wordpress. This graphql
@@ -31,7 +31,7 @@
 	</p>
 	<Prism language="graphql" code={selfLink} copyScript />
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<header><h2>Find large assets in your Wordpress media library</h2></header>
 	<p>
 		If you are not watching all the assets being uploaded to the media library like a hawk, people
@@ -41,7 +41,7 @@
 	</p>
 	<Prism language="graphql" code={largeAssets} copyScript />
 </section>
-<section class="clean-background">
+<section class="decorative-background">
 	<header><h2>Investigate template pages</h2></header>
 	<p>
 		First off the way I organize templates in wordpress is as follows. I make a parent page and all

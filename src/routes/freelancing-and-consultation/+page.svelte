@@ -8,7 +8,7 @@
 <Seo title="Freelancing and Consultation" pageCanonicalUrl="/freelancing-and-consultation" />
 
 <h1>Freelancing and Consultation</h1>
-<section class="clean-background">
+<section class="decorative-background">
 	<h2><strong>A little about myself</strong></h2>
 	<p>
 		I have been a developer for {workingYears} years. Most of my career I have been focused on large

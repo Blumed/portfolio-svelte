@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { browser } from '$app/environment';
 	import '$lib/styles/global.scss';
 	import CircleIcon from '$lib/components/svgeez/toggle-circle-icon.svelte';
 	import GithubIcon from '$lib/components/svgeez/icon-github.svelte';
@@ -9,6 +10,10 @@
 	let toggleNav = false;
 	const closeNav = () => (toggleNav = false);
 </script>
+
+<svelte:head>
+	<script async src="https://scripts.withcabin.com/hello.js"></script>
+</svelte:head>
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
@@ -267,6 +272,7 @@
 		transition: transform 0.3s ease-in-out;
 	}
 	.sidebar-checkbox {
+		display: none;
 		position: fixed;
 		&:focus-visible ~ .sidebar-toggle {
 			outline: Highlight auto 1px;

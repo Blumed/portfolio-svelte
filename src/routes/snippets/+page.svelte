@@ -12,9 +12,3 @@
 	created to make my life easier and my hope is that it will do the same for you.
 </p>
 <CardsList cardData={data} />
-
-<style>
-	.clean-background {
-		margin-bottom: 30px;
-	}
-</style>
