@@ -32,8 +32,8 @@
 	</header>
 	<ul class="list-item-circle">
 		<li>
-			This site fist launched in 2011. Originally it was artisnally written in html, css, and
-			javascript. A few other formations occurred using Wordpress, Jekyll, and now Svelte.
+			This site fist launched in 2011. Originally it was an artisanal html, css, and jQuery site. A
+			few other formations occurred using Wordpress, Jekyll, and now Sveltekit.
 		</li>
 		<li>
 			My IDE of choice is <a
@@ -70,7 +70,7 @@
 			>.
 		</li>
 		<li>
-			Have used Trello sinced it launched to keep stuff organized. Great tool for keeping my site
+			Have used Trello since it launched to keep stuff organized. Great tool for keeping my site
 			organized and get my ideas out. Feel free to <a
 				href="https://trello.com/invite/b/7DQLWOSL/ATTI91d30ae988d635b50eecddd5f40da62dAF315B9C/portfolio-site"
 				target="_blank"
@@ -85,7 +85,7 @@
 	</header>
 	<p>
 		One of the reasons I love web development is the ability to listen to music all day long. Here
-		are some bands and songs I am currently listening to.
+		are some bands and songs I am currently listening to. hirj
 	</p>
 	{#if !userClicked}
 		<div class="spotify-facade">
@@ -111,16 +111,6 @@
 			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 		/>
 	{/if}
-</section>
-<section class="decorative-background">
-	<header>
-		<h2>Social Media</h2>
-	</header>
-	<p>
-		This section used to have my social media feeds. I was a pretty active Twitter user but as of
-		the changes made in late 2022 I had to say goodbye. Once I find another social media outlit I
-		support you can expect some more feeds again.
-	</p>
 </section>
 
 <style lang="scss">

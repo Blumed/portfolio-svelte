@@ -94,7 +94,9 @@
 />
 <h1>Responsive Breakpoint Bookmarklet</h1>
 <p class="clean-inline">
-	Have you ever you just wanted a quick view of your responsive breakpoints
+	Have you ever wanted a quick view of your responsive breakpoints? This tool helps you see the
+	relationship between breakpoints for dialing in UI. Change the breakpoints to fit your needs.
+	Change text and color and make it your own.
 </p>
 <section>
 	<h2>Breakpoints</h2>
@@ -298,7 +300,7 @@
 		<div class="card">
 			<h3>Popular Css Framework Presets</h3>
 			<div class="buttons">
-				<Button type="button" handleClick={bulma} buttonText="bulma" />
+				<Button type="button" handleClick={bulma} buttonText="Bulma" />
 				<Button type="button" handleClick={semanticUI} buttonText="Semantic UI" />
 				<Button type="button" handleClick={bootstrap} buttonText="Bootstrap" />
 			</div>
@@ -365,7 +367,9 @@
 		margin-bottom: 15px;
 	}
 	.input-color {
-		border: 1px solid var(--pure-black);
+		border: 2px solid var(--pure-black);
+
+		cursor: pointer;
 	}
 	.input-text {
 		padding: 5px 5px 3px;
