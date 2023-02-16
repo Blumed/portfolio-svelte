@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'BrandonText';
-	src: url('/fonts/2E61EA_0_0.woff2') format('woff2');
+	src: url("/fonts/2E61EA_0_0.woff2") format('woff2');
 }
 
 :root {
@@ -10,10 +10,16 @@
 	--font-mono: 'Fira Mono', monospace;
 	--font-base: 16px;
 	--pure-white: #ffffff;
+	--pure-black: #000;
 	--primary-color: #303030;
 	--secondary-color: #d0dde9;
 	--tertiary-color: #edf0f8;
+	--subtle-grey: #f8f9fa;
 	--accent-color: #e3a6c2;
+	--sidebar-background: #202020;
+	--global-transition: all 0.3s ease-in-out;
+	--polka-dots: var(--pure-black);
+	--sidebar-color: rgba(255, 255, 255, 0.6);
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -28,6 +34,22 @@ body {
 	font-size: var(--font-base);
 	color: var(--primary-color);
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+	&::after {
+		content: '';
+		background-image: radial-gradient(var(--polka-dots) 10%, transparent 11%),
+			radial-gradient(var(--polka-dots) 10%, transparent 11%);
+		background-position: 0px 0px, 31px 50px;
+		background-size: 20px 20px;
+		background-color: var(--pure-white);
+		width: 100%;
+		height: 188%;
+		position: fixed;
+		z-index: -2;
+		top: -23%;
+		left: 20%;
+		transform: rotate(49deg);
+	}
 }
 
 #svelte {
@@ -58,73 +80,15 @@ body {
 
 // Dark Mode
 html.dark body {
-	background-color: var(--primary-color);
+	background-color: var(--pure-white);
 	color: white;
-
-	// Sidebar
-	.sidebar-toggle.triangle {
-		border-top-color: white !important;
-
-		svg {
-			color: var(--primary-color);
-		}
-	}
-
-	.sidebar {
-		background-color: white !important;
-
-		a,
-		p {
-			color: var(--primary-color) !important;
-		}
-
-		.theme-control label {
-			color: var(--primary-color);
-		}
-	}
-
-	//Work
-	.tabs {
-		.tab-list {
-			border-color: white;
-
-			button {
-				border-color: transparent;
-				color: white;
-
-				&.selected {
-					border-left-color: white;
-					border-top-color: white;
-					border-right-color: white;
-
-					&:after {
-						background-color: var(--primary-color);
-					}
-				}
-			}
-		}
-
-		h2,
-		h3 {
-			color: inherit !important;
-		}
-	}
-
-	//Contact
-	.field input,
-	.field textarea {
-		background-color: transparent;
-
-		&:focus {
-			border-color: white;
-		}
-	}
-
-	h1,
-	h2,
-	h3 {
-		color: white;
-	}
+	--primary-color: #fff;
+	--pure-white: #303030;
+	--pure-black: #fff;
+	--sidebar-background: #fff;
+	--sidebar-color: #202020;
+	--subtle-grey: #292b2c;
+	--polka-dots: var(--accent-color);
 }
 
 h1,
@@ -139,7 +103,7 @@ p {
 h1,
 h2,
 h3 {
-	color: black;
+	color: var(--pure-black);
 }
 
 p {
@@ -186,9 +150,20 @@ ul {
 	list-style: none;
 	padding: 0;
 	line-height: 2rem;
+	list-style: circle;
+	padding-left: 26px;
+
+	&.no-list-style {
+		padding-left: 0;
+		list-style: none;
+	}
 
 	li {
 		margin-bottom: 5px;
+	}
+
+	ul {
+		padding-left: 30px;
 	}
 }
 
@@ -216,54 +191,49 @@ button:focus:not(:focus-visible) {
 	margin-right: auto;
 }
 
-.button {
-	font-size: 16px;
-	font-weight: 200;
-	letter-spacing: 1px;
-	padding: 13px 20px 13px;
-	border: 2px solid currentColor;
-	color: inherit;
-	cursor: pointer;
-	position: relative;
-	background-color: rgba(0, 0, 0, 0);
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
+.decorative-background {
+	padding: 56px 32px 32px;
+	background-color: var(--pure-white);
+	border: 2px solid var(--primary-color);
+	box-shadow: 6px 6px 0 0 var(--primary-color);
+
+	+.decorative-background {
+		margin-top: 60px;
+	}
 }
 
-.button.lite {
-	border-color: currentColor;
-	color: #fff;
+.clean-background {
+	background-color: var(--pure-white);
+	padding: 50px 40px 40px;
+	margin-bottom: 60px;
 }
 
-.button:after {
-	content: '';
-	background-color: var(--accent-color);
-	width: 100%;
-	z-index: -1;
-	position: absolute;
-	height: 100%;
-	top: 7px;
-	left: 7px;
-	transition: 0.2s;
+.highlight-pill {
+	padding: 6px 8px 5px 8px;
+	background-color: #eee;
+	border-radius: 4px;
+	color: #303030;
 }
 
-.button.lite:after {
-	content: '';
-	background-color: transparent;
-	border: 1px solid #fff;
+@media (min-width: 769px) {
+	.button {
+		padding: 13px 50px 13px;
+	}
 }
 
-.button:hover {
-	text-decoration: none;
-}
+@media (max-width: 768px) {
+	.decorative-background {
+		padding: 20px 10px;
 
-.button:hover:after {
-	top: 0px;
-	left: 0px;
-}
+		+.decorative-background {
+			margin-top: 30px;
+		}
+	}
 
-@media (min-width: 768px) {
+	.clean-background {
+		padding: 20px 10px;
+	}
+
 	.button {
 		padding: 13px 50px 13px;
 	}

@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { vibrateSmall } from '$lib/constaints';
 
 	let darkMode = true;
 
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;
-
+		vibrateSmall();
 		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
 
 		darkMode
@@ -48,13 +49,13 @@
 			appearance: none;
 			border-radius: 2rem;
 			cursor: pointer;
-			outline: 1px solid #fff;
+			outline: 1px solid var(--pure-white);
 			&:before {
 				content: '';
 				width: 18px;
 				height: 18px;
 				border-radius: 50%;
-				background-color: #fff;
+				background-color: var(--pure-white);
 				position: absolute;
 				top: 0;
 				left: -1px;
@@ -64,18 +65,14 @@
 				background: transparent;
 				&:before {
 					transform: translateX(100%);
-					background: #fff;
+					background: var(--pure-white);
 				}
 			}
 		}
 	}
 	.dark .theme-control {
-		input {
-			outline-color: var(--primary-color);
-			&:before {
-				background-color: var(--primary-color);
-				left: 2px;
-			}
+		input:before {
+			left: 2px;
 		}
 	}
 </style>

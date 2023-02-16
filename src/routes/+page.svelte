@@ -1,48 +1,24 @@
 <script>
-	//export const prerender = true;
 	import Seo from '$lib/components/seo/page-meta.svelte';
 	import { differenceInYears } from 'date-fns';
+	import Button from '$lib/components/buttons/button.svelte';
 	const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
 </script>
 
 <Seo title="Home" pageCanonicalUrl="/" />
+<section>
+	<h1>Hi, my name is Cullan and I am a web developer.</h1>
 
-<h1>Hi, my name is Cullan and I am web developer.</h1>
-<h2><strong>A little about myself</strong></h2>
-<p>
-	I have been a developer for {workingYears} years. Most of my career I have been focused on large and
-	small marketing sites. I really enjoy solving the types of problems that arise from creating performant
-	informative websites. Past few years I have been creating web applications, which has been a fun skill
-	to learn.
-</p>
-<h2><strong>Need a site audit?</strong></h2>
-<p>
-	It is always helpful to have another set of eyes on site performance. So many things can slow down
-	a site and most of them are created out of good intentions. Large assets, huge javascript bundles,
-	server configs, third party scripts, and so much more. The fact is slow sites effect a bottom
-	line.
-</p>
-<h2><strong>Freelance and Consulting</strong></h2>
-<p>
-	Currently open to small projects. If you have a need for a new site or you can't get a hold of
-	your previous developer feel free to drop me a line. A loose list of technologies I use regularly:
-	<select>
-		<option>React</option>
-		<option>Typescript</option>
-		<option>React Testing Library</option>
-		<option>Gatsby</option>
-		<option>GraphQL</option>
-		<option>Sveltkit</option>
-		<option>PHP</option>
-		<option>Wordpress</option>
-		<option>Scss</option>
-		<option>Webpack</option>
-		<option>Unix</option>
-		<option>AWS</option>
-		<option>Shopify</option>
-	</select>
-</p>
-<a class="button" href="/contact"><span class="text-center">Let's Chat</span></a>
+	<p>UX Strategy, SEO and Marketing Development, Web Applications.</p>
+
+	<Button href="/freelancing-and-consultation" buttonText="Need Something Built?" />
+</section>
+
+<img
+	class="its-me"
+	src="https://images.cullanluther.com/its-me.webp"
+	alt="Cullan Luther Smiling At You"
+/>
 
 <style lang="scss">
 	h1 {
@@ -50,7 +26,6 @@
 		font-size: 2.5rem;
 		letter-spacing: 0.5vw;
 		color: white;
-		background: url('/home/zigzagz.webp');
 		background-size: auto 200%;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -61,8 +36,9 @@
 		-webkit-text-stroke-color: black;
 		font-family: arial;
 		position: relative;
+		margin-bottom: 30px;
 		&:after {
-			content: 'Hi, my name is Cullan and I am web developer.';
+			content: 'Hi, my name is Cullan and I am a web developer.';
 			position: absolute;
 			left: -3px;
 			top: -2px;
@@ -71,35 +47,38 @@
 			-webkit-text-stroke-color: black;
 		}
 	}
-	@keyframes shine {
-		from {
-			background-position: center 0;
-		}
-		to {
-			background-position: center 200%;
-		}
+	:global(.sidebar-checkbox:checked + .sidebar + .container .its-me) {
+		right: -100%;
+		transform: translateX(-14rem);
 	}
+	.its-me {
+		all: unset;
+		max-width: 1128px;
+		width: auto;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		filter: grayscale(1);
+		display: block;
+	}
+
 	p {
+		background-color: var(--pure-white);
+		display: table;
+		padding-right: 15px;
 		margin-bottom: 30px;
 	}
-	.button {
-		color: inherit;
-		display: inline-block;
-		margin-bottom: 15px;
-	}
-	select {
-		border-top: 0;
-		border-left: 0;
-		border-right: 0;
-		background-color: transparent;
-		color: inherit;
-		appearance: none;
-		border-radius: 0;
-		border-bottom: 1px solid currentColor;
-	}
-	@media (min-width: 768px) {
+
+	@media (min-width: 769px) {
 		h1 {
 			font-size: 4rem;
+		}
+	}
+	@media (max-width: 768px) {
+		.its-me {
+			top: 30%;
+			right: -569px;
 		}
 	}
 </style>

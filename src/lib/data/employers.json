@@ -1,0 +1,72 @@
+{
+    "data": [
+        {
+            "who": "When I Work",
+            "when": "Sept 2018 - Present",
+            "title": "Full Stack Engineer",
+            "link": "https://wheniwork.com",
+            "what": [
+                "Brought on to support the marketing team with development needs and to update the site. Converted their Laravel site to a headless cms with a Gatsby frontend. No longer did a developer need to be bogged down updating copy which was in the markup of the old site. The new site is also much faster and performant, which help with SEO and UX.",
+            ],
+            "technologies": [
+                "Scss",
+                "Wordpress",
+                "Gatsby",
+                "Sketch",
+                "React"
+            ]
+        },
+        {
+            "who": "Horizontal",
+            "when": "May 2016 - Sept 2018",
+            "title": "Front-End Developer",
+            "link": "https://www.horizontal.com",
+            "what": [
+                "Joined a team of talented creatives to help a big brand redesign omnichannel microsites. Created many POC's showing Horizontal Integrations Front End capabilities. Helped HI's internal marketing team launch a new blog using Wordpress. Created presentations showing new ideas/demos of new frontend technologies to the FED team and broader audience."
+            ],
+            "technologies": [
+                "Scss",
+                "Nunjucks",
+                "Gulp",
+                "jQuery",
+                "Angular",
+                "AR Frameworks",
+                "Bootstrap"
+            ]
+        },
+        {
+            "who": "Hello Moon",
+            "when": "Sept 2015 - Apr 2016",
+            "title": "Front-End Developer",
+            "link": "https://web.archive.org/web/20180227134744/http://hellomoon.net/",
+            "what": [
+                "We produce an array of digital experiences using an ever-evolving set of techniques and technologies. Hellomoon is a full-service interactive design and development studio located in Minneapolis, MN. Custom websites, kiosk, and interactive experiences."
+            ],
+            "technologies": [
+                "Less",
+                "Jekyll",
+                "Gulp",
+                "PHP",
+                "Green Sock",
+                "Bootstrap"
+            ]
+        },
+        {
+            "who": "Sleep Number",
+            "when": "Jun 2014 - Sept 2015",
+            "title": "Front-End Developer",
+            "link": "https://sleepnumber.com",
+            "what": [
+                "When I joined I was one of two front end developers. Worked closely with marketing to deliver new pages and site experiences."
+            ],
+            "technologies": [
+                "Scss",
+                "jQuery",
+                "Grunt",
+                "Bootstrap",
+                "Jade",
+                "Yeogurt"
+            ]
+        }
+    ]
+}

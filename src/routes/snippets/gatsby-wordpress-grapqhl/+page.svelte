@@ -4,12 +4,13 @@
 	import selfLink from './self-href';
 	import largeAssets from './large-assets';
 	import templateUrls from './show-template-urls';
+	import Comments from '$lib/components/comments/comments.svelte';
 </script>
 
 <Seo title="Gatsby Wordpress Graphql" pageCanonicalUrl="/snippets/gatsby-wordpress-graphql" />
 
 <h1>Gatsby Graphql</h1>
-<p>
+<p class="clean-background">
 	Love me some Gatsby. Using Gatsby with Wordpress can be a little tricky in the beginning. The
 	following are some helpful snippets for debugging. The following snippets are using the old <a
 		href="https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/"
@@ -18,8 +19,8 @@
 	>. Someday I will be able to update to the latest version of the plugin but until then here is
 	some code.
 </p>
-<hr />
-<section>
+
+<section class="decorative-background">
 	<header><h2 id="check-wordpress-data">Check data data coming from Wordpress</h2></header>
 	<p>
 		This snippet is crucial when data doesn't match what is coming from wordpress. This graphql
@@ -30,7 +31,7 @@
 	</p>
 	<Prism language="graphql" code={selfLink} copyScript />
 </section>
-<section>
+<section class="decorative-background">
 	<header><h2>Find large assets in your Wordpress media library</h2></header>
 	<p>
 		If you are not watching all the assets being uploaded to the media library like a hawk, people
@@ -40,7 +41,7 @@
 	</p>
 	<Prism language="graphql" code={largeAssets} copyScript />
 </section>
-<section>
+<section class="decorative-background">
 	<header><h2>Investigate template pages</h2></header>
 	<p>
 		First off the way I organize templates in wordpress is as follows. I make a parent page and all
@@ -53,3 +54,5 @@
 	</p>
 	<Prism language="graphql" code={templateUrls} copyScript />
 </section>
+
+<Comments />

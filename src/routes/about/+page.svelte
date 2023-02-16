@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Selfie from '$lib/components/svgeez/triangle-me.svelte';
 	import Seo from '$lib/components/seo/page-meta.svelte';
-
+	import Button from '$lib/components/buttons/button.svelte';
 	let userClicked = false;
 
 	function removeFacade() {
@@ -15,23 +15,25 @@
 
 <Selfie />
 
-<section>
+<section class="personal-info">
 	<p>
 		Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised
-		in Minneapolis, Minnesota. I am 100% self taught so I code a lot during my free time. Besides
-		coding I like to <a href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a> and
+		in Minneapolis, Minnesota. Besides coding I like to <a
+			href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a
+		>
+		and
 		<a href="https://youtu.be/qbZn07rZJ88">bike</a> everywhere all year round. Main purpose of this site
 		is to organize my thoughts about web development. Show my work and to flex my self expression muscle.
 	</p>
 </section>
-<section>
+<section class="decorative-background">
 	<header>
 		<h2>Nerd Stuff</h2>
 	</header>
 	<ul class="list-item-circle">
 		<li>
-			This site fist launched in 2011. Originally it was artisnally written in html, css, and
-			javascript. A few other formations occurred using Wordpress, Jekyll, and now Svelte.
+			This site fist launched in 2011. Originally it was an artisanal html, css, and jQuery site. A
+			few other formations occurred using Wordpress, Jekyll, and now Sveltekit.
 		</li>
 		<li>
 			My IDE of choice is <a
@@ -68,7 +70,7 @@
 			>.
 		</li>
 		<li>
-			Have used Trello sinced it launched to keep stuff organized. Great tool for keeping my site
+			Have used Trello since it launched to keep stuff organized. Great tool for keeping my site
 			organized and get my ideas out. Feel free to <a
 				href="https://trello.com/invite/b/7DQLWOSL/ATTI91d30ae988d635b50eecddd5f40da62dAF315B9C/portfolio-site"
 				target="_blank"
@@ -77,23 +79,29 @@
 		</li>
 	</ul>
 </section>
-<section>
+<section class="decorative-background">
 	<header>
 		<h2>Music</h2>
 	</header>
 	<p>
 		One of the reasons I love web development is the ability to listen to music all day long. Here
-		are some bands and songs I am currently listening to.
+		are some bands and songs I am currently listening to. hirj
 	</p>
 	{#if !userClicked}
 		<div class="spotify-facade">
-			<button type="button" class="button lite" on:click={removeFacade}>Click To Load</button>
-			<img id="spotify" src="/spotify-facade.webp" alt="" />
+			<Button
+				type="button"
+				class="button-spotify"
+				buttonText="Click to Load"
+				handleClick={removeFacade}
+			/>
+			<img id="spotify" src="https://images.cullanluther.com/spotify-facade.webp" alt="" />
 		</div>
 	{/if}
 	{#if userClicked}
 		<iframe
 			id="iframe"
+			style="border-radius:12px"
 			title="Music I am into"
 			src="https://open.spotify.com/embed/playlist/5VpvNuzeBvsMrCeQ8PfTpC?utm_source=generator&theme=0"
 			width="100%"
@@ -104,26 +112,18 @@
 		/>
 	{/if}
 </section>
-<section>
-	<header>
-		<h2>Social Media</h2>
-	</header>
-	<p>
-		This section used to have my social media feeds. I was a pretty active Twitter user but as of
-		the changes made in late 2022 I had to say goodbye. Once I find another social media outlit I
-		support you can expect some more feeds again.
-	</p>
-</section>
 
 <style lang="scss">
 	h2 {
 		font-size: 1.5rem;
 		margin-bottom: 0;
 	}
-	ul.list-item-circle {
-		list-style: circle;
-		padding-left: 26px;
+	.personal-info {
+		background-color: var(--pure-white);
+		padding: 50px 40px 40px;
+		margin-bottom: 60px;
 	}
+
 	.spotify-facade {
 		position: relative;
 		height: 380px;
@@ -136,18 +136,9 @@
 			height: 379px;
 			width: 66px;
 			top: 0;
-			background-image: url('/spotify-facade-side.webp');
+			background-image: url('https://images.cullanluther.com/spotify-facade-side.webp');
 		}
-		.button {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			border-color: #fff;
-			z-index: 2;
-			color: #0a0a0a;
-			background: white;
-		}
+
 		img {
 			position: relative;
 			z-index: 1;

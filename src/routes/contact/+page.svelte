@@ -1,13 +1,14 @@
 <script>
 	export const prerender = true;
 	import Seo from '$lib/components/seo/page-meta.svelte';
+	import Button from '$lib/components/buttons/button.svelte';
 </script>
 
 <Seo title="Contact" pageCanonicalUrl="/contact" />
 
 <h1 class="page-title">Contact</h1>
-<section>
-	<h3>Leave a message after the . . . . beep</h3>
+<section class="decorative-background">
+	<h2>Leave a message after the . . . . beep</h2>
 	<form action="//formspree.io/cullan.luther@gmail.com" method="POST">
 		<div class="clear">
 			<div class="field">
@@ -39,20 +40,23 @@
 				<textarea
 					class="-m-break"
 					type="text"
-					placeholder="Enter Your Hiko's Here"
+					placeholder="Enter Your Haiku's Here"
 					name="message"
 				/>
 				<label for="frmMessage">Message</label>
 			</div>
 		</div>
 		<input type="text" name="_gotcha" style="display:none" />
-		<button type="submit" class="button">Send</button>
+		<Button type="submit" buttonText="Send" class="button-toggle" />
 		<input type="hidden" name="_next" value="/thanks" />
 	</form>
 </section>
 
 <style lang="scss">
-	h3 {
+	.decorative-background {
+		max-width: 586px;
+	}
+	h2 {
 		margin-bottom: 0;
 	}
 	form {

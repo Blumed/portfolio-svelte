@@ -10,7 +10,7 @@
 		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write .",
 		"clean": "find . -name \".DS_Store\" -print -delete",
-		"postbuild": "svelte-sitemap --domain https://cullanluther.com --change-freq weekly --reset-time"
+		"postbuild": "svelte-sitemap --domain https://cullanluther.com --change-freq weekly --reset-time -i '404.html'"
 	},
 	"devDependencies": {
 		"@types/cookie": "^0.5.1",

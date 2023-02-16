@@ -1,5 +1,5 @@
 <script>
-	import CircleIcon from '$lib/components/svgeez/icon-circle.svelte';
+	import CircleIcon from '$lib/components/svgeez/toggle-circle-icon.svelte';
 	export let cardData;
 	export let toggleIcon = false;
 	export let currentCard = 100; //This will be false until current card id value is stored
@@ -25,7 +25,7 @@
 			</header>
 			<a href={card.url} class="cards-list-copy"><p>{card.copy}</p></a>
 			<footer>
-				<ul>
+				<ul class="no-list-style">
 					{#each card.technologies as technology}
 						<li>{technology}</li>
 					{/each}
@@ -40,15 +40,15 @@
 		display: grid;
 		grid-template-columns: auto auto;
 		gap: 30px;
-		&:hover .cards-list-card:not(:hover) {
-			opacity: 0.4;
-		}
+		margin-bottom: 60px;
 	}
 	.cards-list-card {
 		padding: 20px;
 		outline: 2px solid currentColor;
+		box-shadow: 6px 6px 0 0 var(--primary-color);
 		transition: all 0.3s ease;
 		border-radius: 8px;
+		background-color: var(--pure-white);
 		p {
 			opacity: 0.7;
 		}
@@ -67,6 +67,7 @@
 	@media (max-width: 768px) {
 		.cards-list-container {
 			grid-template-columns: 1fr;
+			margin-bottom: 30px;
 		}
 	}
 </style>
