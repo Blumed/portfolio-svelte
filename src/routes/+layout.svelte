@@ -11,10 +11,6 @@
 	const closeNav = () => (toggleNav = false);
 </script>
 
-<svelte:head>
-	<script async src="https://scripts.withcabin.com/hello.js"></script>
-</svelte:head>
-
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
 <input

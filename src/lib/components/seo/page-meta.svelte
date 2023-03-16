@@ -11,7 +11,7 @@
 	export let seo = {
 		title: 'Cullan Luther · Web Developer',
 		description:
-			' Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.',
+			'Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.',
 		canonical: baseUrl
 	};
 
@@ -25,7 +25,7 @@
 	<meta name="description" content={metaDescription} />
 	<!-- Open Graph -->
 	<meta content="Cullan Luther" property="og:site_name" />
-	<meta content="Minneaplis · Web Developer" property="og:title" />
+	<meta content="Minneapolis · Web Developer" property="og:title" />
 	<meta content="website" property="og:type" />
 	<meta content={seo.description} property="og:description" />
 	<meta content={baseUrl} property="og:url" />
@@ -33,7 +33,7 @@
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@CullanLuther" />
-	<meta content="Minneaplis · Web Developer" property="twitter:title" />
+	<meta content="Minneapolis · Web Developer" property="twitter:title" />
 	<meta content={seo.description} property="twitter:description" />
 	<meta name="twitter:creator" content="@CullanLuther" />
 	<meta content={twitterImage} property="twitter:image" />

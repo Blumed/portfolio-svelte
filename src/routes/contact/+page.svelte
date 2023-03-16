@@ -1,5 +1,4 @@
 <script>
-	export const prerender = true;
 	import Seo from '$lib/components/seo/page-meta.svelte';
 	import Button from '$lib/components/buttons/button.svelte';
 </script>

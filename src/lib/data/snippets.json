@@ -20,9 +20,9 @@
         },
         {
             "id": 2,
-            "url": "/snippets/gatsby-wordpress-grapqhl",
+            "url": "/snippets/gatsby-wordpress-graphql",
             "title": "Gatsby Wordpress Graphql",
-            "copy": "A small list of snippets I find usefull when using and debugging Gatsby Wordpress Graphql data.",
+            "copy": "A small list of snippets I find useful when using and debugging Gatsby Wordpress Graphql data.",
             "technologies": [
                 "Graphql"
             ]

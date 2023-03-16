@@ -142,6 +142,7 @@
 		margin-top: 0;
 	}
 	.work ul {
+		list-style: none;
 		display: inline-flex;
 		margin-top: 0;
 		flex-wrap: wrap;

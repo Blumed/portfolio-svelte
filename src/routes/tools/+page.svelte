@@ -13,15 +13,18 @@
 	<h2>Web Tools</h2>
 	<p>
 		A healthy amount of paranoia using random tools on the internet inspired me to create my own
-		tool set. I wanted to know they work. Don't want to be bombarded by ads and tracking just to use
-		a simple tool. Many of them are pretty ugly and overly complex. Applying my own UX/UI is so much
-		fun and I hope you enjoy.
+		tool sets. I wanted to know how they work. Don't want to be bombarded by ads and tracking just
+		to use a simple tool. Many of them are pretty ugly and overly complex. Applying my own UX/UI is
+		so much fun and I hope you enjoy.
 	</p>
 </section>
 <CardsList cardData={tools} />
 
 <section class="clean-background">
 	<h2>Bookmarklets</h2>
-	<p>I love bookmarklets. Small apps that work on any device? Yes please.</p>
+	<p>
+		I love bookmarklets. Small apps that work on any device? Yes please. I love using them and
+		creating them for myself. The following are some bookmarklet builders
+	</p>
 </section>
 <CardsList cardData={bookmarklets} />

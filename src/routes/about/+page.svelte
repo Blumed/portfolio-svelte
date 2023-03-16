@@ -48,7 +48,8 @@
 		<li>
 			Favorite theme is <a
 				href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme"
-				>Material Design</a
+				target="_blank"
+				rel="noopener noreferrer">Material Design</a
 			>
 		</li>
 		<li>
@@ -58,8 +59,9 @@
 				rel="noopener noreferrer">Media Temple</a
 			>
 			forever but now I enjoy the pain of
-			<a href="https://aws.amazon.com/">Amazon Web Services</a>. And no I didn't use Amplify.
-			Cobbled everything together myself.
+			<a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
+				>Amazon Web Services</a
+			>. And no I didn't use Amplify. Cobbled everything together myself.
 		</li>
 		<li>I love unix!</li>
 		<li>
@@ -68,14 +70,6 @@
 				target="_blank"
 				rel="noopener noreferrer">git</a
 			>.
-		</li>
-		<li>
-			Have used Trello since it launched to keep stuff organized. Great tool for keeping my site
-			organized and get my ideas out. Feel free to <a
-				href="https://trello.com/invite/b/7DQLWOSL/ATTI91d30ae988d635b50eecddd5f40da62dAF315B9C/portfolio-site"
-				target="_blank"
-				rel="noopener noreferrer">take a peek.</a
-			>
 		</li>
 	</ul>
 </section>

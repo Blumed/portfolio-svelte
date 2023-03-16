@@ -23,24 +23,21 @@
 			"alt": "Adam Biel holding sound equipment",
 			"technologies": [
 				"Scss",
-				"sveltekit"
+				"Sveltekit"
 			]
 		},
 		{
-			"type": "project",
-			"title": "Device Info",
-			"link": "https://deviceinfo.io",
-			"copy": "Device Info IO are a few tools I created to help fellow web developers and clients communicate about devices for accurete bug tracking. It started out as a bookmarklet and instructions on how to install them on all your devices. The company I currently work for relies heavily on browserstack. My bookmarklet is not easily installed in that environment, so I made a chrome extension that pulls the same data and copies it to your clipboard for easy use.",
-			"repo": "https://github.com/Blumed/deviceinfo",
-			"image": "https://images.cullanluther.com/deviceinfo-logo.webp",
-			"alt": "Device Info Logo",
+			"type": "site",
+			"title": "Make Bookmarklets",
+			"link": "https://make-bookmarklets.com",
+			"copy": "I created a bookmarklet generator with modern Javascript safeguards in place. Really enjoy making bookmarklets myself and wanted to make a site with a bit more design and ux applied than many of the current sites which do similar things.",
+			"repo": "https://github.com/Blumed/make-bookmarklets",
+			"image": "https://images.cullanluther.com/make-bookmarklets.webp",
+			"alt": "Make Bookmarklets",
 			"technologies": [
 				"Scss",
-				"jQuery",
-				"Jekyll",
-				"Sketch",
-				"Regex",
-				"Chrome Extension Api"
+				"Sveltekit",
+				"Figma"
 			]
 		}
 	]
