@@ -20,11 +20,11 @@
         },
         {
             "id": 2,
-            "url": "/snippets/gatsby-wordpress-graphql",
-            "title": "Gatsby Wordpress Graphql",
-            "copy": "A small list of snippets I find useful when using and debugging Gatsby Wordpress Graphql data.",
+            "url": "/snippets/visual-studio-code-snippets",
+            "title": "Visual Studio Code Snippets",
+            "copy": "A collection of VSCode snippets I have made.",
             "technologies": [
-                "Graphql"
+                "Json"
             ]
         }
     ]

@@ -1,6 +1,6 @@
 <script>
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	import Button from '$lib/components/buttons/button.svelte';
+import Button from "$lib/components/Button.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
 </script>
 
 <Seo title="Contact" pageCanonicalUrl="/contact" />
@@ -41,7 +41,7 @@
 					type="text"
 					placeholder="Enter Your Haiku's Here"
 					name="message"
-				/>
+				></textarea>
 				<label for="frmMessage">Message</label>
 			</div>
 		</div>
@@ -122,10 +122,14 @@
 		padding-left: 1.8rem;
 	}
 
-	input:focus,
+	input:focus {
+		outline: 0;
+		border-bottom: 1px solid #666;
+	}
 	textarea:focus {
 		outline: 0;
 		border-bottom: 1px solid #666;
+		border-left: 1px solid #666;
 	}
 
 	label {
@@ -147,6 +151,7 @@
 		text-overflow: ellipsis;
 		transform-origin: left bottom;
 		transform: translate(0, 2.125rem) scale(1.5);
+		pointer-events: none;
 	}
 	/**
 * By default, the placeholder should be transparent. Also, it should 

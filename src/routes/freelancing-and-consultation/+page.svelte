@@ -1,14 +1,15 @@
 <script>
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	import { differenceInYears } from 'date-fns';
-	import Button from '$lib/components/buttons/button.svelte';
-	const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
+import { differenceInYears } from "date-fns";
+import Button from "$lib/components/Button.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+
+const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
 </script>
 
 <Seo title="Freelancing and Consultation" pageCanonicalUrl="/freelancing-and-consultation" />
 
 <h1>Freelancing and Consultation</h1>
-<section class="decorative-background">
+<section class="clean-background">
 	<h2><strong>A little about myself</strong></h2>
 	<p>
 		I have been a developer for {workingYears} years. Most of my career I have been focused on large

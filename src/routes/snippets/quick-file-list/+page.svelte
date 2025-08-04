@@ -1,11 +1,10 @@
-<script lang="ts">
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	import Prism from '$lib/components/code-snippet/prisma-js.svelte';
-	import Comments from '$lib/components/comments/comments.svelte';
-	import fileList from './file-list';
+<script>
+import Prism from "$lib/components/code-snippet/prisma-js.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+import fileList from "./file-list";
 </script>
 
-<Seo title="Quick File List" pageCanonicalUrl="/snippet/quick-filter-list" />
+<Seo title="Quick File List" pageCanonicalUrl="/snippets/quick-filter-list" />
 
 <h1>Quick File List</h1>
 <p class="clean-background">
@@ -15,5 +14,3 @@
 	on already, but if you have some ideas I would love to hear about them.
 </p>
 <Prism language="bash" code={fileList} copyScript />
-
-<Comments />

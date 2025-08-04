@@ -1,8 +1,9 @@
 <script>
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	import { differenceInYears } from 'date-fns';
-	import Button from '$lib/components/buttons/button.svelte';
-	const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
+import { differenceInYears } from "date-fns";
+import Button from "$lib/components/Button.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+
+const workingYears = differenceInYears(new Date(), new Date(2009, 1, 1));
 </script>
 
 <Seo title="Home" pageCanonicalUrl="/" />

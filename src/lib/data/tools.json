@@ -11,11 +11,11 @@
         },
         {
             "id": 1,
-            "url": "/tools/beautify-json",
-            "title": "Beautify and Validate Json",
-            "copy": "Beautify or pretty print minified json",
+            "url": "/tools/responsive-breakpoint-bookmarklet",
+            "title": "Responsive Breakpoint Builder",
+            "copy": "Small bookmarklet I created to quickly see breakpoints. No need to open your developer console just to see the window size.",
             "technologies": [
-                "Json"
+                "Css Breakpoints"
             ]
         }
     ]

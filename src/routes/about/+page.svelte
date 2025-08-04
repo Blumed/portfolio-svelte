@@ -1,19 +1,20 @@
 <script lang="ts">
-	import Selfie from '$lib/components/svgeez/triangle-me.svelte';
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	import Button from '$lib/components/buttons/button.svelte';
-	let userClicked = false;
+import Button from "$lib/components/Button.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+import Selfie from "$lib/components/svgeez/triangle-me.svelte";
 
-	function removeFacade() {
-		userClicked = true;
-	}
+let userClicked = false;
+
+function removeFacade() {
+	userClicked = true;
+}
 </script>
 
 <Seo title="About" pageCanonicalUrl="/about" />
 
 <h1 class="page-title">About</h1>
 
-<Selfie />
+<!-- <Selfie /> -->
 
 <section class="personal-info">
 	<p>
@@ -65,10 +66,9 @@
 		</li>
 		<li>I love unix!</li>
 		<li>
-			Version Controlled with <a
-				href="https://github.com/Blumed/portfolio"
-				target="_blank"
-				rel="noopener noreferrer">git</a
+			I really enjoy making bookmarklets and browser extensions. I made this site for creating and prototyping <a
+				href="https://make-bookmarklets.com"
+				target="_blank">bookmarklets</a
 			>.
 		</li>
 	</ul>
@@ -79,7 +79,7 @@
 	</header>
 	<p>
 		One of the reasons I love web development is the ability to listen to music all day long. Here
-		are some bands and songs I am currently listening to. hirj
+		are some bands and songs I am currently listening to.
 	</p>
 	{#if !userClicked}
 		<div class="spotify-facade">

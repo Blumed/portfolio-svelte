@@ -23,7 +23,8 @@
 			"alt": "Adam Biel holding sound equipment",
 			"technologies": [
 				"Scss",
-				"Sveltekit"
+				"Sveltekit",
+				"Typescript"
 			]
 		},
 		{

@@ -1,91 +1,93 @@
 <script lang="ts">
-	import Bookmarklet from './bookmarklet.svelte';
-	import Button from '$lib/components/buttons/button.svelte';
-	import Seo from '$lib/components/seo/page-meta.svelte';
-	let toggleBookmarklet = false;
+/** biome-ignore-all lint/style/useConst: <explanation> */
+import Button from "$lib/components/Button.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+import Bookmarklet from "./bookmarklet.svelte";
 
-	let data = {
-		backgroundColors: {
-			container: '#000000',
-			xxl: '#999999',
-			xl: '#7d96ff',
-			lg: '#98ff7d',
-			md: '#ff837d',
-			sm: '#b57dff',
-			xs: '#ff7dd6'
-		},
-		colors: {
-			container: '#ffffff',
-			xxl: '#ffffff',
-			xl: '#ffffff',
-			lg: '#ffffff',
-			md: '#ffffff',
-			sm: '#ffffff',
-			xs: '#ffffff'
-		},
-		text: {
-			xxl: 'xxl',
-			xl: 'xl',
-			lg: 'lg',
-			md: 'md',
-			sm: 'sm',
-			xs: 'xs'
-		},
-		textColor: {
-			currentColor: '#ffffff'
-		},
-		breakpoint: {
-			xxl: 1400,
-			xl: 1200,
-			lg: 992,
-			md: 768,
-			sm: 576,
-			xs: 400
-		},
-		bookmarkletName: 'Drag Me To Your Bookmark Bar'
-	};
-	const bulma = () => {
-		data.text.xs = 'mobile';
-		data.breakpoint.xs = 768;
-		data.text.sm = 'tablet';
-		data.breakpoint.sm = 1023;
-		data.text.md = 'desktop';
-		data.breakpoint.md = 1215;
-		data.text.lg = 'widescreen';
-		data.breakpoint.lg = 1408;
-		data.text.xl = 'fullhd';
-		data.breakpoint.xl = 2816;
-		data.text.xxl = '';
-		data.breakpoint.xxl = 0;
-	};
-	const semanticUI = () => {
-		data.text.xs = 'mobile';
-		data.breakpoint.xs = 768;
-		data.text.sm = 'tablet';
-		data.breakpoint.sm = 991;
-		data.text.md = 'small monitor';
-		data.breakpoint.md = 1200;
-		data.text.lg = 'large monitor';
-		data.breakpoint.lg = 2000;
-		data.text.xl = '';
-		data.breakpoint.xl = 0;
-		data.text.xxl = '';
-		data.breakpoint.xxl = 0;
-	};
-	const bootstrap = () => {
-		data.text.xs = 'xs';
-		data.breakpoint.xs = 400;
-		data.text.sm = 'sm';
-		data.breakpoint.sm = 576;
-		data.text.md = 'md';
-		data.breakpoint.md = 768;
-		data.text.lg = 'lg';
-		data.breakpoint.lg = 992;
-		data.text.xl = 'xl';
-		data.breakpoint.xl = 1200;
-		data.text.xxl = 'xxl';
-		data.breakpoint.xxl = 1400;
-	};
+let toggleBookmarklet = false;
+
+const data = {
+	backgroundColors: {
+		container: "#000000",
+		xxl: "#999999",
+		xl: "#7d96ff",
+		lg: "#98ff7d",
+		md: "#ff837d",
+		sm: "#b57dff",
+		xs: "#ff7dd6",
+	},
+	colors: {
+		container: "#ffffff",
+		xxl: "#ffffff",
+		xl: "#ffffff",
+		lg: "#ffffff",
+		md: "#ffffff",
+		sm: "#ffffff",
+		xs: "#ffffff",
+	},
+	text: {
+		xxl: "xxl",
+		xl: "xl",
+		lg: "lg",
+		md: "md",
+		sm: "sm",
+		xs: "xs",
+	},
+	textColor: {
+		currentColor: "#ffffff",
+	},
+	breakpoint: {
+		xxl: 1400,
+		xl: 1200,
+		lg: 992,
+		md: 768,
+		sm: 576,
+		xs: 400,
+	},
+	bookmarkletName: "Drag Me To Your Bookmark Bar",
+};
+const bulma = () => {
+	data.text.xs = "mobile";
+	data.breakpoint.xs = 768;
+	data.text.sm = "tablet";
+	data.breakpoint.sm = 1023;
+	data.text.md = "desktop";
+	data.breakpoint.md = 1215;
+	data.text.lg = "widescreen";
+	data.breakpoint.lg = 1408;
+	data.text.xl = "fullhd";
+	data.breakpoint.xl = 2816;
+	data.text.xxl = "";
+	data.breakpoint.xxl = 0;
+};
+const semanticUI = () => {
+	data.text.xs = "mobile";
+	data.breakpoint.xs = 768;
+	data.text.sm = "tablet";
+	data.breakpoint.sm = 991;
+	data.text.md = "small monitor";
+	data.breakpoint.md = 1200;
+	data.text.lg = "large monitor";
+	data.breakpoint.lg = 2000;
+	data.text.xl = "";
+	data.breakpoint.xl = 0;
+	data.text.xxl = "";
+	data.breakpoint.xxl = 0;
+};
+const bootstrap = () => {
+	data.text.xs = "xs";
+	data.breakpoint.xs = 400;
+	data.text.sm = "sm";
+	data.breakpoint.sm = 576;
+	data.text.md = "md";
+	data.breakpoint.md = 768;
+	data.text.lg = "lg";
+	data.breakpoint.lg = 992;
+	data.text.xl = "xl";
+	data.breakpoint.xl = 1200;
+	data.text.xxl = "xxl";
+	data.breakpoint.xxl = 1400;
+};
 </script>
 
 <Seo
@@ -93,7 +95,7 @@
 	pageCanonicalUrl="/tools/responsive-breakpoint-bookmarklet"
 />
 <h1>Responsive Breakpoint Bookmarklet</h1>
-<p class="clean-inline">
+<p class="clean-background">
 	Have you ever wanted a quick view of your responsive breakpoints? This tool helps you see the
 	relationship between breakpoints for dialing in UI. Change the breakpoints to fit your needs.
 	Change text and color and make it your own.

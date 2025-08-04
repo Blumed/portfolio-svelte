@@ -1,21 +1,21 @@
 <script lang="ts">
-	export const pageName = '';
-	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
-	import data from '$lib/data/work.json';
-	import { scale } from 'svelte/transition';
-	import Seo from '$lib/components/seo/page-meta.svelte';
+export const pageName = "";
 
-	const dataAll = data.data.map((item) => item);
-	const projects = data.data.filter((item) => item.type === 'project');
-	const sites = data.data.filter((item) => item.type === 'site');
+import { scale } from "svelte/transition";
+import Seo from "$lib/components/seo/page-meta.svelte";
+import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabs/tabs";
+import data from "$lib/data/work.json";
+
+const dataAll = data.data.map((item) => item);
+const projects = data.data.filter((item) => item.type === "project");
+const sites = data.data.filter((item) => item.type === "site");
 </script>
 
 <Seo title="Work" pageCanonicalUrl="/work" />
 
 <h1 class="page-title">Work</h1>
 <p class="clean-background">
-	A few note worthy projects and sites I have created over the years. I am currently in the middle
-	of adding more to this page, so stay tuned.
+	There are many projects that no longer exist but here are few recent or currently active projects. Started working on websites in 2009 so the list of things that no longer exist is long.
 </p>
 <Tabs>
 	<TabList>

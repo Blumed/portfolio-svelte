@@ -1,18 +1,19 @@
 <script lang="ts">
-	import Seo from '$lib/components/seo/page-meta.svelte';
+	/** biome-ignore-all lint/style/useConst: <explanation> */
+import Button from "$lib/components/Button.svelte";
 
-	import Prism from '$lib/components/code-snippet/prisma-js.svelte';
-	import jsFacade from './js-facade';
-	import jsFacadeMinified from './js-facade-minified';
-	import gtmJsFacade from './gtm-js-facade';
-	import facadeConfig from './facade-config';
-	import Button from '$lib/components/buttons/button.svelte';
-	import Comments from '$lib/components/comments/comments.svelte';
-	let showJsFacade = false;
-	let showGTMJsFacade = false;
+import Prism from "$lib/components/code-snippet/prisma-js.svelte";
+import Seo from "$lib/components/seo/page-meta.svelte";
+import facadeConfig from "./facade-config";
+import gtmJsFacade from "./gtm-js-facade";
+import jsFacade from "./js-facade";
+import jsFacadeMinified from "./js-facade-minified";
+
+let showJsFacade = false;
+let showGTMJsFacade = false;
 </script>
 
-<Seo title="Intercom Facade" pageCanonicalUrl="/snippet/intercom-facade" />
+<Seo title="Intercom Facade" pageCanonicalUrl="/snippets/intercom-facade" />
 
 <h1>Pure JS Intercom Facade</h1>
 <p class="clean-background">
@@ -102,8 +103,6 @@
 		<Prism language="javascript" code={gtmJsFacade} id="jsGTMFacade" copyScript />
 	{/if}
 </section>
-
-<Comments />
 
 <style lang="scss">
 	:global(.code-example .button + .code-snippet-container) {

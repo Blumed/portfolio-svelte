@@ -1,72 +1,71 @@
 <script lang="ts">
-	import { onMount, afterUpdate } from 'svelte';
-	import { scale } from 'svelte/transition';
-	import './prism.css';
+import { onMount } from "svelte";
+import "./prism.css";
 
-	export let language: string;
-	export let code: string;
-	export let id: string | undefined = undefined;
-	export let copyScript: boolean | undefined = undefined;
-	export let minifiedScript: string | undefined = undefined;
+export let language: string;
+export let code: string;
+export const id: string | undefined = undefined;
+export const copyScript: boolean | undefined = undefined;
+export const minifiedScript: string | undefined = undefined;
 
-	onMount(() => {
-		let script = document.createElement('script');
-		script.src = '/prism-syntax.js';
-		document.head.append(script);
+onMount(() => {
+	const script = document.createElement("script");
+	script.src = "/prism-syntax.js";
+	document.head.append(script);
 
-		script.onload = () => {
-			let langJS = false;
-			let lang_script;
-			let lang_module;
+	script.onload = () => {
+		let langJS = false;
+		let lang_script;
+		let lang_module;
 
-			// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
-			// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
-			// Prisim can render it properly.
-			switch (language) {
-				case 'json':
-					lang_module = 'https://prismjs.com/components/prism-json.js';
-					langJS = true;
-					break;
+		// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
+		// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
+		// Prisim can render it properly.
+		switch (language) {
+			case "json":
+				lang_module = "https://prismjs.com/components/prism-json.js";
+				langJS = true;
+				break;
 
-				case 'bash':
-					lang_module = 'https://prismjs.com/components/prism-bash.js';
-					langJS = true;
-					break;
+			case "bash":
+				lang_module = "https://prismjs.com/components/prism-bash.js";
+				langJS = true;
+				break;
 
-				case 'css':
-					lang_module = 'https://prismjs.com/components/prism-css.js';
-					langJS = true;
-					break;
+			case "css":
+				lang_module = "https://prismjs.com/components/prism-css.js";
+				langJS = true;
+				break;
 
-				case 'js':
-					lang_module = 'https://prismjs.com/components/prism-javascript.js';
-					langJS = true;
-					break;
+			case "js":
+				lang_module = "https://prismjs.com/components/prism-javascript.js";
+				langJS = true;
+				break;
 
-				case 'html':
-					lang_module = 'https://prismjs.com/components/prism-html.js';
-					langJS = true;
-					break;
-				case 'graphql':
-					lang_module = 'https://prismjs.com/components/prism-graphql.js';
-					langJS = true;
-					break;
-			}
+			case "html":
+				lang_module = "https://prismjs.com/components/prism-html.js";
+				langJS = true;
+				break;
+			case "graphql":
+				lang_module = "https://prismjs.com/components/prism-graphql.js";
+				langJS = true;
+				break;
+		}
 
-			if (langJS == true) {
-				lang_script = document.createElement('script');
-				lang_script.src = lang_module;
-				lang_script.async = true;
-				document.head.append(lang_script);
+		if (langJS == true) {
+			lang_script = document.createElement("script");
+			lang_script.src = lang_module;
+			lang_script.async = true;
+			document.head.append(lang_script);
 
-				lang_script.onload = () => {
-					Prism.highlightAll();
-				};
-			} else {
+			lang_script.onload = () => {
 				Prism.highlightAll();
-			}
-		};
-	});
+			};
+		} else {
+			Prism.highlightAll();
+		}
+	};
+});
 </script>
 
 <div {id} class="code-snippet-container {$$restProps.class || ''}">
@@ -90,10 +89,6 @@
 	<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
 			>{code}</code
 		></pre>
-	<!-- {#key code}
-		<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
-				>{code}</code
-			></pre>{/key} -->
 </div>
 
 <style lang="scss">
@@ -108,7 +103,6 @@
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
 		border-bottom: 1px solid white;
-		//padding: 1rem 1rem 1rem 46px;
 		background-color: black;
 		display: flex;
 		+ pre {

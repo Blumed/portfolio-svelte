@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
-	import '$lib/styles/global.scss';
-	import CircleIcon from '$lib/components/svgeez/toggle-circle-icon.svelte';
-	import GithubIcon from '$lib/components/svgeez/icon-github.svelte';
-	import LinkedInIcon from '$lib/components/svgeez/icon-linkedIn.svelte';
-	import Switch from '$lib/components/theme/theme-switch.svelte';
 
-	let toggleNav = false;
-	const closeNav = () => (toggleNav = false);
+import { page } from "$app/stores";
+import "$lib/styles/global.scss";
+import GithubIcon from "$lib/components/svgeez/icon-github.svelte";
+import LinkedInIcon from "$lib/components/svgeez/icon-linkedIn.svelte";
+import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
+import Switch from "$lib/components/theme/theme-switch.svelte";
+
+let toggleNav = false;
+const closeNav = () => (toggleNav = false);
 </script>
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
@@ -48,15 +48,6 @@
 					class:active={$page.url.pathname === '/work'}
 					on:click={closeNav}
 					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
-				>
-			</li>
-			<li>
-				<a
-					class="sidebar-nav-item"
-					class:active={$page.url.pathname.includes('/snippets')}
-					on:click={closeNav}
-					href="/snippets"
-					>Snippets <CircleIcon toggle={$page.url.pathname.includes('/snippets')} /></a
 				>
 			</li>
 			<li>

@@ -8,8 +8,3 @@ node_modules
 !.env.example
 /.vscode
 .cert
-
-# Ignore files for PNPM, NPM and YARN
-pnpm-lock.yaml
-package-lock.json
-yarn.lock
