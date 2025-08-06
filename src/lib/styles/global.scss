@@ -113,12 +113,19 @@ p {
 	font-weight: 400;
 	color: inherit;
 	text-rendering: optimizeLegibility;
+	text-wrap: pretty;
 }
 
 h1,
 h2,
 h3 {
 	color: var(--pure-black);
+}
+
+::selection {
+	background: var(--accent-color);
+	color: black;
+	text-shadow: none;
 }
 
 p {

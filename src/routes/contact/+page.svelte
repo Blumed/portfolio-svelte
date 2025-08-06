@@ -19,6 +19,8 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 					name="name"
 					required
 					autocomplete="name"
+					minlength="3"
+  					pattern="^[a-zA-Z]+(?: [a-zA-Z]+)+$"
 				/>
 				<label for="frmName">Full Name</label>
 			</div>
@@ -31,6 +33,7 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 					name="_replyto"
 					required
 					autocomplete="email"
+					minlength="5"
 				/>
 				<label for="frmEmail">Email</label>
 			</div>
@@ -41,6 +44,8 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 					type="text"
 					placeholder="Enter Your Haiku's Here"
 					name="message"
+					required
+					pattern="/^\S.*(?:\r?\n\S.*)*$/u"
 				></textarea>
 				<label for="frmMessage">Message</label>
 			</div>
@@ -54,9 +59,6 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 <style lang="scss">
 	.decorative-background {
 		max-width: 586px;
-	}
-	h2 {
-		margin-bottom: 0;
 	}
 	form {
 		position: relative;
@@ -87,7 +89,7 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 		max-width: 24.3rem;
 		resize: none;
 	}
-
+input:user-invalid, textarea:user-invalid { border-color: crimson; }
 	.field {
 		display: flex;
 		flex-flow: column-reverse;
@@ -111,7 +113,7 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 	textarea {
 		font-size: 1.5em;
 		border: 0;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 4px solid #ccc;
 		font-family: inherit;
 		-webkit-appearance: none;
 		border-radius: 0;
@@ -124,12 +126,12 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 
 	input:focus {
 		outline: 0;
-		border-bottom: 1px solid #666;
+		border-bottom: 4px solid var(--primary-color);
 	}
 	textarea:focus {
 		outline: 0;
-		border-bottom: 1px solid #666;
-		border-left: 1px solid #666;
+		border-bottom: 4px solid var(--primary-color);
+		border-left: 4px solid var(--primary-color);
 	}
 
 	label {

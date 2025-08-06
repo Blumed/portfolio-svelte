@@ -1,20 +1,30 @@
-<script>
-	import { getContext } from 'svelte';
-	import { TABS } from './tabs.svelte';
+<script lang="ts">
+import type { Snippet } from "svelte";
+import { getContext } from "svelte";
+import { TABS } from './Tabs.svelte';
 
-	const tab = {};
-	const { registerTab, selectTab, selectedTab } = getContext(TABS);
+interface Props {
+	children: Snippet;
+}
 
-	registerTab(tab);
+const { registerTab, selectTab, selectedIndex }: { registerTab: () => number; selectTab: (index: number) => void; selectedIndex: () => number } = getContext(TABS);
+const { children }: Props = $props();
+const index = registerTab();
+
+const isSelected = $derived(selectedIndex() === index);
+
 </script>
 
 <button
 	type="button"
 	class="tab"
-	class:selected={$selectedTab === tab}
-	on:click={() => selectTab(tab)}
+	class:selected={isSelected}
+	onclick={() => {
+		console.log('Tab clicked, index:', index);
+		selectTab(index);
+	}}
 >
-	<slot />
+	{@render children?.()}
 </button>
 
 <style>

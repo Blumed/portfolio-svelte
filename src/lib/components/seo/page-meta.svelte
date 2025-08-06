@@ -1,23 +1,33 @@
-<script>
-	export let title = '';
-	export let pageCanonicalUrl = '';
-	export let pageMetaDescription = '';
+<script lang="ts">
+	interface Props {
+		title?: string;
+		pageCanonicalUrl?: string;
+		pageMetaDescription?: string;
+		seo?: {
+			title: string;
+			description: string;
+			canonical: string;
+		};
+	}
 
-	export const baseUrl = 'https://cullanluther.com';
-	export const ogImage = 'https://cullanluther.com/default-og-image.webp';
-	export const twitterImage = 'https://cullanluther.com/default-twitter-image.webp';
-	// export const relativeUrl = $page.path;
+	const baseUrl = 'https://cullanluther.com';
+	const ogImage = 'https://cullanluther.com/default-og-image.webp';
+	const twitterImage = 'https://cullanluther.com/default-twitter-image.webp';
 
-	export let seo = {
-		title: 'Cullan Luther · Web Developer',
-		description:
-			'Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.',
-		canonical: baseUrl
-	};
+	const {
+		title = '',
+		pageCanonicalUrl = '',
+		pageMetaDescription = '',
+		seo = {
+			title: 'Cullan Luther · Web Developer',
+			description: 'Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.',
+			canonical: baseUrl
+		}
+	}: Props = $props();
 
-	$: pageTitle = title !== '' ? `Cullan Luther · ${title}` : seo.title;
-	$: canonicalUrl = `${baseUrl}${pageCanonicalUrl}` ?? seo.canonical;
-	$: metaDescription = pageMetaDescription !== '' ? pageMetaDescription : seo.description;
+	const pageTitle = $derived(title !== '' ? `Cullan Luther · ${title}` : seo.title);
+	const canonicalUrl = $derived(`${baseUrl}${pageCanonicalUrl}` || seo.canonical);
+	const metaDescription = $derived(pageMetaDescription !== '' ? pageMetaDescription : seo.description);
 </script>
 
 <svelte:head>

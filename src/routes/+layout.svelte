@@ -1,14 +1,15 @@
 <script lang="ts">
-
-import { page } from "$app/stores";
-import "$lib/styles/global.scss";
+import { page } from '$app/stores';
 import GithubIcon from "$lib/components/svgeez/icon-github.svelte";
 import LinkedInIcon from "$lib/components/svgeez/icon-linkedIn.svelte";
 import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
-import Switch from "$lib/components/theme/theme-switch.svelte";
+import Switch from "$lib/components/Theme-switch.svelte";
+import "$lib/styles/global.scss";
 
-let toggleNav = false;
-const closeNav = () => (toggleNav = false);
+const { children } = $props();
+let toggleNav = $state(false);
+const closeNav = () => toggleNav = !toggleNav;
+const isHomePage = $derived($page.url.pathname === "/");
 </script>
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
@@ -29,7 +30,7 @@ const closeNav = () => (toggleNav = false);
 					class="sidebar-nav-item"
 					id="first-menu-item"
 					class:active={$page.url.pathname === '/'}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
 				>
 			</li>
@@ -37,7 +38,7 @@ const closeNav = () => (toggleNav = false);
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/about'}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/about"
 					>About <CircleIcon toggle={$page.url.pathname === '/about'} />
 				</a>
@@ -46,7 +47,7 @@ const closeNav = () => (toggleNav = false);
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/work'}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
 				>
 			</li>
@@ -54,7 +55,7 @@ const closeNav = () => (toggleNav = false);
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname.includes('/tools')}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/tools">Tools <CircleIcon toggle={$page.url.pathname.includes('/tools')} /></a
 				>
 			</li>
@@ -62,7 +63,7 @@ const closeNav = () => (toggleNav = false);
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname.includes('/freelancing-and-consultation')}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/freelancing-and-consultation"
 					>Freelancing <CircleIcon
 						toggle={$page.url.pathname.includes('/freelancing-and-consultation')}
@@ -73,7 +74,7 @@ const closeNav = () => (toggleNav = false);
 				<a
 					class="sidebar-nav-item"
 					class:active={$page.url.pathname === '/contact'}
-					on:click={closeNav}
+					onclick={closeNav}
 					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
 				>
 			</li>
@@ -101,14 +102,25 @@ const closeNav = () => (toggleNav = false);
 	<div class="sidebar-item">
 		<p>
 			&copy;2009-{new Date().getFullYear()} All rights reserved.
-			<a href="/privacy-policy" on:click={() => closeNav()}>Privacy Policy</a>
+			<a href="/privacy-policy" onclick={() => closeNav()}>Privacy Policy</a>
 		</p>
 	</div>
 </div>
 
 <main class={`${$page.url.pathname === '/' ? 'home' : $page.url.pathname} container`} id="main">
-	<slot />
+	{@render children()}
 </main>
+
+{#if isHomePage}
+	<picture>
+		<source srcSet="https://images.cullanluther.com/its-small-me.webp" media="(max-width: 768px)" />
+		<img
+			class="its-me"
+			src="https://images.cullanluther.com/its-me.webp"
+			alt="Cullan Luther Smiling At You"
+		/>
+	</picture>
+{/if}
 
 <label
 	for="sidebar-checkbox"
@@ -318,6 +330,18 @@ const closeNav = () => (toggleNav = false);
 			padding-bottom: 0;
 		}
 	}
+		.its-me {
+		all: unset;
+		max-width: 1128px;
+		width: auto;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		filter: grayscale(1);
+		display: block;
+		transform: translateX(50px);
+	}
 	@media (min-width: 30rem) {
 		.sidebar {
 			font-size: 0.75rem;
@@ -345,6 +369,13 @@ const closeNav = () => (toggleNav = false);
 		.sidebar-nav-item {
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
+		}
+	}
+
+	@media (max-width: 48rem) {
+		.its-me {
+			top: 30%;
+			right: -569px;
 		}
 	}
 </style>

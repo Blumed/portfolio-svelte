@@ -3,7 +3,7 @@ export const pageName = "";
 
 import { scale } from "svelte/transition";
 import Seo from "$lib/components/seo/page-meta.svelte";
-import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabs/tabs";
+import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
 import data from "$lib/data/work.json";
 
 const dataAll = data.data.map((item) => item);
@@ -24,8 +24,8 @@ const sites = data.data.filter((item) => item.type === "site");
 		<Tab>Sites</Tab>
 	</TabList>
 	<TabPanel>
-		{#each dataAll as all}
-			<section class="work" in:scale out:scale>
+		{#each dataAll as all (all.title)}
+			<section class="work">
 				<a href={all.link} target="_blank" rel="noopener noreferrer">
 					<figure>
 						<img loading="lazy" src={all.image} alt={all.alt} />
@@ -52,8 +52,8 @@ const sites = data.data.filter((item) => item.type === "site");
 		{/each}
 	</TabPanel>
 	<TabPanel>
-		{#each projects as project}
-			<section class="work" in:scale out:scale>
+		{#each projects as project (project.title)}
+			<section class="work">
 				<a href={project.link} target="_blank" rel="noopener noreferrer">
 					<figure>
 						<img loading="lazy" src={project.image} alt={project.alt} />
@@ -80,8 +80,8 @@ const sites = data.data.filter((item) => item.type === "site");
 	</TabPanel>
 
 	<TabPanel>
-		{#each sites as site}
-			<section class="work" in:scale out:scale>
+		{#each sites as site (site.title)}
+			<section class="work">
 				<a href={site.link} target="_blank" rel="noopener noreferrer">
 					<figure>
 						<img loading="lazy" src={site.image} alt={site.alt} />

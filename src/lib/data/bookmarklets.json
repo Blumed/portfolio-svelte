@@ -2,7 +2,7 @@
     "data": [
                 {
             "id": 0,
-            "url": "/tools/pixel-to-rem-converter",
+            "url": "/bookmarklets/pixel-to-rem-converter",
             "title": "Pixel to Rem Converter",
             "copy": "Quickly convert pixel to rems with a click of a bookmarklet",
             "technologies": [

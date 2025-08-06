@@ -1,22 +1,26 @@
 <script lang="ts">
-import { onMount } from "svelte";
 import "./prism.css";
 
-export let language: string;
-export let code: string;
-export const id: string | undefined = undefined;
-export const copyScript: boolean | undefined = undefined;
-export const minifiedScript: string | undefined = undefined;
+interface Props {
+	language: string;
+	code: string;
+	id?: string;
+	copyScript?: boolean;
+	minifiedScript?: string;
+	class?: string;
+}
 
-onMount(() => {
+const { language, code, id, copyScript, minifiedScript, class: className, ...restProps }: Props = $props();
+
+$effect(() => {
 	const script = document.createElement("script");
 	script.src = "/prism-syntax.js";
 	document.head.append(script);
 
 	script.onload = () => {
 		let langJS = false;
-		let lang_script;
-		let lang_module;
+		let lang_script: HTMLScriptElement;
+		let lang_module: string;
 
 		// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
 		// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
@@ -52,7 +56,7 @@ onMount(() => {
 				break;
 		}
 
-		if (langJS == true) {
+		if (langJS === true) {
 			lang_script = document.createElement("script");
 			lang_script.src = lang_module;
 			lang_script.async = true;
@@ -68,20 +72,20 @@ onMount(() => {
 });
 </script>
 
-<div {id} class="code-snippet-container {$$restProps.class || ''}">
+<div {id} class="code-snippet-container {className || ''}" {...restProps}>
 	<div class="code-snippet-actions">
 		{#if copyScript}
 			<button
 				type="button"
 				class="button-code-snippet"
-				on:click={() => navigator.clipboard.writeText(code)}>Copy Script</button
+				onclick={() => navigator.clipboard.writeText(code)}>Copy Script</button
 			>
 		{/if}
 		{#if minifiedScript}
 			<button
 				type="button"
 				class="button-code-snippet"
-				on:click={() => navigator.clipboard.writeText(minifiedScript)}>Copy Minified</button
+				onclick={() => navigator.clipboard.writeText(minifiedScript)}>Copy Minified</button
 			>
 		{/if}
 		<span class="code-snippet-language">{language}</span>

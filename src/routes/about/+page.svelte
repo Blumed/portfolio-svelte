@@ -1,7 +1,6 @@
 <script lang="ts">
 import Button from "$lib/components/Button.svelte";
 import Seo from "$lib/components/seo/page-meta.svelte";
-import Selfie from "$lib/components/svgeez/triangle-me.svelte";
 
 let userClicked = false;
 
@@ -34,7 +33,7 @@ function removeFacade() {
 	<ul class="list-item-circle">
 		<li>
 			This site fist launched in 2011. Originally it was an artisanal html, css, and jQuery site. A
-			few other formations occurred using Wordpress, Jekyll, and now Sveltekit.
+			few other formations occurred using Wordpress, Jekyll, Gatsby, and now Sveltekit.
 		</li>
 		<li>
 			My IDE of choice is <a
