@@ -1,28 +1,29 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { vibrateSmall } from '$lib/constaints';
+	import { browser } from "$app/environment";
+	import { vibrateSmall } from "$lib/constaints";
 
 	let darkMode = true;
 
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;
 		vibrateSmall();
-		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+		localStorage.setItem("theme", darkMode ? "dark" : "light");
 
 		darkMode
-			? document.documentElement.classList.add('dark')
-			: document.documentElement.classList.remove('dark');
+			? document.documentElement.classList.add("dark")
+			: document.documentElement.classList.remove("dark");
 	}
 
 	if (browser) {
 		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			localStorage.theme === "dark" ||
+			(!("theme" in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
 		) {
-			document.documentElement.classList.add('dark');
+			document.documentElement.classList.add("dark");
 			darkMode = true;
 		} else {
-			document.documentElement.classList.remove('dark');
+			document.documentElement.classList.remove("dark");
 			darkMode = false;
 		}
 	}
@@ -30,7 +31,12 @@
 
 <div class="theme-control">
 	<label for="theme-toggle">Dark Mode</label>
-	<input checked={darkMode} on:click={handleSwitchDarkMode} type="checkbox" id="theme-toggle" />
+	<input
+		checked={darkMode}
+		on:click={handleSwitchDarkMode}
+		type="checkbox"
+		id="theme-toggle"
+	/>
 </div>
 
 <style lang="scss">
@@ -51,20 +57,20 @@
 			cursor: pointer;
 			outline: 1px solid var(--pure-white);
 			&:before {
-				content: '';
+				content: "";
 				width: 18px;
 				height: 18px;
 				border-radius: 50%;
 				background-color: var(--pure-white);
 				position: absolute;
 				top: 0;
-				left: -1px;
+				left: 0px;
 				transition: 0.5s;
 			}
 			&:checked {
 				background: transparent;
 				&:before {
-					transform: translateX(100%);
+					transform: translateX(calc(100% + 2px));
 					background: var(--pure-white);
 				}
 			}

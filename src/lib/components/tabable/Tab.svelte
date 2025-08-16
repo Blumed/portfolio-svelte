@@ -1,18 +1,25 @@
 <script lang="ts">
-import type { Snippet } from "svelte";
-import { getContext } from "svelte";
-import { TABS } from './Tabs.svelte';
+	import type { Snippet } from "svelte";
+	import { getContext } from "svelte";
+	import { TABS } from "./Tabs.svelte";
 
-interface Props {
-	children: Snippet;
-}
+	interface Props {
+		children: Snippet;
+	}
 
-const { registerTab, selectTab, selectedIndex }: { registerTab: () => number; selectTab: (index: number) => void; selectedIndex: () => number } = getContext(TABS);
-const { children }: Props = $props();
-const index = registerTab();
+	const {
+		registerTab,
+		selectTab,
+		selectedIndex,
+	}: {
+		registerTab: () => number;
+		selectTab: (index: number) => void;
+		selectedIndex: () => number;
+	} = getContext(TABS);
+	const { children }: Props = $props();
+	const index = registerTab();
 
-const isSelected = $derived(selectedIndex() === index);
-
+	const isSelected = $derived(selectedIndex() === index);
 </script>
 
 <button
@@ -20,7 +27,6 @@ const isSelected = $derived(selectedIndex() === index);
 	class="tab"
 	class:selected={isSelected}
 	onclick={() => {
-		console.log('Tab clicked, index:', index);
 		selectTab(index);
 	}}
 >
@@ -44,15 +50,20 @@ const isSelected = $derived(selectedIndex() === index);
 		position: relative;
 		font-size: 1rem;
 		padding: 0.5rem 0.6rem;
-		outline: 0;
 	}
 	.tab.selected {
 		transition: all 0.2s ease-in-out;
 		border: 2px solid var(--sidebar-background);
 		position: relative;
+		cursor: inherit;
+	}
+
+	.tab:not(.selected):hover {
+		font-weight: bold;
+		text-rendering: geometricPrecision;
 	}
 	.tab.selected:after {
-		content: '';
+		content: "";
 		width: 100%;
 		height: 6px;
 		background: var(--pure-white);

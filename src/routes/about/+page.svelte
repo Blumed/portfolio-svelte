@@ -1,12 +1,12 @@
 <script lang="ts">
-import Button from "$lib/components/Button.svelte";
-import Seo from "$lib/components/seo/page-meta.svelte";
+	import Button from "$lib/components/Button.svelte";
+	import Seo from "$lib/components/seo/page-meta.svelte";
 
-let userClicked = false;
+	let userClicked = $state(false);
 
-function removeFacade() {
-	userClicked = true;
-}
+	function removeFacade() {
+		userClicked = !userClicked;
+	}
 </script>
 
 <Seo title="About" pageCanonicalUrl="/about" />
@@ -17,13 +17,21 @@ function removeFacade() {
 
 <section class="personal-info">
 	<p>
-		Hey there! Thanks for stopping by. Allow me to tell you a little about myself. Born and raised
-		in Minneapolis, Minnesota. Besides coding I like to <a
-			href="https://www.instagram.com/p/dbNhDmFNgX/">skateboard</a
+		Hey there! Thanks for stopping by. Allow me to tell you a little about
+		myself. Born and raised in Minneapolis, Minnesota. Besides coding I like
+		to <a
+			href="https://www.instagram.com/p/dbNhDmFNgX/"
+			target="_blank"
+			rel="noopener noreferrer">skateboard</a
 		>
 		and
-		<a href="https://youtu.be/qbZn07rZJ88">bike</a> everywhere all year round. Main purpose of this site
-		is to organize my thoughts about web development. Show my work and to flex my self expression muscle.
+		<a
+			href="https://youtu.be/qbZn07rZJ88"
+			target="_blank"
+			rel="noopener noreferrer">bike</a
+		> everywhere all year round. Main purpose of this site is to organize my
+		thoughts about web development. Show my work and to flex my self expression
+		muscle.
 	</p>
 </section>
 <section class="decorative-background">
@@ -32,8 +40,9 @@ function removeFacade() {
 	</header>
 	<ul class="list-item-circle">
 		<li>
-			This site fist launched in 2011. Originally it was an artisanal html, css, and jQuery site. A
-			few other formations occurred using Wordpress, Jekyll, Gatsby, and now Sveltekit.
+			This site fist launched in 2011. Originally it was an artisanal
+			html, css, and jQuery site. A few other formations occurred using
+			Wordpress, Jekyll, Gatsby, and now Sveltekit.
 		</li>
 		<li>
 			My IDE of choice is <a
@@ -41,8 +50,10 @@ function removeFacade() {
 				target="_blank"
 				rel="noopener noreferrer">Visual Studio Code</a
 			>. Before VS Code I was a
-			<a href="http://www.sublimetext.com/" target="_blank" rel="noopener noreferrer"
-				>Sublime Text</a
+			<a
+				href="http://www.sublimetext.com/"
+				target="_blank"
+				rel="noopener noreferrer">Sublime Text</a
 			> guy.
 		</li>
 		<li>
@@ -59,13 +70,16 @@ function removeFacade() {
 				rel="noopener noreferrer">Media Temple</a
 			>
 			forever but now I enjoy the pain of
-			<a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer"
-				>Amazon Web Services</a
+			<a
+				href="https://aws.amazon.com/"
+				target="_blank"
+				rel="noopener noreferrer">Amazon Web Services</a
 			>. And no I didn't use Amplify. Cobbled everything together myself.
 		</li>
 		<li>I love unix!</li>
 		<li>
-			I really enjoy making bookmarklets and browser extensions. I made this site for creating and prototyping <a
+			I really enjoy making bookmarklets and browser extensions. I made
+			this site for creating and prototyping <a
 				href="https://make-bookmarklets.com"
 				target="_blank">bookmarklets</a
 			>.
@@ -77,8 +91,9 @@ function removeFacade() {
 		<h2>Music</h2>
 	</header>
 	<p>
-		One of the reasons I love web development is the ability to listen to music all day long. Here
-		are some bands and songs I am currently listening to.
+		One of the reasons I love web development is the ability to listen to
+		music all day long. Here are some bands and songs I am currently
+		listening to.
 	</p>
 	{#if !userClicked}
 		<div class="spotify-facade">
@@ -88,7 +103,11 @@ function removeFacade() {
 				buttonText="Click to Load"
 				handleClick={removeFacade}
 			/>
-			<img id="spotify" src="https://images.cullanluther.com/spotify-facade.webp" alt="" />
+			<img
+				id="spotify"
+				src="https://images.cullanluther.com/spotify-facade.webp"
+				alt=""
+			/>
 		</div>
 	{/if}
 	{#if userClicked}
@@ -102,7 +121,7 @@ function removeFacade() {
 			frameBorder="0"
 			allowfullscreen={true}
 			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-		/>
+		></iframe>
 	{/if}
 </section>
 
@@ -122,14 +141,14 @@ function removeFacade() {
 		height: 380px;
 		overflow: hidden;
 		&::after {
-			content: '';
+			content: "";
 			position: absolute;
 			z-index: 5;
 			right: 0;
 			height: 379px;
 			width: 66px;
 			top: 0;
-			background-image: url('https://images.cullanluther.com/spotify-facade-side.webp');
+			background-image: url("https://images.cullanluther.com/spotify-facade-side.webp");
 		}
 
 		img {

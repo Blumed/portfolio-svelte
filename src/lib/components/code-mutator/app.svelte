@@ -1,46 +1,48 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { slide } from 'svelte/transition';
-	import Prism from '$lib/components/code-snippet/prisma-js.svelte';
+	import { slide } from "svelte/transition";
+	import { browser } from "$app/environment";
+	import Prism from "$lib/components/code-snippet/prisma-js.svelte";
 
 	// Application Settings
 	let auto = true;
 	export let language: string;
 	export let processType: string;
-	let codeIn = '';
-	let codeOut = '';
+	let codeIn = "";
+	let codeOut = "";
 	let isValid = true;
-	let errorMessage = '';
+	let errorMessage = "";
 	let codeInSize = 0;
 	let codeOutSize = 0;
 	let codeSavings = 0;
 	let toggleCodeOutput = false;
-	let sizeName = 'bytes';
+	let sizeName = "bytes";
 	let codeOutOneLine = false;
 	let dialog: any;
 
 	function defaultValues() {
 		isValid = true;
-		errorMessage = '';
+		errorMessage = "";
 		codeInSize = 0;
 		codeOutSize = 0;
 		codeSavings = 0;
-		codeOut = '';
-		codeIn = '';
+		codeOut = "";
+		codeIn = "";
 		codeOutOneLine = false;
 	}
 
 	function server(processType: string) {
-		if (language === 'json' && processType === 'minify') return minifyJson();
-		if (language === 'json' && processType === 'beautify') return beautifyJson();
+		if (language === "json" && processType === "minify")
+			return minifyJson();
+		if (language === "json" && processType === "beautify")
+			return beautifyJson();
 	}
 
 	function validateJson(jsonString: string) {
 		try {
 			const json = JSON.parse(jsonString);
-			if (json && typeof json === 'object') {
+			if (json && typeof json === "object") {
 				isValid = true;
-				errorMessage = '';
+				errorMessage = "";
 				return json;
 			}
 		} catch (e: any) {
@@ -81,34 +83,34 @@
 		let kilobytes;
 		if (bytes > 1000) {
 			kilobytes = bytes / 1024;
-			sizeName = 'kilobytes';
+			sizeName = "kilobytes";
 			return `${(Math.round(kilobytes * 10) / 10).toFixed(1)}`;
 		}
-		sizeName = 'bytes';
+		sizeName = "bytes";
 		return `${bytes}`;
 	}
 
 	function toggleDialog(state: boolean) {
 		if (browser) {
-			dialog = document.getElementById('code-output-fullscreen');
+			dialog = document.getElementById("code-output-fullscreen");
 			state === true ? dialog.showModal() : dialog?.close();
 		}
 	}
 
 	function storeAutoRun() {
 		auto = !auto;
-		localStorage.setItem('autoProcess', auto.toString());
+		localStorage.setItem("autoProcess", auto.toString());
 	}
 
 	function manualMinify() {
-		if (codeIn.length > 0) server('minify');
+		if (codeIn.length > 0) server("minify");
 	}
 	function manualBeautify() {
-		if (codeIn.length > 0) server('beautify');
+		if (codeIn.length > 0) server("beautify");
 	}
 
 	if (browser) {
-		localStorage.autoProcess === 'false' ? (auto = false) : (auto = true);
+		localStorage.autoProcess === "false" ? (auto = false) : (auto = true);
 	}
 
 	// Allow code to process when auto is checked
@@ -122,14 +124,18 @@
 <section class="app">
 	<h1 class="title">{processType} {language}</h1>
 	<p class="copy">
-		100% client side json minification. Goal was to create this common web tool for myself so I know
-		for a fact none my code is stored and harvested for sensitive data. I don't have a server to
-		even process your code, so your code is safe. Check the network if you want to see for yourself.
+		100% client side json minification. Goal was to create this common web
+		tool for myself so I know for a fact none my code is stored and
+		harvested for sensitive data. I don't have a server to even process your
+		code, so your code is safe. Check the network if you want to see for
+		yourself.
 	</p>
 	<div class="dashboard">
 		<div class="code-controls">
 			<div class="field">
-				<label class="label-code-auto-run" for="code-auto-run">Auto {processType}</label>
+				<label class="label-code-auto-run" for="code-auto-run"
+					>Auto {processType}</label
+				>
 				<input
 					class="input-code-auto-run"
 					type="checkbox"
@@ -141,14 +147,20 @@
 		</div>
 		<div class="code-controls-more">
 			<div class="button-group">
-				<button type="button" class="button-action" on:click={manualMinify}
-					><span>minify</span></button
+				<button
+					type="button"
+					class="button-action"
+					on:click={manualMinify}><span>minify</span></button
 				>
-				<button type="button" class="button-action" on:click={manualBeautify}
-					><span>beautify</span></button
+				<button
+					type="button"
+					class="button-action"
+					on:click={manualBeautify}><span>beautify</span></button
 				>
-				<button type="button" class="button-reset" on:click={defaultValues}
-					><span>reset</span></button
+				<button
+					type="button"
+					class="button-reset"
+					on:click={defaultValues}><span>reset</span></button
 				>
 			</div>
 		</div>
@@ -158,8 +170,12 @@
 			<span class="savings">{processBytes(codeSavings)}</span>
 			{sizeName}
 			<div class="code-sizes">
-				<span class="code-size-label">Before: <span>{processBytes(codeInSize)}</span></span>
-				<span class="code-size-label">After: <span>{processBytes(codeOutSize)}</span></span>
+				<span class="code-size-label"
+					>Before: <span>{processBytes(codeInSize)}</span></span
+				>
+				<span class="code-size-label"
+					>After: <span>{processBytes(codeOutSize)}</span></span
+				>
 			</div>
 		</div>
 	</div>
@@ -172,14 +188,15 @@
 			id="code-input"
 			placeholder="Right Here"
 			bind:value={codeIn}
-		/>
+		></textarea>
 		<label class="label-code-input" for="code-input">Paste Code Here</label>
 	</div>
-	{#if codeOut !== 'false' && codeOut.length !== 0 && errorMessage == ''}
+	{#if codeOut !== "false" && codeOut.length !== 0 && errorMessage == ""}
 		<button
 			type="button"
 			class="button-toggle-output"
 			class:is-toggled={!toggleCodeOutput}
+			aria-label="Copy Code"
 			on:click={() => (toggleCodeOutput = !toggleCodeOutput)}
 		>
 			<svg
@@ -199,24 +216,41 @@
 			</svg>
 		</button>
 	{/if}
-	{#if codeOut !== 'false' && codeOut.length !== 0 && errorMessage == '' && toggleCodeOutput}
-		<div class="code-output-container" class:is-minified={codeOutOneLine} in:slide out:slide>
-			<label class="label-code-output" class:sr-only={codeOut.length !== 0} for="code-output"
-				>Your {language}</label
+	{#if codeOut !== "false" && codeOut.length !== 0 && errorMessage == "" && toggleCodeOutput}
+		<div
+			class="code-output-container"
+			class:is-minified={codeOutOneLine}
+			in:slide
+			out:slide
+		>
+			<label
+				class="label-code-output"
+				class:sr-only={codeOut.length !== 0}
+				for="code-output">Your {language}</label
 			>
 
 			<div class="field-control">
 				{#key codeOut}
-					<Prism language="json" code={codeOut} class="textarea-code-output" id="code-output" />
+					<Prism
+						language="json"
+						code={codeOut}
+						class="textarea-code-output"
+						id="code-output"
+					/>
 				{/key}
 			</div>
 			<div class="code-output-controls">
 				<button
 					type="button"
 					class="button-copy"
-					on:click={() => navigator.clipboard.writeText(codeOut)}>Copy</button
+					on:click={() => navigator.clipboard.writeText(codeOut)}
+					>Copy</button
 				>
-				<button type="button" class="button-fullscreen" on:click={() => toggleDialog(true)}
+				<button
+					type="button"
+					class="button-fullscreen"
+					aria-label="Copy Code"
+					on:click={() => toggleDialog(true)}
 					><svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="icon icon-tabler icon-tabler-arrows-maximize"
@@ -243,7 +277,7 @@
 			</div>
 		</div>
 	{/if}
-	{#if errorMessage !== ''}
+	{#if errorMessage !== ""}
 		<div class="error-message" in:slide out:slide>
 			<span>{errorMessage}</span>
 		</div>
@@ -270,7 +304,12 @@
 		</svg><span class="sr-only">Close</span></button
 	>
 	{#key codeOut}
-		<Prism language="json" code={codeOut} class="textarea-code-output" id="code-output" />
+		<Prism
+			language="json"
+			code={codeOut}
+			class="textarea-code-output"
+			id="code-output"
+		/>
 	{/key}
 </dialog>
 
@@ -432,10 +471,9 @@
 		cursor: text;
 		max-width: 66.66%;
 		white-space: nowrap;
-		//overflow: hidden;
 		text-overflow: ellipsis;
 		transform-origin: left bottom;
-		transform: translate(0, 2.525rem) scale(1.5);
+		transform: translate(0, 2.525rem) scale(1);
 	}
 
 	::-webkit-input-placeholder {
@@ -451,7 +489,6 @@
 	textarea:focus + label {
 		transform: translate(0, 0) scale(1);
 		opacity: 0;
-		//cursor: pointer;
 	}
 
 	.textarea-code-input {

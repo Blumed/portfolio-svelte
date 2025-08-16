@@ -20,7 +20,8 @@
 		"date-fns": "^2.30.0",
 		"svelte": "^5.37.2",
 		"svelte-sitemap": "^2.7.1",
-		"vite": "^6.3.5"
+		"vite": "^6.3.5",
+		"vite-plugin-devtools-json": "^1.0.0"
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.8"

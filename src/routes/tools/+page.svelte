@@ -1,5 +1,5 @@
 <script lang="ts">
-import CardsList from "$lib/components/cards/list.svelte";
+import CardsList from "$lib/components/Cards.svelte";
 import Seo from "$lib/components/seo/page-meta.svelte";
 import bookmarklets from "$lib/data/bookmarklets.json";
 import snippets from "$lib/data/snippets.json";

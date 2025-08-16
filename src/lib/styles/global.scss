@@ -60,10 +60,6 @@ body {
 		to {
 			transform: rotate(311deg);
 		}
-
-		// to {
-		// 	transform: rotate(-49deg);
-		// }
 	}
 }
 
@@ -93,7 +89,10 @@ body {
 	white-space: nowrap !important;
 }
 
-// Dark Mode
+/*
+	Dark Mode
+*/
+
 html.dark body {
 	background-color: var(--pure-white);
 	color: white;
@@ -129,7 +128,7 @@ h3 {
 }
 
 p {
-	line-height: 2;
+	line-height: 1.8;
 }
 
 a {
@@ -189,9 +188,9 @@ ul {
 	}
 }
 
-button:focus:not(:focus-visible) {
-	outline: none;
-}
+// button:focus:not(:focus-visible) {
+// 	outline: none;
+// }
 
 @media (min-width: 720px) {
 	h1 {

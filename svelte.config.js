@@ -8,6 +8,12 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter(),
 	},
+	vitePlugin: {
+		inspector: {
+			toggleKeyCombo: "control-shift-S",
+			toggleButtonPos: "top-right",
+		}
+	}
 };
 
 export default config;

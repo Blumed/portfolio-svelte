@@ -1,81 +1,180 @@
 <script lang="ts">
-import { page } from '$app/stores';
-import GithubIcon from "$lib/components/svgeez/icon-github.svelte";
-import LinkedInIcon from "$lib/components/svgeez/icon-linkedIn.svelte";
-import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
-import Switch from "$lib/components/Theme-switch.svelte";
-import "$lib/styles/global.scss";
+	import { page } from "$app/stores";
+	import GithubIcon from "$lib/components/svgeez/icon-github.svelte";
+	import LinkedInIcon from "$lib/components/svgeez/icon-linkedIn.svelte";
+	import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
+	import Switch from "$lib/components/Theme-switch.svelte";
+	import "$lib/styles/global.scss";
 
-const { children } = $props();
-let toggleNav = $state(false);
-const closeNav = () => toggleNav = !toggleNav;
-const isHomePage = $derived($page.url.pathname === "/");
+	const { children } = $props();
+	let isOpen = $state(false);
+	const toggleSidebar = () => {
+		console.log(
+			"%c isOpen: ",
+			"color:#fff;background-color:#2a8712;",
+			isOpen,
+			"vscode://file/Users/cullanluther/zzz-meh-projects/portfolio-svelte/src/routes/+layout.svelte:13",
+		); //temp.console
+
+		isOpen = !isOpen;
+	};
+	const isHomePage = $derived($page.url.pathname === "/");
+	function openSidebar() {
+		isOpen = true;
+	}
+
+	function closeSidebar() {
+		isOpen = false;
+	}
+
+	function focusTrap(node) {
+		let focusableElements = [];
+		let firstElement, lastElement;
+
+		function updateFocusableElements() {
+			focusableElements = Array.from(
+				node.querySelectorAll(
+					'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+				),
+			).filter((el) => !el.hasAttribute("disabled"));
+			firstElement = focusableElements[0];
+			lastElement = focusableElements[focusableElements.length - 1];
+		}
+
+		function handleKeydown(event) {
+			if (!isOpen || event.key !== "Tab") return;
+
+			updateFocusableElements();
+			if (focusableElements.length === 0) return;
+
+			if (event.shiftKey) {
+				if (document.activeElement === firstElement) {
+					event.preventDefault();
+					lastElement.focus();
+				}
+			} else {
+				if (document.activeElement === lastElement) {
+					event.preventDefault();
+					firstElement.focus();
+				}
+			}
+		}
+
+		node.addEventListener("keydown", handleKeydown);
+
+		return {
+			destroy() {
+				node.removeEventListener("keydown", handleKeydown);
+			},
+		};
+	}
 </script>
+
+<svelte:window on:keydown={(e) => e.key === "Escape" && closeSidebar()} />
 
 <a href="#main" class="skip-link sr-only">Skip to main content</a>
 
-<input
-	type="checkbox"
-	class="sidebar-checkbox"
-	id="sidebar-checkbox"
-	aria-hidden="true"
-	bind:checked={toggleNav}
-/>
-
-<div class="sidebar" id="sidebar">
+<div class="sidebar" id="sidebar" use:focusTrap class:active={isOpen}>
+	<button
+		type="button"
+		class="sidebar-toggle triangle"
+		title="menu"
+		aria-label="Enter and Exit Navigation"
+		onclick={() => (isOpen = !isOpen)}
+	>
+		<CircleIcon
+			class="regular-old-circle"
+			toggle={isOpen}
+			style="pointer-events: none;"
+		/>
+	</button>
 	<nav class="sidebar-nav">
 		<ul class="sidebar-items">
 			<li>
 				<a
 					class="sidebar-nav-item"
 					id="first-menu-item"
-					class:active={$page.url.pathname === '/'}
-					onclick={closeNav}
-					href="/">Home <CircleIcon toggle={$page.url.pathname === '/'} /></a
+					class:active={$page.url.pathname === "/"}
+					onclick={closeSidebar}
+					href="/"
+					tabindex={isOpen ? 0 : -1}
+					>Home <CircleIcon toggle={$page.url.pathname === "/"} /></a
 				>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.url.pathname === '/about'}
-					onclick={closeNav}
+					class:active={$page.url.pathname === "/about"}
+					onclick={closeSidebar}
 					href="/about"
-					>About <CircleIcon toggle={$page.url.pathname === '/about'} />
+					tabindex={isOpen ? 0 : -1}
+					>About <CircleIcon
+						toggle={$page.url.pathname === "/about"}
+					/>
 				</a>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.url.pathname === '/work'}
-					onclick={closeNav}
-					href="/work">Work <CircleIcon toggle={$page.url.pathname === '/work'} /></a
-				>
-			</li>
-			<li>
-				<a
-					class="sidebar-nav-item"
-					class:active={$page.url.pathname.includes('/tools')}
-					onclick={closeNav}
-					href="/tools">Tools <CircleIcon toggle={$page.url.pathname.includes('/tools')} /></a
-				>
-			</li>
-			<li>
-				<a
-					class="sidebar-nav-item"
-					class:active={$page.url.pathname.includes('/freelancing-and-consultation')}
-					onclick={closeNav}
-					href="/freelancing-and-consultation"
-					>Freelancing <CircleIcon
-						toggle={$page.url.pathname.includes('/freelancing-and-consultation')}
+					class:active={$page.url.pathname === "/work"}
+					onclick={closeSidebar}
+					href="/work"
+					tabindex={isOpen ? 0 : -1}
+					>Work <CircleIcon
+						toggle={$page.url.pathname === "/work"}
 					/></a
 				>
 			</li>
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.url.pathname === '/contact'}
-					onclick={closeNav}
-					href="/contact">Contact <CircleIcon toggle={$page.url.pathname === '/contact'} /></a
+					class:active={$page.url.pathname.includes("/tools")}
+					onclick={closeSidebar}
+					href="/tools"
+					tabindex={isOpen ? 0 : -1}
+					>Tools <CircleIcon
+						toggle={$page.url.pathname.includes("/tools")}
+					/></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
+					class:active={$page.url.pathname.includes("/art")}
+					onclick={closeSidebar}
+					href="/art"
+					tabindex={isOpen ? 0 : -1}
+					>Art <CircleIcon
+						toggle={$page.url.pathname.includes("/art")}
+					/></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
+					class:active={$page.url.pathname.includes(
+						"/freelancing-and-consultation",
+					)}
+					onclick={closeSidebar}
+					href="/freelancing-and-consultation"
+					tabindex={isOpen ? 0 : -1}
+					>Freelancing <CircleIcon
+						toggle={$page.url.pathname.includes(
+							"/freelancing-and-consultation",
+						)}
+					/></a
+				>
+			</li>
+			<li>
+				<a
+					class="sidebar-nav-item"
+					class:active={$page.url.pathname === "/contact"}
+					onclick={closeSidebar}
+					href="/contact"
+					tabindex={isOpen ? 0 : -1}
+					>Contact <CircleIcon
+						toggle={$page.url.pathname === "/contact"}
+					/></a
 				>
 			</li>
 		</ul>
@@ -86,6 +185,7 @@ const isHomePage = $derived($page.url.pathname === "/");
 				href="https://github.com/blumed"
 				target="_blank"
 				rel="noopener noreferrer"
+				tabindex={isOpen ? 0 : -1}
 				><GithubIcon />
 			</a>
 			<a
@@ -93,6 +193,7 @@ const isHomePage = $derived($page.url.pathname === "/");
 				href="https://www.linkedin.com/in/cullan-luther-55812234"
 				target="_blank"
 				rel="noopener noreferrer"
+				tabindex={isOpen ? 0 : -1}
 				><LinkedInIcon />
 			</a>
 		</div>
@@ -102,18 +203,29 @@ const isHomePage = $derived($page.url.pathname === "/");
 	<div class="sidebar-item">
 		<p>
 			&copy;2009-{new Date().getFullYear()} All rights reserved.
-			<a href="/privacy-policy" onclick={() => closeNav()}>Privacy Policy</a>
+			<a
+				href="/privacy-policy"
+				onclick={closeSidebar}
+				tabindex={isOpen ? 0 : -1}>Privacy Policy</a
+			>
 		</p>
 	</div>
 </div>
 
-<main class={`${$page.url.pathname === '/' ? 'home' : $page.url.pathname} container`} id="main">
+<main
+	class={`${$page.url.pathname === "/" ? "home" : $page.url.pathname.replace(/\//g, "-")} container`}
+	id="main"
+	style={isOpen ? "transform: translateX(14rem);" : ""}
+>
 	{@render children()}
 </main>
 
 {#if isHomePage}
 	<picture>
-		<source srcSet="https://images.cullanluther.com/its-small-me.webp" media="(max-width: 768px)" />
+		<source
+			srcSet="https://images.cullanluther.com/its-small-me.webp"
+			media="(max-width: 768px)"
+		/>
 		<img
 			class="its-me"
 			src="https://images.cullanluther.com/its-me.webp"
@@ -122,15 +234,6 @@ const isHomePage = $derived($page.url.pathname === "/");
 	</picture>
 {/if}
 
-<label
-	for="sidebar-checkbox"
-	class="sidebar-toggle triangle"
-	title="menu"
-	aria-label="Enter and Exit Navigation"
->
-	<CircleIcon class="regular-old-circle" toggle={toggleNav} />
-</label>
-
 <style lang="scss">
 	.sidebar {
 		position: fixed;
@@ -138,8 +241,6 @@ const isHomePage = $derived($page.url.pathname === "/");
 		bottom: 0;
 		left: -14rem;
 		width: 14rem;
-		visibility: hidden;
-		overflow-y: auto;
 		font-size: 0.875rem;
 		padding-top: 118px;
 		z-index: 6;
@@ -200,17 +301,9 @@ const isHomePage = $derived($page.url.pathname === "/");
 		transform: scale(1.1);
 	}
 
-	input[type='checkbox']:before {
-		content: '';
-	}
-
-	input[type='checkbox'] {
-		content: '';
-	}
-
 	.sidebar-toggle {
 		font-size: 2.2rem;
-		position: fixed;
+		position: absolute;
 		display: table-cell;
 		text-align: center;
 		vertical-align: middle;
@@ -223,15 +316,20 @@ const isHomePage = $derived($page.url.pathname === "/");
 
 	.sidebar-toggle.triangle {
 		top: 0;
-		left: -20px;
-		width: 0;
-		height: 0;
+		right: -94px;
+		min-width: 100px;
+		min-height: 100px;
+		width: 100px;
+		height: 100px;
 		border-top: 100px solid var(--sidebar-background);
 		border-right: 100px solid transparent;
 		border-left: 0;
 		border-bottom: 0;
 		z-index: 5;
+		background-color: transparent;
+		transition: var(--global-transition);
 	}
+
 	.sidebar-items {
 		padding: 0;
 		list-style: none;
@@ -255,7 +353,7 @@ const isHomePage = $derived($page.url.pathname === "/");
 	}
 	.sidebar-toggle:before {
 		display: block;
-		content: '';
+		content: "";
 		width: 100%;
 		padding-bottom: 0.125rem;
 	}
@@ -270,36 +368,27 @@ const isHomePage = $derived($page.url.pathname === "/");
 	.sidebar-toggle {
 		transition: transform 0.3s ease-in-out;
 	}
-	.sidebar-checkbox {
-		display: none;
-		position: fixed;
-		&:focus-visible ~ .sidebar-toggle {
-			outline: Highlight auto 1px;
-		}
-	}
 
-	.sidebar-checkbox:checked + .sidebar {
+	.sidebar.active {
 		visibility: visible;
+		transform: translateX(14rem);
 	}
 
-	.sidebar-checkbox:checked ~ .sidebar,
-	.sidebar-checkbox:checked ~ .container,
-	.sidebar-checkbox:checked ~ .sidebar-toggle {
+	.sidebar-toggle.isOpen {
 		transform: translateX(14rem);
 	}
 	.social {
-		display: flex;
-		flex-direction: row;
-		flex-flow: row wrap;
+		display: grid;
 		align-items: center;
-		justify-content: center;
+		grid-template-columns: auto auto;
+		align-items: center;
+		justify-content: flex-start;
 		margin-bottom: 1rem;
-		padding-left: 1.5rem;
-		padding-right: 1.6rem;
 	}
 	.social a {
-		flex: 1 1 auto;
-		padding: 0.5rem 0;
+		display: flex;
+		align-items: center;
+		padding: 1.5rem;
 		transition: var(--global-transition);
 	}
 	:global(.social a:last-of-type svg) {
@@ -307,7 +396,7 @@ const isHomePage = $derived($page.url.pathname === "/");
 		display: block;
 	}
 	:global(.social a svg) {
-		width: 12.5px;
+		width: 16px;
 	}
 	:global(.social a:hover svg) {
 		transform: scale(1.3);
@@ -325,12 +414,13 @@ const isHomePage = $derived($page.url.pathname === "/");
 		margin-right: auto;
 		padding-bottom: 4rem;
 		padding-top: 94px;
+		transition: transform 0.3s ease-in-out;
 		&.home {
 			height: 100vh;
 			padding-bottom: 0;
 		}
 	}
-		.its-me {
+	.its-me {
 		all: unset;
 		max-width: 1128px;
 		width: auto;
@@ -342,6 +432,7 @@ const isHomePage = $derived($page.url.pathname === "/");
 		display: block;
 		transform: translateX(50px);
 	}
+
 	@media (min-width: 30rem) {
 		.sidebar {
 			font-size: 0.75rem;
@@ -349,7 +440,8 @@ const isHomePage = $derived($page.url.pathname === "/");
 	}
 	@media (min-width: 30.1rem) {
 		.sidebar-toggle {
-			position: fixed;
+			position: absolute;
+			right: -80px;
 			width: 2.25rem;
 			height: 2.25rem;
 			line-height: 1rem;
@@ -375,7 +467,21 @@ const isHomePage = $derived($page.url.pathname === "/");
 	@media (max-width: 48rem) {
 		.its-me {
 			top: 30%;
-			right: -569px;
+			right: -504px;
 		}
+	}
+
+	/*
+		Page Level Overrides
+	*/
+
+	.-art-letters {
+		height: 100vh;
+		min-height: 100vh;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: none;
 	}
 </style>
