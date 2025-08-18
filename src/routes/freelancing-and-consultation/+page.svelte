@@ -108,7 +108,7 @@
 
 	@media (max-width: 38rem) {
 		.list-large {
-			grid-template-columns: 1fr;
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>

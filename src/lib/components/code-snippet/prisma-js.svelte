@@ -1,75 +1,88 @@
 <script lang="ts">
-import "./prism.css";
+	import "./prism.css";
 
-interface Props {
-	language: string;
-	code: string;
-	id?: string;
-	copyScript?: boolean;
-	minifiedScript?: string;
-	class?: string;
-}
+	interface Props {
+		language: string;
+		code: string;
+		id?: string;
+		copyScript?: boolean;
+		minifiedScript?: string;
+		class?: string;
+	}
 
-const { language, code, id, copyScript, minifiedScript, class: className, ...restProps }: Props = $props();
+	const {
+		language,
+		code,
+		id,
+		copyScript,
+		minifiedScript,
+		class: className,
+		...restProps
+	}: Props = $props();
 
-$effect(() => {
-	const script = document.createElement("script");
-	script.src = "/prism-syntax.js";
-	document.head.append(script);
+	$effect(() => {
+		const script = document.createElement("script");
+		script.src = "/prism-syntax.js";
+		document.head.append(script);
 
-	script.onload = () => {
-		let langJS = false;
-		let lang_script: HTMLScriptElement;
-		let lang_module: string;
+		script.onload = () => {
+			let langJS = false;
+			let lang_script: HTMLScriptElement;
+			let lang_module: string;
 
-		// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
-		// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
-		// Prisim can render it properly.
-		switch (language) {
-			case "json":
-				lang_module = "https://prismjs.com/components/prism-json.js";
-				langJS = true;
-				break;
+			// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
+			// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
+			// Prisim can render it properly.
+			switch (language) {
+				case "json":
+					lang_module =
+						"https://prismjs.com/components/prism-json.js";
+					langJS = true;
+					break;
 
-			case "bash":
-				lang_module = "https://prismjs.com/components/prism-bash.js";
-				langJS = true;
-				break;
+				case "bash":
+					lang_module =
+						"https://prismjs.com/components/prism-bash.js";
+					langJS = true;
+					break;
 
-			case "css":
-				lang_module = "https://prismjs.com/components/prism-css.js";
-				langJS = true;
-				break;
+				case "css":
+					lang_module = "https://prismjs.com/components/prism-css.js";
+					langJS = true;
+					break;
 
-			case "js":
-				lang_module = "https://prismjs.com/components/prism-javascript.js";
-				langJS = true;
-				break;
+				case "js":
+					lang_module =
+						"https://prismjs.com/components/prism-javascript.js";
+					langJS = true;
+					break;
 
-			case "html":
-				lang_module = "https://prismjs.com/components/prism-html.js";
-				langJS = true;
-				break;
-			case "graphql":
-				lang_module = "https://prismjs.com/components/prism-graphql.js";
-				langJS = true;
-				break;
-		}
+				case "html":
+					lang_module =
+						"https://prismjs.com/components/prism-html.js";
+					langJS = true;
+					break;
+				case "graphql":
+					lang_module =
+						"https://prismjs.com/components/prism-graphql.js";
+					langJS = true;
+					break;
+			}
 
-		if (langJS === true) {
-			lang_script = document.createElement("script");
-			lang_script.src = lang_module;
-			lang_script.async = true;
-			document.head.append(lang_script);
+			if (langJS === true) {
+				lang_script = document.createElement("script");
+				lang_script.src = lang_module;
+				lang_script.async = true;
+				document.head.append(lang_script);
 
-			lang_script.onload = () => {
+				lang_script.onload = () => {
+					Prism.highlightAll();
+				};
+			} else {
 				Prism.highlightAll();
-			};
-		} else {
-			Prism.highlightAll();
-		}
-	};
-});
+			}
+		};
+	});
 </script>
 
 <div {id} class="code-snippet-container {className || ''}" {...restProps}>
@@ -78,20 +91,23 @@ $effect(() => {
 			<button
 				type="button"
 				class="button-code-snippet"
-				onclick={() => navigator.clipboard.writeText(code)}>Copy Script</button
+				onclick={() => navigator.clipboard.writeText(code)}
+				>Copy Script</button
 			>
 		{/if}
 		{#if minifiedScript}
 			<button
 				type="button"
 				class="button-code-snippet"
-				onclick={() => navigator.clipboard.writeText(minifiedScript)}>Copy Minified</button
+				onclick={() => navigator.clipboard.writeText(minifiedScript)}
+				>Copy Minified</button
 			>
 		{/if}
 		<span class="code-snippet-language">{language}</span>
 	</div>
-	<pre class="line-numbers"><code class="language-{language}" data-prismjs-copy="Copy Snippet"
-			>{code}</code
+	<pre class="line-numbers"><code
+			class="language-{language}"
+			data-prismjs-copy="Copy Snippet">{code}</code
 		></pre>
 </div>
 
@@ -154,6 +170,9 @@ $effect(() => {
 			border-radius: 0;
 			height: 100%;
 		}
+	}
+	#pixelToRem {
+		margin-top: 30px;
 	}
 
 	@media (max-width: 768px) {

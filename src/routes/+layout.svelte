@@ -8,17 +8,18 @@
 
 	const { children } = $props();
 	let isOpen = $state(false);
-	const toggleSidebar = () => {
-		console.log(
-			"%c isOpen: ",
-			"color:#fff;background-color:#2a8712;",
-			isOpen,
-			"vscode://file/Users/cullanluther/zzz-meh-projects/portfolio-svelte/src/routes/+layout.svelte:13",
-		); //temp.console
-
-		isOpen = !isOpen;
-	};
+	let isToolsRoute = $state(false);
 	const isHomePage = $derived($page.url.pathname === "/");
+	const isToolsPage = () => {
+		if (
+			$page.url.pathname.includes("/tools") ||
+			$page.url.pathname.includes("/bookmarklets") ||
+			$page.url.pathname.includes("/snippets")
+		) {
+			isToolsRoute = !isToolsRoute;
+		}
+	};
+
 	function openSidebar() {
 		isOpen = true;
 	}
@@ -72,7 +73,7 @@
 
 <svelte:window on:keydown={(e) => e.key === "Escape" && closeSidebar()} />
 
-<a href="#main" class="skip-link sr-only">Skip to main content</a>
+<a href="#main" class="skip-to-content">Skip to main content</a>
 
 <div class="sidebar" id="sidebar" use:focusTrap class:active={isOpen}>
 	<button
@@ -128,12 +129,16 @@
 			<li>
 				<a
 					class="sidebar-nav-item"
-					class:active={$page.url.pathname.includes("/tools")}
+					class:active={$page.url.pathname.includes("/tools") ||
+						$page.url.pathname.includes("/bookmarklets") ||
+						$page.url.pathname.includes("/snippets")}
 					onclick={closeSidebar}
 					href="/tools"
 					tabindex={isOpen ? 0 : -1}
 					>Tools <CircleIcon
-						toggle={$page.url.pathname.includes("/tools")}
+						toggle={$page.url.pathname.includes("/tools") ||
+							$page.url.pathname.includes("/bookmarklets") ||
+							$page.url.pathname.includes("/snippets")}
 					/></a
 				>
 			</li>
@@ -186,6 +191,8 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				tabindex={isOpen ? 0 : -1}
+				title="Visit my Github"
+				aria-label="Visit my Github"
 				><GithubIcon />
 			</a>
 			<a
@@ -194,6 +201,8 @@
 				target="_blank"
 				rel="noopener noreferrer"
 				tabindex={isOpen ? 0 : -1}
+				title="Go to my LinkedIn"
+				aria-label="Go to my LinkedIn"
 				><LinkedInIcon />
 			</a>
 		</div>
@@ -228,6 +237,7 @@
 		/>
 		<img
 			class="its-me"
+			fetchpriority="high"
 			src="https://images.cullanluther.com/its-me.webp"
 			alt="Cullan Luther Smiling At You"
 		/>
@@ -235,6 +245,30 @@
 {/if}
 
 <style lang="scss">
+	.skip-to-content {
+		position: absolute;
+		left: -9999px;
+		top: 0;
+		z-index: 4;
+		display: inline-block;
+		font-size: 1rem;
+		font-weight: 200;
+		letter-spacing: 1px;
+		padding: 15px 20px;
+		border: 2px solid currentColor;
+		color: var(--sidebar-background);
+		border-radius: 0.25rem;
+		box-shadow: 6px 6px 0 0 var(--primary-color);
+		background-color: var(--subtle-grey);
+		width: fit-content;
+		line-height: 1;
+		transition: all 0.3s ease;
+		&:focus {
+			left: 94px;
+			top: 18px;
+		}
+	}
+
 	.sidebar {
 		position: fixed;
 		top: 0;
@@ -431,6 +465,7 @@
 		filter: grayscale(1);
 		display: block;
 		transform: translateX(50px);
+		overflow: clip;
 	}
 
 	@media (min-width: 30rem) {

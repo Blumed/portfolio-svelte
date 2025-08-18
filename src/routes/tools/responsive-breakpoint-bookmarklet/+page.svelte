@@ -118,7 +118,7 @@
 				/>
 			</div>
 			<div class="field-group is-spaced">
-				<label for="xxlColor" aria-label="Text Color">Text Color</label>
+				<label for="xxlColor" aria-label="Text Color">Text</label>
 				<input
 					class="input-color"
 					id="xxlColor"

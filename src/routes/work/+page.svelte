@@ -34,9 +34,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<figure>
-							<img loading="lazy" src={all.image} alt={all.alt} />
-						</figure>
+						<img src={all.image} alt={all.alt} />
 					</a>
 					<div class="work-info">
 						<h2>
@@ -80,13 +78,11 @@
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<figure>
-							<img
-								loading="lazy"
-								src={project.image}
-								alt={project.alt}
-							/>
-						</figure>
+						<img
+							loading="lazy"
+							src={project.image}
+							alt={project.alt}
+						/>
 					</a>
 					<div class="work-info">
 						<h2>
@@ -107,7 +103,7 @@
 						<h3>Url: <a href={project.link}>Link</a></h3>
 						<figure>
 							<figcaption class="list-title">
-								Technologies &mdash;
+								Technologies:
 							</figcaption>
 							<ul>
 								{#each project.technologies as technology}
@@ -128,13 +124,7 @@
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<figure>
-							<img
-								loading="lazy"
-								src={site.image}
-								alt={site.alt}
-							/>
-						</figure>
+						<img loading="lazy" src={site.image} alt={site.alt} />
 					</a>
 					<div class="work-info">
 						<h2>
@@ -145,13 +135,24 @@
 							>
 						</h2>
 						<p>{site.copy}</p>
+						<h3 class="work-type">
+							Repo: <a
+								href={site.repo}
+								target="_blank"
+								rel="noopener noreferrer">Check it out</a
+							>
+						</h3>
 						<h3>Url: <a href={site.link}>Link</a></h3>
-						<h3 class="list-title">Technologies &mdash;</h3>
-						<ul>
-							{#each site.technologies as technology}
-								<li>{technology}</li>
-							{/each}
-						</ul>
+						<figure>
+							<figcaption class="list-title">
+								Technologies:
+							</figcaption>
+							<ul>
+								{#each site.technologies as technology}
+									<li>{technology}</li>
+								{/each}
+							</ul>
+						</figure>
 					</div>
 				</article>
 			{/each}
@@ -165,27 +166,32 @@
 		border-radius: 24px;
 		border: 2px solid var(--primary-color);
 		box-shadow: 6px 6px 0 0 var(--primary-color);
-		overflow: hidden;
+		overflow: clip;
 		margin-bottom: 30px;
 	}
 	.work > a {
-		overflow: hidden;
-		background-color: var(--primary-color);
+		min-height: 200px;
+		display: block;
+		background-color: white;
 	}
 	.work img {
 		max-width: 100%;
+		min-height: 200px;
 		height: auto;
 		display: block;
-		min-height: 200px;
+		object-fit: contain;
 	}
 	.work figure {
 		margin: 0;
-		background-color: var(--primary-color);
+		background-color: var(--pure-white);
 	}
 	.work h2 {
 		font-size: 1.5rem;
 		font-weight: bolder;
 		color: var(--pure-black);
+	}
+	.work h3 {
+		font-size: 1.125rem;
 	}
 	.work h2 a {
 		color: inherit;
@@ -218,8 +224,9 @@
 	}
 	.work-info {
 		background-color: var(--pure-white);
-		padding: 40px;
+		padding: 20px 40px;
 		height: 100%;
+		height: -webkit-fill-available;
 	}
 	.work-info h3 {
 		margin-block: 0.5rem;

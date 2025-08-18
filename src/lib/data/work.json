@@ -1,16 +1,17 @@
 {
 	"data": [
 		{
-			"type": "project",
-			"title": "Looksee",
-			"link": "https://chrome.google.com/webstore/detail/looksee/mbfdhnjobheppodaolenppfegicnhmhp",
-			"copy": "I made a Chrome Extension for debugging layout on the fly. Additionally you can apply a shader as well. Add any css selectors to outline or highlight elements on the page.",
-			"repo": "https://github.com/Blumed/looksee",
-			"image": "https://images.cullanluther.com/looksee-css-border-debugging-chrome-extension.webp",
-			"alt": "Looksee Logo",
+			"type": "site",
+			"title": "Make Bookmarklets",
+			"link": "https://make-bookmarklets.com",
+			"copy": "I created a bookmarklet generator with modern Javascript safeguards in place. This site has really taken off. I guess people like making bookmarklets too.",
+			"repo": "https://github.com/Blumed/make-bookmarklets",
+			"image": "https://images.cullanluther.com/make-bookmarklets.webp",
+			"alt": "Make Bookmarklets",
 			"technologies": [
 				"Scss",
-				"jQuery"
+				"Sveltekit",
+				"Figma"
 			]
 		},
 		{
@@ -28,17 +29,16 @@
 			]
 		},
 		{
-			"type": "site",
-			"title": "Make Bookmarklets",
-			"link": "https://make-bookmarklets.com",
-			"copy": "I created a bookmarklet generator with modern Javascript safeguards in place. Really enjoy making bookmarklets myself and wanted to make a site with a bit more design and ux applied than many of the current sites which do similar things.",
-			"repo": "https://github.com/Blumed/make-bookmarklets",
-			"image": "https://images.cullanluther.com/make-bookmarklets.webp",
-			"alt": "Make Bookmarklets",
+			"type": "project",
+			"title": "Looksee",
+			"link": "https://chrome.google.com/webstore/detail/looksee/mbfdhnjobheppodaolenppfegicnhmhp",
+			"copy": "I made a Chrome Extension for debugging layout on the fly. Additionally you can apply a shader as well. Add any css selectors to outline or highlight elements on the page.",
+			"repo": "https://github.com/Blumed/looksee",
+			"image": "https://images.cullanluther.com/looksee-css-border-debugging-chrome-extension.webp",
+			"alt": "Looksee Logo",
 			"technologies": [
 				"Scss",
-				"Sveltekit",
-				"Figma"
+				"jQuery"
 			]
 		}
 	]
