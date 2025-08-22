@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import GithubIcon from "$lib/components/svgeez/icon-github.svelte";
-	import LinkedInIcon from "$lib/components/svgeez/icon-linkedIn.svelte";
-	import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
+	import GithubIcon from "$lib/assets/svgeez/icon-github.svelte";
+	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
+	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
 	import Switch from "$lib/components/Theme-switch.svelte";
 	import "$lib/styles/global.scss";
 

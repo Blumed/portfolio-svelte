@@ -1,6 +1,6 @@
 <script>
-import Button from "$lib/components/Button.svelte";
-import Seo from "$lib/components/seo/page-meta.svelte";
+	import Button from "$lib/components/Button.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 </script>
 
 <Seo title="Contact" pageCanonicalUrl="/contact" />
@@ -20,7 +20,7 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 					required
 					autocomplete="name"
 					minlength="3"
-  					pattern="^[a-zA-Z]+(?: [a-zA-Z]+)+$"
+					pattern="^[a-zA-Z]+(?: [a-zA-Z]+)+$"
 				/>
 				<label for="frmName">Full Name</label>
 			</div>
@@ -89,7 +89,10 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 		max-width: 24.3rem;
 		resize: none;
 	}
-input:user-invalid, textarea:user-invalid { border-color: crimson; }
+	input:user-invalid,
+	textarea:user-invalid {
+		border-color: crimson;
+	}
 	.field {
 		display: flex;
 		flex-flow: column-reverse;

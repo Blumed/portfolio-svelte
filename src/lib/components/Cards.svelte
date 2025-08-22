@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CircleIcon from "$lib/components/svgeez/toggle-circle-icon.svelte";
+	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
 
 	interface Props {
 		cardData: any;
@@ -37,11 +37,18 @@
 			</header>
 			<a href={card.url} class="cards-list-copy"><p>{card.copy}</p></a>
 			<footer>
-				<ul class="no-list-style">
-					{#each card.technologies as technology}
-						<li>{technology}</li>
-					{/each}
-				</ul>
+				{#if card.listTitle}
+					<figure>
+						<figcaption>{card.listTitle}</figcaption>
+						<ul class="no-list-style">
+							{#each card.listItems as listItem}
+								<li>{listItem}</li>
+							{/each}
+						</ul>
+					</figure>
+				{:else}
+					<p>{card.category}</p>
+				{/if}
 			</footer>
 		</article>
 	{/each}
@@ -72,6 +79,29 @@
 	.cards-list-title,
 	.cards-list-copy {
 		color: inherit;
+	}
+	figure {
+		margin: 0;
+		display: inline-flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 5px;
+
+		& figcaption {
+			display: inline-flex;
+			margin-top: 0;
+		}
+		& ul {
+			list-style: none;
+			display: inline-flex;
+			margin-block: 0;
+			flex-wrap: wrap;
+			padding-left: 0;
+			gap: 5px;
+			& li {
+				margin-bottom: 0;
+			}
+		}
 	}
 	:global(.cards-list-card svg) {
 		width: 18px;

@@ -1,13 +1,11 @@
 {
     "data": [
-                {
+        {
             "id": 0,
             "url": "/bookmarklets/pixel-to-rem-converter",
             "title": "Pixel to Rem Converter",
             "copy": "Quickly convert pixel to rems with a click of a bookmarklet",
-            "technologies": [
-                "Css Units"
-            ]
+            "category": "Css Units"
         }
     ]
 }

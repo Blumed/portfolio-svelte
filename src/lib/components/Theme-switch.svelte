@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
-	import { vibrateSmall } from "$lib/constaints";
+	import { vibrateSmall } from "$lib/constants";
 
 	let darkMode = true;
 

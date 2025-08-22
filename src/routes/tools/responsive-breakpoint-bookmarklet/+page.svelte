@@ -1,7 +1,7 @@
 <script lang="ts">
 	/** biome-ignore-all lint/style/useConst: <explanation> */
 	import Button from "$lib/components/Button.svelte";
-	import Seo from "$lib/components/seo/page-meta.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 	import Bookmarklet from "./bookmarklet.svelte";
 
 	let toggleBookmarklet = false;

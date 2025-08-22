@@ -2,7 +2,7 @@
 	export const pageName = "";
 
 	import { scale } from "svelte/transition";
-	import Seo from "$lib/components/seo/page-meta.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
 	import data from "$lib/data/work.json";
 
@@ -12,6 +12,10 @@
 </script>
 
 <Seo title="Work" pageCanonicalUrl="/work" />
+
+<svelte:head>
+	<link rel="preconnect" href="https://images.cullanluther.com" />
+</svelte:head>
 
 <h1 class="page-title">Work</h1>
 <p class="clean-background">
@@ -58,11 +62,11 @@
 						<h3>Url: <a href={all.link}>Link</a></h3>
 						<figure>
 							<figcaption class="list-title">
-								Technologies:
+								{all.listTitle}:
 							</figcaption>
 							<ul>
-								{#each all.technologies as technology}
-									<li>{technology}</li>
+								{#each all.listItems as listItem}
+									<li>{listItem}</li>
 								{/each}
 							</ul>
 						</figure>
@@ -103,11 +107,11 @@
 						<h3>Url: <a href={project.link}>Link</a></h3>
 						<figure>
 							<figcaption class="list-title">
-								Technologies:
+								{project.listTitle}:
 							</figcaption>
 							<ul>
-								{#each project.technologies as technology}
-									<li>{technology}</li>
+								{#each project.listItems as listItem}
+									<li>{listItem}</li>
 								{/each}
 							</ul>
 						</figure>
@@ -145,11 +149,11 @@
 						<h3>Url: <a href={site.link}>Link</a></h3>
 						<figure>
 							<figcaption class="list-title">
-								Technologies:
+								{site.listTitle}:
 							</figcaption>
 							<ul>
-								{#each site.technologies as technology}
-									<li>{technology}</li>
+								{#each site.listItems as listItem}
+									<li>{listItem}</li>
 								{/each}
 							</ul>
 						</figure>

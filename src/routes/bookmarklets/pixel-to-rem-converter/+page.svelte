@@ -1,6 +1,6 @@
 <script>
     import Prism from "$lib/components/code-snippet/prisma-js.svelte";
-    import Seo from "$lib/components/seo/page-meta.svelte";
+    import Seo from "$lib/components/Seo.svelte";
     import Button from "$lib/components/Button.svelte";
     import bookmarkletCode from "./bookmarklet-code";
     import bookmarklet from "./bookmarklet";

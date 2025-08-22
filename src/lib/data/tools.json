@@ -5,18 +5,14 @@
             "url": "/tools/minify-json",
             "title": "Minify and Validate Json",
             "copy": "Minify, beautify and validate your json. Full client side tool with no tracking. Displays byte size changes when minifying or beautifying",
-            "technologies": [
-                "Json"
-            ]
+            "category": "Json"
         },
         {
             "id": 1,
             "url": "/tools/responsive-breakpoint-bookmarklet",
             "title": "Responsive Breakpoint Builder",
             "copy": "Small bookmarklet I created to quickly see breakpoints. No need to open your developer console just to see the window size.",
-            "technologies": [
-                "Css Breakpoints"
-            ]
+            "category": "Css Breakpoints"
         }
     ]
 }

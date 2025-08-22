@@ -1,5 +1,6 @@
 <script>
     import { browser } from "$app/environment";
+    import Seo from "$lib/components/Seo.svelte";
 
     function updateClockHands() {
         const now = new Date(); // Get the current date and time
@@ -26,18 +27,10 @@
         minute.style.transform = `rotate(${minuteDegrees}deg)`;
         //second.style.transform = `rotate(${secondDegrees}deg)`;
 
-        // console.log("Current time in degrees:");
-        // console.log("Hour hand:", hourDegrees);
-        // console.log("Minute hand:", minuteDegrees);
-        // console.log("Second hand:", secondDegrees);
-
         // Use requestAnimationFrame to call this function again before the next repaint
         if (browser) requestAnimationFrame(updateClockHands);
     }
     if (browser) requestAnimationFrame(updateClockHands);
-    // const child = document.querySelector('.minute');
-    // child.style.transform = `rotate(${minuteHandPosition}deg)`;
-    // console.log(`Minute hand degree: ${minuteHandPosition}deg`);
 </script>
 
 <svelte:head>
@@ -48,6 +41,11 @@
         rel="stylesheet"
     />
 </svelte:head>
+
+<Seo
+    title="Letters between a mother and a son"
+    pageCanonicalUrl="/art/letters"
+/>
 
 <div class="clock-frame sphere-container">
     <div class="letter hour sphere">

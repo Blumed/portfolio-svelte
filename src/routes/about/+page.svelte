@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from "$lib/components/Button.svelte";
-	import Seo from "$lib/components/seo/page-meta.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 
 	let userClicked = $state(false);
 
@@ -10,6 +10,10 @@
 </script>
 
 <Seo title="About" pageCanonicalUrl="/about" />
+
+<svelte:head>
+	<link rel="preconnect" href="https://images.cullanluther.com" />
+</svelte:head>
 
 <h1 class="page-title">About</h1>
 

@@ -5,8 +5,21 @@
             "url": "/art/letters",
             "title": "Letters",
             "copy": "Letters between a son and a mother",
-            "technologies": [
-                "Javascript"
+            "listTitle": "Medium:",
+            "listItems": [
+                "Digital"
+            ]
+        },
+        {
+            "id": 1,
+            "url": "/art/sculpture",
+            "title": "Sculpture",
+            "copy": "Sculpture pieces with a mix of found objects",
+            "listTitle": "Medium:",
+            "listItems": [
+                "Concrete",
+                "Found Objects",
+                "Mixed Media"
             ]
         }
     ]

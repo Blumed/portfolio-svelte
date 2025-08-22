@@ -1,16 +1,23 @@
 <script>
-import Button from "$lib/components/Button.svelte";
-import Seo from "$lib/components/seo/page-meta.svelte";
+	import Button from "$lib/components/Button.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 </script>
 
 <Seo title="Home" pageCanonicalUrl="/" />
+
+<svelte:head>
+	<link rel="preconnect" href="https://images.cullanluther.com" crossorigin />
+</svelte:head>
 
 <section>
 	<h1>Hi, my name is Cullan and I am a web developer.</h1>
 
 	<p>UX Strategy, SEO and Marketing Development, Web Applications.</p>
 
-	<Button href="/freelancing-and-consultation" buttonText="Need Something Built?" />
+	<Button
+		href="/freelancing-and-consultation"
+		buttonText="Need Something Built?"
+	/>
 </section>
 
 <style lang="scss">
@@ -31,7 +38,7 @@ import Seo from "$lib/components/seo/page-meta.svelte";
 		position: relative;
 		margin-bottom: 30px;
 		&:after {
-			content: 'Hi, my name is Cullan and I am a web developer.';
+			content: "Hi, my name is Cullan and I am a web developer.";
 			position: absolute;
 			left: -3px;
 			top: -2px;

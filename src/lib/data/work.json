@@ -8,7 +8,8 @@
 			"repo": "https://github.com/Blumed/make-bookmarklets",
 			"image": "https://images.cullanluther.com/make-bookmarklets.webp",
 			"alt": "Make Bookmarklets",
-			"technologies": [
+			"listTitle": "Technologies",
+			"listItems": [
 				"Scss",
 				"Sveltekit",
 				"Figma"
@@ -22,7 +23,8 @@
 			"repo": "",
 			"image": "https://images.cullanluther.com/adam-biel-audio.webp",
 			"alt": "Adam Biel holding sound equipment",
-			"technologies": [
+			"listTitle": "Technologies",
+			"listItems": [
 				"Scss",
 				"Sveltekit",
 				"Typescript"
@@ -36,7 +38,8 @@
 			"repo": "https://github.com/Blumed/looksee",
 			"image": "https://images.cullanluther.com/looksee-css-border-debugging-chrome-extension.webp",
 			"alt": "Looksee Logo",
-			"technologies": [
+			"listTitle": "Technologies",
+			"listItems": [
 				"Scss",
 				"jQuery"
 			]

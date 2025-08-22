@@ -1,8 +1,8 @@
 <script>
 	import Button from "$lib/components/Button.svelte";
-	import Seo from "$lib/components/seo/page-meta.svelte";
+	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
-	import { workingYears } from "$lib/constaints";
+	import { workingYears } from "$lib/constants";
 </script>
 
 <Seo
