@@ -99,6 +99,7 @@
         break-inside: avoid;
         margin-bottom: 1rem;
         position: relative;
+        overflow: clip;
     }
     img {
         max-width: 100%;
@@ -115,7 +116,7 @@
         background-color: transparent;
         padding: 0;
         position: absolute;
-        right: 0px;
+        right: -1px;
         bottom: 0px;
         cursor: pointer;
     }
@@ -129,10 +130,11 @@
             position: relative;
         }
         & img {
-            width: 100%; /* Or a specific width */
-            height: 100%; /* Or a specific height */
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            margin-top: -75px;
+            position: relative;
+            top: -74px;
         }
     }
 
@@ -148,6 +150,7 @@
         position: sticky;
         left: 100%;
         top: 0px;
+        z-index: 1;
         cursor: pointer;
     }
 

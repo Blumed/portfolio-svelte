@@ -85,7 +85,8 @@
 			I really enjoy making bookmarklets and browser extensions. I made
 			this site for creating and prototyping <a
 				href="https://make-bookmarklets.com"
-				target="_blank">bookmarklets</a
+				target="_blank"
+				rel="noopener">bookmarklets</a
 			>.
 		</li>
 	</ul>

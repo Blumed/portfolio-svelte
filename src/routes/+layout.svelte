@@ -4,27 +4,15 @@
 	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
 	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
 	import Switch from "$lib/components/Theme-switch.svelte";
+	import { vibrate } from "$lib/constants";
 	import "$lib/styles/global.scss";
 
 	const { children } = $props();
 	let isOpen = $state(false);
-	let isToolsRoute = $state(false);
 	const isHomePage = $derived($page.url.pathname === "/");
-	const isToolsPage = () => {
-		if (
-			$page.url.pathname.includes("/tools") ||
-			$page.url.pathname.includes("/bookmarklets") ||
-			$page.url.pathname.includes("/snippets")
-		) {
-			isToolsRoute = !isToolsRoute;
-		}
-	};
-
-	function openSidebar() {
-		isOpen = true;
-	}
 
 	function closeSidebar() {
+		vibrate(10);
 		isOpen = false;
 	}
 

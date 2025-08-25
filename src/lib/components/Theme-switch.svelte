@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
-	import { vibrateSmall } from "$lib/constants";
+	import { vibrate } from "$lib/constants";
 
 	let darkMode = true;
 
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;
-		vibrateSmall();
+		vibrate(50);
 		localStorage.setItem("theme", darkMode ? "dark" : "light");
 
 		darkMode
@@ -76,7 +76,7 @@
 			}
 		}
 	}
-	.dark .theme-control {
+	:global(.dark .theme-control) {
 		input:before {
 			left: 2px;
 		}

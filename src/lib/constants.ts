@@ -1,7 +1,7 @@
 import { differenceInYears } from "date-fns";
 import { browser } from "$app/environment";
 
-export const vibrateSmall = () => {
+export const vibrate = (value) => {
 	if (browser && !window) {
 		return;
 	}
@@ -14,7 +14,7 @@ export const vibrateSmall = () => {
 		return;
 	}
 	if (browser && window.navigator.vibrate) {
-		return window.navigator.vibrate(50);
+		return window.navigator.vibrate(value);
 	}
 };
 

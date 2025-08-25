@@ -1,23 +1,25 @@
 <script lang="ts">
 	interface ButtonProps {
 		buttonText: string | undefined;
-		type: 'button' | 'submit' | 'reset' | null | undefined;
+		type: "button" | "submit" | "reset" | null | undefined;
 		href: string | undefined;
 		ariaExpanded: boolean | undefined;
 		ariaControls: string | undefined;
 		handleClick?: () => void | undefined | boolean;
 	}
 
-	export let buttonText: ButtonProps['buttonText'] = undefined;
-	export let type: ButtonProps['type'] = undefined;
-	export let href: ButtonProps['href'] = undefined;
-	export let ariaExpanded: ButtonProps['ariaExpanded'] = undefined;
-	export let ariaControls: ButtonProps['ariaControls'] = undefined;
-	export let handleClick: ButtonProps['handleClick'] = undefined;
+	export let buttonText: ButtonProps["buttonText"] = undefined;
+	export let type: ButtonProps["type"] = undefined;
+	export let href: ButtonProps["href"] = undefined;
+	export let ariaExpanded: ButtonProps["ariaExpanded"] = undefined;
+	export let ariaControls: ButtonProps["ariaControls"] = undefined;
+	export let handleClick: ButtonProps["handleClick"] = undefined;
 </script>
 
 {#if href}
-	<a {href} class="button {$$restProps.class}"><span class="button-text">{buttonText}</span></a>
+	<a {href} class="button {$$restProps.class}"
+		><span class="button-text">{buttonText}</span></a
+	>
 {:else}
 	<button
 		{type}
@@ -75,7 +77,7 @@
 			}
 		}
 		&::after {
-			content: '';
+			content: "";
 			position: absolute;
 			right: 0;
 			top: 50%;
@@ -87,7 +89,7 @@
 			translate: 6px 0px;
 		}
 		&::before {
-			content: '';
+			content: "";
 			position: absolute;
 			right: 0;
 			bottom: 50%;
@@ -98,7 +100,7 @@
 			rotate: -270deg;
 			translate: 6px 0px;
 		}
-		&[aria-expanded='false']:hover {
+		&[aria-expanded="false"]:hover {
 			padding-right: 30px;
 			&:before {
 				rotate: 45deg;
@@ -106,7 +108,7 @@
 				height: 1.5px;
 			}
 		}
-		&[aria-expanded='true']:hover {
+		&[aria-expanded="true"]:hover {
 			padding-right: 30px;
 			&:before {
 				rotate: -45deg;

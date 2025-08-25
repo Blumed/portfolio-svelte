@@ -8,5 +8,5 @@
     fill="currentColor"
     aria-hidden="true"
     {style}
-    ><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" /></svg
+    ><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg
 >

@@ -66,6 +66,44 @@
         />
     {/if}
 </section>
+<section class="decorative-background">
+    <h2>Features</h2>
+    <ul>
+        <li>
+            It reads the current pages root pixel size and unit size
+            calculations will be based off of it
+        </li>
+        <li>
+            You can edit the root pixel size if you would like and all
+            calculations of unit sizes will change accordingly
+        </li>
+        <li>
+            Updating the pixel value will update the rem value automatically
+        </li>
+        <li>
+            Updating the rem value will update the pixel value automatically
+        </li>
+        <li>
+            Using the copy buttons will append the unit name to the end of the
+            value for you ex. <strong class="highlight-pill">10px</strong> or
+            <strong class="highlight-pill">0.625rem</strong>
+        </li>
+        <li>
+            Using up and down arrow keys will increment and decrement values in
+            each input field
+        </li>
+        <li>UI is all tabable so you don't need a mouse to use it</li>
+        <li>Autofocus on pixel input when UI initializes</li>
+        <li>UI is themeable. Feel free to change colors around with ease!</li>
+        <li>
+            Created with ❤️ using <a
+                href="https://make-bookmarklets.com"
+                target="_blank"
+                rel="noopener">make-bookmarklets.com</a
+            >
+        </li>
+    </ul>
+</section>
 
 <style>
     .field-group {
