@@ -10,19 +10,24 @@
 </script>
 
 <Seo
-    title="Pixel to rem converter bookmarklet"
-    pageCanonicalUrl="/bookmarklets/pixel-to-rem-converter"
+    title="Website green energy checker"
+    pageCanonicalUrl="/bookmarklets/check-website-carbon-impact"
 />
 
-<h1>Pixel to Rem converter</h1>
+<h1>Is your website using green energy?</h1>
 
 <section class="clean-background">
     <h2>Why make this tool?</h2>
     <p>
-        As a frontend developer I often need to bounce back and forth using rems
-        and pixels regularly. Sure there are nice websites that can do this. You
-        can use preprocessor tools like sass mixins. Browser devtools have also
-        introduced some handy new was to do this.
+        I love the idea of Cabin's claim to be able to tell you this information
+        accurately. Does it 🤷. Most likely marketing. I use Carbon for
+        analytics on my sites due to their privacy first and green energy focus.
+        They provide a great service and worthy alternative to google analytics.
+        If you would like to opt out of tracking everyone and know how your
+        website is performing <a href="https://withcabin.com/#demo"
+            >Check out Cabin</a
+        >. My endorsement to Cabin analytics is not sponsored or paid for. This
+        is purely my opinion.
     </p>
 </section>
 <section class="bookmarklet-controls decorative-background">
@@ -63,7 +68,7 @@
             language="javascript"
             code={bookmarkletCode}
             copyScript
-            id="pixelToRem"
+            id="cabinCarbonChecker"
         />
     {/if}
 </section>
@@ -71,31 +76,14 @@
     <h2>Features</h2>
     <ul>
         <li>
-            It reads the current pages root pixel size and unit size
-            calculations will be based off of it
+            Takes the current url and sends to Cabin's green energy checker for
+            evaluation.
         </li>
         <li>
-            You can edit the root pixel size if you would like and all
-            calculations of unit sizes will change accordingly
+            Provides information about requests and cookies which would be
+            blocked by ad blockers. Weight of the site. Size of files downloaded
+            organized by file extensions.
         </li>
-        <li>
-            Updating the pixel value will update the rem value automatically
-        </li>
-        <li>
-            Updating the rem value will update the pixel value automatically
-        </li>
-        <li>
-            Using the copy buttons will append the unit name to the end of the
-            value for you ex. <strong class="highlight-pill">10px</strong> or
-            <strong class="highlight-pill">0.625rem</strong>
-        </li>
-        <li>
-            Using up and down arrow keys will increment and decrement values in
-            each input field
-        </li>
-        <li>UI is all tabable so you don't need a mouse to use it</li>
-        <li>Autofocus on pixel input when UI initializes</li>
-        <li>UI is themeable. Feel free to change colors around with ease!</li>
         <li>
             Created with ❤️ using <a
                 href="https://make-bookmarklets.com"

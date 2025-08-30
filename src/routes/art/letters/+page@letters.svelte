@@ -185,6 +185,9 @@
             left: -10px;
         }
     }
+    p {
+        color: black;
+    }
     .letter {
         max-width: 900px;
         width: 100vw;

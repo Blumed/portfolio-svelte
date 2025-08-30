@@ -15,6 +15,7 @@
 	<p>UX Strategy, SEO and Marketing Development, Web Applications.</p>
 
 	<Button
+		class="button-link"
 		href="/freelancing-and-consultation"
 		buttonText="Need Something Built?"
 	/>

@@ -41,7 +41,7 @@
                 console.log(
                     "All animations are complete. Redirecting to homepage...",
                 );
-                window.location.href = "/";
+                //window.location.href = "/";
             });
         })();
     }

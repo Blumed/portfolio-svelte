@@ -6,6 +6,13 @@
             "title": "Pixel to Rem Converter",
             "copy": "Quickly convert pixel to rems with a click of a bookmarklet",
             "category": "Css Units"
+        },
+        {
+            "id": 1,
+            "url": "/bookmarklets/check-website-carbon-impact",
+            "title": "Webpage carbon impact",
+            "copy": "Check the current webpage if they are using green technology",
+            "category": "Environmental technology"
         }
     ]
 }

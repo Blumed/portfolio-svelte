@@ -171,7 +171,8 @@
 			height: 100%;
 		}
 	}
-	#pixelToRem {
+	#pixelToRem,
+	#cabinCarbonChecker {
 		margin-top: 30px;
 	}
 

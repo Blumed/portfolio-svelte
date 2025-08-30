@@ -102,8 +102,8 @@
 		created and continue to maintain.
 	</p>
 	<div class="buttons">
-		<Button href="/work" buttonText="View Work" />
-		<Button href="/tools" buttonText="View Tools" />
+		<Button class="button-link" href="/work" buttonText="View Work" />
+		<Button class="button-link" href="/tools" buttonText="View Tools" />
 	</div>
 </section>
 
@@ -248,7 +248,7 @@
 				<textarea
 					name="message"
 					id="message"
-					placeholder="Enter Your Haiku's Here"
+					placeholder="How can I help?"
 					pattern="/^\S.*(?:\r?\n\S.*)*$/u"
 					required
 				></textarea>
@@ -262,11 +262,11 @@
 		/>
 		<input type="text" name="_gotcha" style="display:none" />
 		<!-- your other form fields go here -->
-		<Button type="submit" buttonText="Submit" />
+		<Button type="submit" class="button-link" buttonText="Submit" />
 	</form>
 </section>
 
-<style>
+<style type="scss">
 	.buttons {
 		display: grid;
 		gap: 20px;
@@ -423,11 +423,18 @@
 		text-transform: uppercase;
 		appearance: none;
 		cursor: pointer;
-		/* background-image: url("$lib/assets/svgeez/icon-chevron.svg");
-		background-repeat: no-repeat;
-		background-position: right 10px center;
-		background-size: 2rem; */
 		padding-right: 30px;
+		transition: var(--global-transition);
+
+		&:hover {
+			background-color: var(--pure-white);
+			transform: translate(2px, 2px);
+			box-shadow: 3px 3px 0 0 var(--pure-black) !important;
+		}
+		&:active {
+			transform: translate(4px, 4px);
+			box-shadow: 1px 1px 0 0 var(--pure-black) !important;
+		}
 	}
 	[type="checkbox"] {
 		border: 2px solid var(--pure-black);
@@ -442,8 +449,7 @@
 		}
 	}
 	@media (max-width: 30rem) {
-		form input:not(:last-child, [type="checkbox"]),
-		textarea.-m-break {
+		form input:not(:last-child, [type="checkbox"]) {
 			width: 100%;
 		}
 	}

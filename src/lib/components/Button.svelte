@@ -51,6 +51,31 @@
 		transition: var(--global-transition);
 		line-height: 1;
 		cursor: pointer;
+
+		&:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			width: 10px;
+			height: 1px;
+			background-color: var(--pure-black);
+			transition: var(--global-transition);
+			rotate: 90deg;
+			translate: 6px 0px;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 50%;
+			width: 10px;
+			height: 1px;
+			background-color: var(--pure-black);
+			transition: var(--global-transition);
+			rotate: -270deg;
+			translate: 6px 0px;
+		}
 		.button-text {
 			display: inline-block;
 			vertical-align: sub;
@@ -65,6 +90,17 @@
 		}
 		&:hover {
 			background-color: var(--pure-white);
+			transform: translate(2px, 2px);
+			box-shadow: 3px 3px 0 0 var(--pure-black) !important;
+		}
+		&:active {
+			transform: translate(4px, 4px);
+			box-shadow: 1px 1px 0 0 var(--pure-black) !important;
+		}
+		&.button-link:hover {
+			background-color: var(--pure-white);
+			transform: translate(2px, 2px);
+			box-shadow: 3px 3px 0 0 var(--pure-black) !important;
 			&:after {
 				rotate: -45deg;
 				translate: -6px 2.5px;
@@ -76,47 +112,39 @@
 				height: 1.5px;
 			}
 		}
-		&::after {
-			content: "";
-			position: absolute;
-			right: 0;
-			top: 50%;
-			width: 10px;
-			height: 1px;
-			background-color: var(--pure-black);
-			transition: var(--global-transition);
-			rotate: 90deg;
-			translate: 6px 0px;
-		}
-		&::before {
-			content: "";
-			position: absolute;
-			right: 0;
-			bottom: 50%;
-			width: 10px;
-			height: 1px;
-			background-color: var(--pure-black);
-			transition: var(--global-transition);
-			rotate: -270deg;
-			translate: 6px 0px;
-		}
-		&[aria-expanded="false"]:hover {
-			padding-right: 30px;
-			&:before {
-				rotate: 45deg;
-				translate: -12px 4px;
-				height: 1.5px;
+
+		&.button-toggle {
+			&:hover {
+				&::after {
+					rotate: -45deg;
+					translate: -6px 2.5px;
+					height: 1.5px;
+				}
+				&::before {
+					rotate: 45deg;
+					translate: -6px -2px;
+					height: 1.5px;
+				}
 			}
-		}
-		&[aria-expanded="true"]:hover {
-			padding-right: 30px;
-			&:before {
-				rotate: -45deg;
-				translate: -12px 4px;
+
+			&[aria-expanded="false"]:hover {
+				padding-right: 30px;
+				&:before {
+					rotate: 45deg;
+					translate: -12px 4px;
+					height: 1.5px;
+				}
 			}
-			&:after {
-				rotate: 45deg;
-				translate: -6px 2.5px;
+			&[aria-expanded="true"]:hover {
+				padding-right: 30px;
+				&:before {
+					rotate: -45deg;
+					translate: -12px 4px;
+				}
+				&:after {
+					rotate: 45deg;
+					translate: -6px 2.5px;
+				}
 			}
 		}
 	}
@@ -125,17 +153,15 @@
 	}
 	.button-spotify {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 2;
+		inset: 0;
+		margin: auto;
+		width: 150px;
+		height: 54px;
+		z-index: 6;
 	}
 
-	.button-toggle {
-		display: block;
-	}
 	@media (max-width: 768px) {
-		:global(.button + .button) {
+		:global(.button-mobile-break + .button) {
 			margin-top: 20px;
 			margin-left: 0;
 		}

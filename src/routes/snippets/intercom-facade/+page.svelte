@@ -70,6 +70,7 @@
 
 	<Button
 		type="button"
+		class="button-toggle"
 		ariaExpanded={showJsFacade}
 		ariaControls="jsFacade"
 		buttonText={`${!showJsFacade ? "Show" : "Hide"} Script`}
@@ -98,11 +99,11 @@
 
 	<Button
 		type="button"
+		class="button-toggle"
 		ariaExpanded={showGTMJsFacade}
 		ariaControls="jsFacade"
 		buttonText={`${!showGTMJsFacade ? "Show" : "Hide"} Script`}
 		handleClick={() => (showGTMJsFacade = !showGTMJsFacade)}
-		class="button-toggle"
 	/>
 
 	{#if showGTMJsFacade}
