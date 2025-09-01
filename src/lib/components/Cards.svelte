@@ -76,6 +76,9 @@
 			outline-width: 5px;
 		}
 	}
+	footer p {
+		font-size: 1rem;
+	}
 	.cards-list-title,
 	.cards-list-copy {
 		color: inherit;

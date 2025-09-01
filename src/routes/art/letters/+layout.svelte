@@ -18,7 +18,7 @@
         aspect-ratio: 16 / 9;
         object-fit: cover;
         display: block;
-        height: 100vh;
+        height: 100svh;
         position: absolute;
         z-index: -1;
         inset: 0;

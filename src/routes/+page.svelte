@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section>
-	<h1>Hi, my name is Cullan and I am a web developer.</h1>
+	<h1 class="text-shadows">Hi, my name is Cullan and I am a web developer</h1>
 
 	<p>UX Strategy, SEO and Marketing Development, Web Applications.</p>
 
@@ -22,31 +22,14 @@
 </section>
 
 <style lang="scss">
-	h1 {
+	.text-shadows {
+		text-shadow:
+			2px 2px 0 var(--secondary-color),
+			4px 4px 0 var(--primary-color);
+		font-size: max(2.875rem, min(9vw, 4.625rem));
 		margin: 0;
-		font-size: 2.5rem;
-		letter-spacing: 0.5vw;
-		color: white;
-		background-size: auto 200%;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		-webkit-background-clip: text;
-		animation: shine 8s linear infinite;
-		text-shadow: -1px 1px 0 white;
-		-webkit-text-stroke-width: 1px;
-		-webkit-text-stroke-color: black;
-		font-family: arial;
-		position: relative;
-		margin-bottom: 30px;
-		&:after {
-			content: "Hi, my name is Cullan and I am a web developer.";
-			position: absolute;
-			left: -3px;
-			top: -2px;
-			z-index: 1;
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: black;
-		}
+		color: var(--primary-color);
+		letter-spacing: 0.2vw;
 	}
 	:global(.sidebar-checkbox:checked + .sidebar + .container .its-me) {
 		right: -100%;

@@ -321,7 +321,7 @@
 		border-bottom: 2px solid currentColor;
 	}
 	form textarea {
-		height: 30vh;
+		height: 30svh;
 		width: 100%;
 		resize: none;
 	}
@@ -420,7 +420,6 @@
 		border-radius: 0.25rem;
 		border: 2px solid var(--primary-color);
 		padding: 12px 0.5rem;
-		text-transform: uppercase;
 		appearance: none;
 		cursor: pointer;
 		padding-right: 30px;
@@ -446,6 +445,9 @@
 		cursor: pointer;
 		&:checked {
 			background-color: var(--pure-black);
+		}
+		& + label {
+			text-transform: inherit;
 		}
 	}
 	@media (max-width: 30rem) {

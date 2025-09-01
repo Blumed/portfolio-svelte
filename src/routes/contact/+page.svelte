@@ -84,7 +84,7 @@
 		border-bottom: 2px solid currentColor;
 	}
 	form textarea {
-		height: 30vh;
+		height: 30svh;
 		width: 100%;
 		max-width: 24.3rem;
 		resize: none;

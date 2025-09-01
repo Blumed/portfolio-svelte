@@ -1,14 +1,41 @@
 <script lang="ts">
 	export const pageName = "";
-
-	import { scale } from "svelte/transition";
 	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
-	import data from "$lib/data/work.json";
+	import work from "$lib/data/work.json";
+	import capella from "$lib/assets/images/company/capella_university_logo.jpg";
+	import sleepnumber from "$lib/assets/images/company/sleep_number_logo.jpg";
+	import hellomoon from "$lib/assets/images/company/hellomoon_logo.jpg";
+	import horizontal from "$lib/assets/images/company/horizontalinc_logo.jpg";
+	import wheniwork from "$lib/assets/images/company/wheniwork_logo.jpg";
+	import agreatdayfarm from "$lib/assets/images/company/a_great_day_farm_foundation_logo.jpg";
+	import caribou from "$lib/assets/images/company/caribou_coffee_logo.jpg";
+	import sunabloom from "$lib/assets/images/company/sunabloom_logo.jpg";
+	import space2burn from "$lib/assets/images/company/space2burn_new_media_logo.jpg";
+	import levolor from "$lib/assets/images/company/levolor_logo.jpg";
+	import raymondjames from "$lib/assets/images/company/raymond_james_financial_inc_logo.jpg";
+	import newell from "$lib/assets/images/company/newell_rubbermaid_logo.jpg";
+	import subzerowolfcove from "$lib/assets/images/company/sub_zero_wolf_cove_logo.jpg";
+	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
 
-	const dataAll = data.data.map((item) => item);
-	const projects = data.data.filter((item) => item.type === "project");
-	const sites = data.data.filter((item) => item.type === "site");
+	const dataAll = work.data.map((item) => item);
+	const projects = work.data.filter((item) => item.type === "project");
+	const sites = work.data.filter((item) => item.type === "site");
+	const employerLogos = [
+		wheniwork,
+		sunabloom,
+		agreatdayfarm,
+		caribou,
+		subzerowolfcove,
+		raymondjames,
+		horizontal,
+		levolor,
+		newell,
+		hellomoon,
+		sleepnumber,
+		capella,
+		space2burn,
+	];
 </script>
 
 <Seo title="Work" pageCanonicalUrl="/work" />
@@ -23,6 +50,20 @@
 	currently active projects. Started working on websites in 2009 so the list
 	of things that no longer exist is long.
 </p>
+
+<section class="decorative-background">
+	<h2>Work history</h2>
+	<p>
+		Worked with the following companies as a web developer in some capacity.
+		Some of them are previous employers and others I have done freelance or
+		contract work for.
+	</p>
+	<ul class="company-logos">
+		{#each employerLogos as logo}
+			<li><img class="company-logo" src={logo} alt="" /></li>
+		{/each}
+	</ul>
+</section>
 <Tabs>
 	<TabList>
 		<Tab>All</Tab>
@@ -211,21 +252,6 @@
 		display: inline-flex;
 		margin-top: 0;
 	}
-	.work ul {
-		list-style: none;
-		display: inline-flex;
-		margin-top: 0;
-		flex-wrap: wrap;
-		margin-bottom: 1rem;
-		padding-left: 0;
-	}
-	.work li {
-		color: #666;
-	}
-	.work li:not(:last-child):after {
-		content: ",";
-		margin-right: 5px;
-	}
 	.work-info {
 		background-color: var(--pure-white);
 		padding: 20px 40px;
@@ -241,6 +267,34 @@
 		gap: 30px;
 		margin-bottom: 60px;
 	}
+	section.decorative-background {
+		margin-bottom: 60px;
+	}
+
+	.company-logos {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+		list-style: none;
+		padding-left: 0;
+
+		& li {
+			background-color: var(--pure-white);
+			padding: 0;
+			border-radius: 4px;
+			border: 2px solid var(--primary-color);
+			box-shadow: 4px 4px 0 0 var(--primary-color);
+			margin-bottom: 0;
+			height: 64px;
+			width: 64px;
+			overflow: clip;
+		}
+		& img {
+			width: 100%;
+		}
+	}
+
 	@media (max-width: 768px) {
 		.articles {
 			grid-template-columns: 1fr;

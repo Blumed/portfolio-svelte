@@ -100,6 +100,10 @@
         margin-bottom: 1rem;
         position: relative;
         overflow: clip;
+        :global(&:hover svg) {
+            transition: var(--global-transition);
+            transform: scale(1.2);
+        }
     }
     img {
         max-width: 100%;
@@ -119,6 +123,10 @@
         right: -1px;
         bottom: 0px;
         cursor: pointer;
+        :global(&:focus svg) {
+            transition: var(--global-transition);
+            transform: scale(1.2);
+        }
     }
 
     dialog {
@@ -152,6 +160,10 @@
         top: 0px;
         z-index: 1;
         cursor: pointer;
+        :global(&:hover svg) {
+            transition: var(--global-transition);
+            transform: scale(1.2);
+        }
     }
 
     @media (max-width: 38rem) {

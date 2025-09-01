@@ -6,7 +6,7 @@
             "title": "Full Stack Engineer",
             "link": "https://wheniwork.com",
             "what": [
-                "Brought on to support the marketing team with development needs and to update the site. Converted their Laravel site to a headless cms with a Gatsby frontend. No longer did a developer need to be bogged down updating copy which was in the markup of the old site. The new site is also much faster and performant, which help with SEO and UX.",
+                "Brought on to support the marketing team with development needs and to update the site. Converted their Laravel site to a headless cms with a Gatsby frontend. No longer did a developer need to be bogged down updating copy which was in the markup of the old site. The new site is also much faster and performant, which help with SEO and UX."
             ],
             "listTitle": "Tech Stack",
             "listItems": [
@@ -14,7 +14,11 @@
                 "Wordpress",
                 "Gatsby",
                 "Sketch",
-                "React"
+                "React",
+                "Redux",
+                "PHP",
+                "GraphQl",
+                "Golang"
             ]
         },
         {
@@ -33,7 +37,8 @@
                 "jQuery",
                 "Angular",
                 "AR Frameworks",
-                "Bootstrap"
+                "Bootstrap",
+                "React"
             ]
         },
         {
@@ -60,8 +65,9 @@
             "title": "Front-End Developer",
             "link": "https://sleepnumber.com",
             "what": [
-                "When I joined I was one of two front end developers. Worked closely with marketing to deliver new pages and site experiences."
+                "Merging digital assets into a new modern web format. Enhancing current user experiences determined by our marketing analysts team to increase user interaction. Developing and launching new and annual promotions. We succeeded in a full site redesign. Moved from a M dot site to a fully responsive experience. Used web technologies such as Backbone, Jade, Javascript, Jquery, Sass."
             ],
+            "listTitle": "Tech Stack",
             "listItems": [
                 "Scss",
                 "jQuery",

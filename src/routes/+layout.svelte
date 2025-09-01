@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import { browser } from "$app/environment";
 	import GithubIcon from "$lib/assets/svgeez/icon-github.svelte";
 	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
 	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
@@ -10,6 +11,9 @@
 	const { children } = $props();
 	let isOpen = $state(false);
 	const isHomePage = $derived($page.url.pathname === "/");
+	if (browser) {
+		document.startViewTransition();
+	}
 
 	function closeSidebar() {
 		vibrate(10);
@@ -63,7 +67,7 @@
 
 <a href="#main" class="skip-to-content">Skip to main content</a>
 
-<div class="sidebar" id="sidebar" use:focusTrap class:active={isOpen}>
+<nav class="sidebar" id="sidebar" use:focusTrap class:active={isOpen}>
 	<button
 		type="button"
 		class="sidebar-toggle triangle"
@@ -77,7 +81,7 @@
 			style="pointer-events: none;"
 		/>
 	</button>
-	<nav class="sidebar-nav">
+	<div class="sidebar-nav">
 		<ul class="sidebar-items">
 			<li>
 				<a
@@ -195,7 +199,7 @@
 			</a>
 		</div>
 		<Switch />
-	</nav>
+	</div>
 
 	<div class="sidebar-item">
 		<p>
@@ -207,7 +211,7 @@
 			>
 		</p>
 	</div>
-</div>
+</nav>
 
 <main
 	class={`${$page.url.pathname === "/" ? "home" : $page.url.pathname.replace(/\//g, "-")} container`}
@@ -218,18 +222,20 @@
 </main>
 
 {#if isHomePage}
-	<picture>
-		<source
-			srcSet="https://images.cullanluther.com/its-small-me.webp"
-			media="(max-width: 768px)"
-		/>
-		<img
-			class="its-me"
-			fetchpriority="high"
-			src="https://images.cullanluther.com/its-me.webp"
-			alt="Cullan Luther Smiling At You"
-		/>
-	</picture>
+	<footer>
+		<picture>
+			<source
+				srcSet="https://images.cullanluther.com/its-small-me.webp"
+				media="(max-width: 768px)"
+			/>
+			<img
+				class="its-me"
+				fetchpriority="high"
+				src="https://images.cullanluther.com/its-me.webp"
+				alt="Cullan Luther Smiling At You"
+			/>
+		</picture>
+	</footer>
 {/if}
 
 <style lang="scss">
@@ -438,7 +444,7 @@
 		padding-top: 94px;
 		transition: transform 0.3s ease-in-out;
 		&.home {
-			height: 100vh;
+			height: 100svh;
 			padding-bottom: 0;
 		}
 	}
@@ -499,8 +505,8 @@
 	*/
 
 	.-art-letters {
-		height: 100vh;
-		min-height: 100vh;
+		height: 100svh;
+		min-height: 100svh;
 		padding: 0;
 		display: flex;
 		align-items: center;
