@@ -1,41 +1,18 @@
 <script lang="ts">
-	export const pageName = "";
+	import { browser } from "$app/environment";
 	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
 	import work from "$lib/data/work.json";
-	import capella from "$lib/assets/images/company/capella_university_logo.jpg";
-	import sleepnumber from "$lib/assets/images/company/sleep_number_logo.jpg";
-	import hellomoon from "$lib/assets/images/company/hellomoon_logo.jpg";
-	import horizontal from "$lib/assets/images/company/horizontalinc_logo.jpg";
-	import wheniwork from "$lib/assets/images/company/wheniwork_logo.jpg";
-	import agreatdayfarm from "$lib/assets/images/company/a_great_day_farm_foundation_logo.jpg";
-	import caribou from "$lib/assets/images/company/caribou_coffee_logo.jpg";
-	import sunabloom from "$lib/assets/images/company/sunabloom_logo.jpg";
-	import space2burn from "$lib/assets/images/company/space2burn_new_media_logo.jpg";
-	import levolor from "$lib/assets/images/company/levolor_logo.jpg";
-	import raymondjames from "$lib/assets/images/company/raymond_james_financial_inc_logo.jpg";
-	import newell from "$lib/assets/images/company/newell_rubbermaid_logo.jpg";
-	import subzerowolfcove from "$lib/assets/images/company/sub_zero_wolf_cove_logo.jpg";
-	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
+	import employers from "$lib/data/employers.ts";
+	import PlusIcon from "$lib/assets/svgeez/icon-plus.svelte";
+
+	export const pageName = "";
 
 	const dataAll = work.data.map((item) => item);
 	const projects = work.data.filter((item) => item.type === "project");
 	const sites = work.data.filter((item) => item.type === "site");
-	const employerLogos = [
-		wheniwork,
-		sunabloom,
-		agreatdayfarm,
-		caribou,
-		subzerowolfcove,
-		raymondjames,
-		horizontal,
-		levolor,
-		newell,
-		hellomoon,
-		sleepnumber,
-		capella,
-		space2burn,
-	];
+	const iconsSvg =
+		"font-size: 1rem; width: 24px; height: 24px; position: absolute; right: -32px;top: 40px; color: var(--pure-white);";
 </script>
 
 <Seo title="Work" pageCanonicalUrl="/work" />
@@ -59,8 +36,20 @@
 		contract work for.
 	</p>
 	<ul class="company-logos">
-		{#each employerLogos as logo}
-			<li><img class="company-logo" src={logo} alt="" /></li>
+		{#each employers as employer, i}
+			<li>
+				<button
+					type="button"
+					onclick={() =>
+						browser &&
+						document.getElementById(`dialog-${i}`).showModal()}
+					><img
+						class="company-logo"
+						src={employer.logo}
+						alt={employer.alt}
+					/></button
+				>
+			</li>
 		{/each}
 	</ul>
 </section>
@@ -205,6 +194,44 @@
 	</div>
 </Tabs>
 
+{#each employers as employer, i}
+	<dialog id={`dialog-${i}`}>
+		<button
+			type="button"
+			class="button button-close"
+			onclick={() =>
+				browser && document.getElementById(`dialog-${i}`).close()}
+			><span class="sr-only">Close Dialog</span><PlusIcon
+				style={`${iconsSvg} rotate: 45deg;`}
+			/></button
+		>
+		<div class="dialog-innerds">
+			<header>
+				<h2>{employer.who}</h2>
+				<img src={employer.logo} alt={employer.alt} loading="lazy" />
+			</header>
+			<p class="employer-when">
+				<strong>When: </strong><small>{employer.when}</small>
+			</p>
+			<p class="employer-title">
+				<strong>Title: </strong><small>{employer.title}</small>
+			</p>
+			<h3>Details</h3>
+			<p>{employer.what}</p>
+			{#if employer.listItems[0] !== null}
+				<details>
+					<summary>{employer.listTitle}</summary>
+					<ul>
+						{#each employer.listItems as item}
+							<li class="employer-list-item">{item}</li>
+						{/each}
+					</ul>
+				</details>
+			{/if}
+		</div>
+	</dialog>
+{/each}
+
 <style>
 	.work {
 		transition: height 0.5s ease-in-out;
@@ -279,25 +306,86 @@
 		list-style: none;
 		padding-left: 0;
 
-		& li {
+		& button {
 			background-color: var(--pure-white);
 			padding: 0;
-			border-radius: 4px;
+			border-radius: 5px;
 			border: 2px solid var(--primary-color);
 			box-shadow: 4px 4px 0 0 var(--primary-color);
 			margin-bottom: 0;
 			height: 64px;
 			width: 64px;
 			overflow: clip;
+			cursor: pointer;
 		}
 		& img {
 			width: 100%;
 		}
 	}
 
+	dialog {
+		background-color: var(--pure-white);
+		padding: 0;
+		border: 2px solid var(--pure-black);
+		max-width: 50rem;
+		width: 100%;
+
+		& .dialog-innerds {
+			position: relative;
+			padding: 0 30px 30px;
+			color: var(--pure-black);
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-bottom: 15px;
+			& h2 {
+				margin-block: 0;
+			}
+			& img {
+				width: 50px;
+			}
+		}
+
+		p {
+			margin: 0;
+		}
+		strong {
+			margin-right: 0.5rem;
+		}
+		details {
+			margin-top: 30px;
+			cursor: pointer;
+		}
+	}
+
+	.button-close {
+		width: 75px;
+		height: 60px;
+		border-style: solid;
+		border-width: 0 75px 75px 0px;
+		border-color: transparent transparent var(--pure-black) transparent;
+		rotate: -180deg;
+		background-color: transparent;
+		display: flex;
+		justify-content: flex-end;
+		margin-left: auto;
+		padding: 0;
+		cursor: pointer;
+		:global(&:hover svg) {
+			transition: var(--global-transition);
+			transform: scale(1.2);
+		}
+	}
+
 	@media (max-width: 768px) {
 		.articles {
 			grid-template-columns: 1fr;
+		}
+		dialog .dialog-innerds {
+			padding: 0 15px 30px;
 		}
 	}
 </style>

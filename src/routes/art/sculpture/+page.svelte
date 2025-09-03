@@ -2,45 +2,10 @@
     import { browser } from "$app/environment";
     import PlusIcon from "$lib/assets/svgeez/icon-plus.svelte";
     import Seo from "$lib/components/Seo.svelte";
-
-    import one from "$lib/assets/images/micky.jpg";
-    import two from "$lib/assets/images/ancient.jpg";
-    import three from "$lib/assets/images/deer.jpg";
-    import four from "$lib/assets/images/eye.jpg";
-    import five from "$lib/assets/images/meat.webp";
-    import six from "$lib/assets/images/star-maker.png";
-    import seven from "$lib/assets/images/harry.jpg";
-    import eight from "$lib/assets/images/blocks.jpg";
-    import nine from "$lib/assets/images/fell.webp";
-    import ten from "$lib/assets/images/flag.webp";
-    import eleven from "$lib/assets/images/inside.webp";
-    import twelve from "$lib/assets/images/sad.webp";
-    import thirteen from "$lib/assets/images/self.webp";
-    import fourteen from "$lib/assets/images/shape.webp";
-    import fifteen from "$lib/assets/images/sperm.webp";
-    import sixteen from "$lib/assets/images/old-painting.webp";
+    import sculptures from "$lib/data/sculptures.ts";
 
     const iconsSvg =
         "font-size: 1rem; width: 24px; height: 24px; position: absolute; right: -32px;top: 40px; color: var(--pure-black);";
-
-    const images = [
-        one,
-        two,
-        three,
-        four,
-        five,
-        six,
-        seven,
-        eight,
-        nine,
-        ten,
-        eleven,
-        twelve,
-        thirteen,
-        fourteen,
-        fifteen,
-        sixteen,
-    ];
 </script>
 
 <Seo
@@ -56,9 +21,9 @@
 </p>
 
 <section class="masonry-container">
-    {#each images as image, i}
+    {#each sculptures as sculpture, i}
         <article class="masonry-item">
-            <img src={image} alt="Add Text Here" />
+            <img src={sculpture.image} alt={sculpture.alt} />
             <button
                 type="button"
                 class="button button-expand"
@@ -73,7 +38,7 @@
     {/each}
 </section>
 
-{#each images as image, i}
+{#each sculptures as sculpture, i}
     <dialog id={`dialog-${i}`}>
         <div class="dialog-innerds">
             <button
@@ -85,7 +50,7 @@
                     style={`${iconsSvg} rotate: 45deg;`}
                 /></button
             >
-            <img src={image} loading="lazy" alt="Add Text Here" />
+            <img src={sculpture.image} loading="lazy" alt={sculpture.alt} />
         </div>
     </dialog>
 {/each}
