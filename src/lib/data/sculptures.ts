@@ -1,83 +1,66 @@
-import one from "$lib/assets/images/micky.jpg";
-import two from "$lib/assets/images/ancient.jpg";
-import three from "$lib/assets/images/deer.jpg";
-import four from "$lib/assets/images/eye.jpg";
-import five from "$lib/assets/images/meat.webp";
-import six from "$lib/assets/images/star-maker.webp";
-import seven from "$lib/assets/images/harry.jpg";
-import eight from "$lib/assets/images/blocks.jpg";
-import nine from "$lib/assets/images/fell.webp";
-import ten from "$lib/assets/images/flag.webp";
-import eleven from "$lib/assets/images/inside.webp";
-import twelve from "$lib/assets/images/sad.webp";
-import thirteen from "$lib/assets/images/self.webp";
-import fourteen from "$lib/assets/images/shape.webp";
-import fifteen from "$lib/assets/images/sperm.webp";
-import sixteen from "$lib/assets/images/old-painting.webp";
-
 const sculptures = [
     {
-        "image": one,
+        "image": 'https://images.cullanluther.com/art/micky.jpg',
         "alt": "Mickey mouse rat concrete wall sculpture"
     },
     {
-        "image": two,
+        "image": 'https://images.cullanluther.com/art/ancient.jpg',
         "alt": "Old gorilla concrete wall sculpture"
     },
     {
-        "image": three,
+        "image": 'https://images.cullanluther.com/art/deer.jpg',
         "alt": "Deer head made with rag wall sculpture"
     },
     {
-        "image": four,
+        "image": 'https://images.cullanluther.com/art/eye.jpg',
         "alt": "Found objects sculpture"
     },
     {
-        "image": five,
+        "image": 'https://images.cullanluther.com/art/meat.webp',
         "alt": "lady bust with metal decorations and concrete meat like arms wall sculpture"
     },
     {
-        "image": six,
+        "image": 'https://images.cullanluther.com/art/star-maker.webp',
         "alt": "Crying star boy concrete sculpture"
     },
     {
-        "image": seven,
+        "image": 'https://images.cullanluther.com/art/harry.jpg',
         "alt": "Hairy blue man concrete face wall sculpture"
     },
     {
-        "image": eight,
+        "image": 'https://images.cullanluther.com/art/blocks.jpg',
         "alt": "Inlay block concrete sculptures"
     },
     {
-        "image": nine,
+        "image": 'https://images.cullanluther.com/art/fell.webp',
         "alt": "Falling star concrete sculpture"
     },
     {
-        "image": ten,
+        "image": 'https://images.cullanluther.com/art/flag.webp',
         "alt": "Screw american flag concrete wall sculpture"
     },
     {
-        "image": eleven,
+        "image": 'https://images.cullanluther.com/art/inside.webp',
         "alt": "Structural insides concrete sculpture"
     },
     {
-        "image": twelve,
+        "image": 'https://images.cullanluther.com/art/sad.webp',
         "alt": "Crying hair women concrete wall sculpture"
     },
     {
-        "image": thirteen,
+        "image": 'https://images.cullanluther.com/art/self.webp',
         "alt": "Horns breaking out of concrete monolith wall sculpture"
     },
     {
-        "image": fourteen,
+        "image": 'https://images.cullanluther.com/art/shape.webp',
         "alt": "Inlay green and gray concrete wall sculpture"
     },
     {
-        "image": fifteen,
+        "image": 'https://images.cullanluther.com/art/sperm.webp',
         "alt": "Distressed pink and white block with wood tail sculpture"
     },
     {
-        "image": sixteen,
+        "image": 'https://images.cullanluther.com/art/old-painting.webp',
         "alt": "Burlap sky with grazing silver goat concrete wall sculpture"
     },
 ];

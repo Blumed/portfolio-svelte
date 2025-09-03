@@ -6,6 +6,10 @@
 
 <Seo title="Collection of Art Projects" pageCanonicalUrl="/art" />
 
+<svelte:head>
+    <link rel="preconnect" href="https://images.cullanluther.com" />
+</svelte:head>
+
 <h1>Collection of Art</h1>
 
 <section class="clean-background">

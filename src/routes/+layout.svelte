@@ -225,13 +225,13 @@
 	<footer>
 		<picture>
 			<source
-				srcSet="https://images.cullanluther.com/its-small-me.webp"
+				srcSet="https://images.cullanluther.com/home/its-small-me.webp"
 				media="(max-width: 768px)"
 			/>
 			<img
 				class="its-me"
 				fetchpriority="high"
-				src="https://images.cullanluther.com/its-me.webp"
+				src="https://images.cullanluther.com/home/its-me.webp"
 				alt="Cullan Luther Smiling At You"
 			/>
 		</picture>

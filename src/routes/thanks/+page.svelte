@@ -1,6 +1,6 @@
 <script>
     import { browser } from "$app/environment";
-    import saxy from "$lib/assets/images/sax-bois.webp";
+
     if (browser) {
         (function animateAndRedirect() {
             const circles = document.querySelectorAll(".circle");
@@ -41,25 +41,49 @@
                 console.log(
                     "All animations are complete. Redirecting to homepage...",
                 );
-                //window.location.href = "/";
+                window.location.href = "/";
             });
         })();
     }
 </script>
 
+<svelte:head>
+    <link rel="preconnect" href="https://images.cullanluther.com" />
+</svelte:head>
+
 <h1 class="sr-only">Thank you for reaching out 🎉</h1>
 
 <div class="long-line">
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
     <div class="circle">
         <span class="sr-only"
             >This is an empty visual space please ignore and sorry</span
         >
     </div>
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
     <div class="circle">
         <span class="sr-only"
             >This is an empty visual space please ignore and sorry</span
@@ -70,7 +94,11 @@
             >This is an empty visual space please ignore and sorry</span
         >
     </div>
-    <img class="circle" src={saxy} alt="Roller Coster Saxophone players" />
+    <img
+        class="circle"
+        src="https://images.cullanluther.com/thanks/sax-bois.webp"
+        alt="Roller Coster Saxophone players"
+    />
 </div>
 
 <style>

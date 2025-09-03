@@ -110,7 +110,7 @@
 			/>
 			<img
 				id="spotify"
-				src="https://images.cullanluther.com/spotify-facade.webp"
+				src="https://images.cullanluther.com/about/spotify-facade.webp"
 				alt=""
 			/>
 		</div>
@@ -153,7 +153,7 @@
 			height: 379px;
 			width: 66px;
 			top: 0;
-			background-image: url("https://images.cullanluther.com/spotify-facade-side.webp");
+			background-image: url("https://images.cullanluther.com/about/spotify-facade-side.webp");
 		}
 
 		img {

@@ -6,7 +6,7 @@
 			"link": "https://make-bookmarklets.com",
 			"copy": "I created a bookmarklet generator with modern Javascript safeguards in place. This site has really taken off. I guess people like making bookmarklets too.",
 			"repo": "https://github.com/Blumed/make-bookmarklets",
-			"image": "https://images.cullanluther.com/make-bookmarklets.webp",
+			"image": "https://images.cullanluther.com/work/make-bookmarklets.webp",
 			"alt": "Make Bookmarklets",
 			"listTitle": "Technologies",
 			"listItems": [
@@ -21,7 +21,7 @@
 			"link": "https://adambielaudio.com/",
 			"copy": "Made a 100% free site using modern web tools for a buddy of mine. Created a decoupled website that uses google spreadsheets as our CMS. Very fun project with single build/deploy step.",
 			"repo": "",
-			"image": "https://images.cullanluther.com/adam-biel-audio.webp",
+			"image": "https://images.cullanluther.com/work/adam-biel-audio.webp",
 			"alt": "Adam Biel holding sound equipment",
 			"listTitle": "Technologies",
 			"listItems": [
@@ -36,7 +36,7 @@
 			"link": "https://chrome.google.com/webstore/detail/looksee/mbfdhnjobheppodaolenppfegicnhmhp",
 			"copy": "I made a Chrome Extension for debugging layout on the fly. Additionally you can apply a shader as well. Add any css selectors to outline or highlight elements on the page.",
 			"repo": "https://github.com/Blumed/looksee",
-			"image": "https://images.cullanluther.com/looksee-css-border-debugging-chrome-extension.webp",
+			"image": "https://images.cullanluther.com/work/looksee-css-border-debugging-chrome-extension.webp",
 			"alt": "Looksee Logo",
 			"listTitle": "Technologies",
 			"listItems": [

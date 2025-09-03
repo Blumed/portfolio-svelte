@@ -41,11 +41,15 @@
 		display: table;
 		padding-right: 15px;
 		margin-bottom: 30px;
+		margin-top: 60px;
 	}
 
 	@media (min-width: 769px) {
 		h1 {
 			font-size: 4rem;
+		}
+		p {
+			margin-top: 0;
 		}
 	}
 </style>
