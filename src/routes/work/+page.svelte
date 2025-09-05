@@ -17,10 +17,6 @@
 
 <Seo title="Work" pageCanonicalUrl="/work" />
 
-<svelte:head>
-	<link rel="preconnect" href="https://images.cullanluther.com" />
-</svelte:head>
-
 <h1 class="page-title">Work</h1>
 <p class="clean-background">
 	There are many projects that no longer exist but here are few recent or

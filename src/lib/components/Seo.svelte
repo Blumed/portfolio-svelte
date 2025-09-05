@@ -3,6 +3,7 @@
 		title?: string;
 		pageCanonicalUrl?: string;
 		pageMetaDescription?: string;
+		noIndex?: boolean;
 		seo?: {
 			title: string;
 			description: string;
@@ -10,24 +11,32 @@
 		};
 	}
 
-	const baseUrl = 'https://cullanluther.com';
-	const ogImage = 'https://cullanluther.com/default-og-image.webp';
-	const twitterImage = 'https://cullanluther.com/default-twitter-image.webp';
+	const baseUrl = "https://cullanluther.com";
+	const ogImage = "https://cullanluther.com/default-og-image.webp";
+	const twitterImage = "https://cullanluther.com/default-twitter-image.webp";
 
 	const {
-		title = '',
-		pageCanonicalUrl = '',
-		pageMetaDescription = '',
+		title = "",
+		pageCanonicalUrl = "",
+		pageMetaDescription = "",
+		noIndex = false,
 		seo = {
-			title: 'Cullan Luther · Web Developer',
-			description: 'Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.',
-			canonical: baseUrl
-		}
+			title: "Cullan Luther · Web Developer",
+			description:
+				"Welcome to my little home on the internet. Come on in! I am a frontend web developer from Minneapolis, Minnesota. Take a look around and make yourself comfortable.",
+			canonical: baseUrl,
+		},
 	}: Props = $props();
 
-	const pageTitle = $derived(title !== '' ? `Cullan Luther · ${title}` : seo.title);
-	const canonicalUrl = $derived(`${baseUrl}${pageCanonicalUrl}` || seo.canonical);
-	const metaDescription = $derived(pageMetaDescription !== '' ? pageMetaDescription : seo.description);
+	const pageTitle = $derived(
+		title !== "" ? `Cullan Luther · ${title}` : seo.title,
+	);
+	const canonicalUrl = $derived(
+		`${baseUrl}${pageCanonicalUrl}` || seo.canonical,
+	);
+	const metaDescription = $derived(
+		pageMetaDescription !== "" ? pageMetaDescription : seo.description,
+	);
 </script>
 
 <svelte:head>
@@ -49,4 +58,7 @@
 	<meta content={twitterImage} property="twitter:image" />
 	<meta name="color-scheme" content="dark light" />
 	<link rel="canonical" href={canonicalUrl} />
+	{#if noIndex}
+		<meta name="robots" content="noindex nofollow" />
+	{/if}
 </svelte:head>

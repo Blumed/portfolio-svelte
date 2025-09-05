@@ -5,10 +5,6 @@
 
 <Seo title="Home" pageCanonicalUrl="/" />
 
-<svelte:head>
-	<link rel="preconnect" href="https://images.cullanluther.com" crossorigin />
-</svelte:head>
-
 <section>
 	<h1 class="text-shadows">Hi, my name is Cullan and I am a web developer</h1>
 

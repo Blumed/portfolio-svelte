@@ -11,10 +11,6 @@
 
 <Seo title="About" pageCanonicalUrl="/about" />
 
-<svelte:head>
-	<link rel="preconnect" href="https://images.cullanluther.com" />
-</svelte:head>
-
 <h1 class="page-title">About</h1>
 
 <!-- <Selfie /> -->

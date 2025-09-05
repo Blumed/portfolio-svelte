@@ -65,6 +65,10 @@
 
 <svelte:window on:keydown={(e) => e.key === "Escape" && closeSidebar()} />
 
+<svelte:head>
+	<link rel="preconnect" href="https://images.cullanluther.com" crossorigin />
+</svelte:head>
+
 <a href="#main" class="skip-to-content">Skip to main content</a>
 
 <nav class="sidebar" id="sidebar" use:focusTrap class:active={isOpen}>

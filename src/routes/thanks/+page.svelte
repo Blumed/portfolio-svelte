@@ -1,5 +1,6 @@
 <script>
     import { browser } from "$app/environment";
+    import Seo from "$lib/components/Seo.svelte";
 
     if (browser) {
         (function animateAndRedirect() {
@@ -47,9 +48,7 @@
     }
 </script>
 
-<svelte:head>
-    <link rel="preconnect" href="https://images.cullanluther.com" />
-</svelte:head>
+<Seo title="Thanks" pageCanonicalUrl="/thanks" noIndex />
 
 <h1 class="sr-only">Thank you for reaching out 🎉</h1>
 

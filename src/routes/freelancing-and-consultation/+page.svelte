@@ -340,7 +340,11 @@
 		&:has(select):not(:first-of-type) {
 			margin-top: 2rem;
 		}
+		label {
+			font-size: 1rem;
+		}
 	}
+
 	.checkbox-group {
 		display: flex;
 		align-items: center;
@@ -379,8 +383,7 @@
 	}
 
 	label {
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.05rem;
 	}
 	input:placeholder-shown + label,
 	textarea:placeholder-shown + label {

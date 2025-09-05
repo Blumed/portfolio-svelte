@@ -3,9 +3,10 @@
     import PlusIcon from "$lib/assets/svgeez/icon-plus.svelte";
     import Seo from "$lib/components/Seo.svelte";
     import sculptures from "$lib/data/sculptures.ts";
+    import CircleIcon from "$lib/assets/svgeez/icon-circle.svelte";
 
     const iconsSvg =
-        "font-size: 1rem; width: 24px; height: 24px; position: absolute; right: -32px;top: 40px; color: var(--pure-black);";
+        "font-size: 1rem; width: 20.5px; height: 20.5px; position: absolute; right: -32px;top: 40px; color: var(--pure-black);";
 </script>
 
 <Seo
@@ -30,8 +31,9 @@
                 onclick={() =>
                     browser &&
                     document.getElementById(`dialog-${i}`).showModal()}
-                ><PlusIcon style={iconsSvg} /><span class="sr-only"
-                    >Open Bigger Image Dialog</span
+            >
+                <CircleIcon class="regular-old-circle" style={iconsSvg} /><span
+                    class="sr-only">Open Bigger Image Dialog</span
                 ></button
             >
         </article>
