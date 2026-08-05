@@ -8,14 +8,15 @@ export function enhance(
 		result
 	}: {
 		pending?: (data: FormData, form: HTMLFormElement) => void;
-		error?: (res: Response, error: Error, form: HTMLFormElement) => void;
+		error?: (res: Response | null, error: Error | null, form: HTMLFormElement) => void;
 		result: (res: Response, form: HTMLFormElement) => void;
 	}
 ) {
-	let current_token: {};
+	let current_token: object | undefined;
 
 	async function handle_submit(e: Event) {
-		const token = (current_token = {});
+		const token = {};
+		current_token = token;
 
 		e.preventDefault();
 
@@ -43,7 +44,7 @@ export function enhance(
 			}
 		} catch (e) {
 			if (error) {
-				error(null, e, form);
+				error(null, e instanceof Error ? e : new Error(String(e)), form);
 			} else {
 				throw e;
 			}

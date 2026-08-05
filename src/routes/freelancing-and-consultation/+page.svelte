@@ -1,9 +1,9 @@
 <script>
+	import IconChevron from "$lib/assets/svgeez/icon-chevron.svelte";
 	import Button from "$lib/components/Button.svelte";
 	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
 	import { workingYears } from "$lib/constants";
-	import IconChevron from "$lib/assets/svgeez/icon-chevron.svelte";
 
 	const chevronStyle = `
 	position: absolute;
@@ -249,7 +249,6 @@
 					name="message"
 					id="message"
 					placeholder="How can I help?"
-					pattern="/^\S.*(?:\r?\n\S.*)*$/u"
 					required
 				></textarea>
 				<label for="message">Message</label>

@@ -1,7 +1,12 @@
 {
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": true
+    }
+  },
   "overrides": [
     {
-      "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
+      "includes": ["**/*.svelte"],
       "linter": {
         "rules": {
           "style": {

@@ -1,10 +1,11 @@
 <script>
+    import Button from "$lib/components/Button.svelte";
     import Prism from "$lib/components/code-snippet/prisma-js.svelte";
     import Seo from "$lib/components/Seo.svelte";
-    import Button from "$lib/components/Button.svelte";
-    import bookmarkletCode from "./bookmarklet-code";
     import bookmarklet from "./bookmarklet";
+    import bookmarkletCode from "./bookmarklet-code";
     import bookmarkletFunction from "./bookmarklet-function";
+
     let showCode = $state(false);
     let bookmarkletName = $state("Drag Me To Your Nearest Bookmark Bar");
 </script>

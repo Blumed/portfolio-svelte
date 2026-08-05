@@ -3,7 +3,7 @@
 	import Seo from "$lib/components/Seo.svelte";
 	import { Tab, TabList, TabPanel, Tabs } from "$lib/components/tabable";
 	import work from "$lib/data/work.json";
-	import employers from "$lib/data/employers.ts";
+	import employers from "$lib/data/employers";
 	import PlusIcon from "$lib/assets/svgeez/icon-plus.svelte";
 
 	export const pageName = "";
@@ -38,7 +38,11 @@
 					type="button"
 					onclick={() =>
 						browser &&
-						document.getElementById(`dialog-${i}`).showModal()}
+						(
+							document.getElementById(
+								`dialog-${i}`
+							) as HTMLDialogElement | null
+						)?.showModal()}
 					><img
 						class="company-logo"
 						src={employer.logo}
@@ -196,7 +200,10 @@
 			type="button"
 			class="button button-close"
 			onclick={() =>
-				browser && document.getElementById(`dialog-${i}`).close()}
+				browser &&
+				(
+					document.getElementById(`dialog-${i}`) as HTMLDialogElement | null
+				)?.close()}
 			><span class="sr-only">Close Dialog</span><PlusIcon
 				style={`${iconsSvg} rotate: 45deg;`}
 			/></button

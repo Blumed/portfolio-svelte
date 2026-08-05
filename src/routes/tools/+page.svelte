@@ -1,9 +1,14 @@
 <script lang="ts">
 	import CardsList from "$lib/components/Cards.svelte";
 	import Seo from "$lib/components/Seo.svelte";
-	import bookmarklets from "$lib/data/bookmarklets.json";
-	import snippets from "$lib/data/snippets.json";
-	import tools from "$lib/data/tools.json";
+	import bookmarkletsJson from "$lib/data/bookmarklets.json";
+	import snippetsJson from "$lib/data/snippets.json";
+	import toolsJson from "$lib/data/tools.json";
+	import type { Bookmarklets, Snippets, Tools } from "$lib/data/types";
+
+	const bookmarklets = bookmarkletsJson satisfies Bookmarklets;
+	const snippets = snippetsJson satisfies Snippets;
+	const tools = toolsJson satisfies Tools;
 </script>
 
 <Seo title="Web Development Tools" pageCanonicalUrl="/tools" />

@@ -1,16 +1,15 @@
 <script lang="ts">
 	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
+	import type { Card, CardCollection } from "$lib/data/types";
 
 	interface Props {
-		cardData: any;
+		cardData: CardCollection<Card>;
 	}
 
 	const { cardData }: Props = $props();
-	// biome-ignore lint/style/useConst: Let svetle svelte
 	let toggleIcon = $state(false);
-	// biome-ignore lint/style/useConst: Let svetle svelte
 	let currentCard = $state(100); //This will be false until current card id value is stored
-	const cards = cardData.data.map((item: any) => item);
+	const cards = $derived(cardData.data);
 </script>
 
 <div class="cards-list-container">
@@ -37,7 +36,7 @@
 			</header>
 			<a href={card.url} class="cards-list-copy"><p>{card.copy}</p></a>
 			<footer>
-				{#if card.listTitle}
+				{#if "listTitle" in card}
 					<figure>
 						<figcaption>{card.listTitle}</figcaption>
 						<ul class="no-list-style">

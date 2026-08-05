@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { page } from "$app/stores";
 	import { browser } from "$app/environment";
+	import { page } from "$app/stores";
 	import GithubIcon from "$lib/assets/svgeez/icon-github.svelte";
 	import LinkedInIcon from "$lib/assets/svgeez/icon-linkedIn.svelte";
 	import CircleIcon from "$lib/assets/svgeez/toggle-circle-icon.svelte";
@@ -20,13 +20,14 @@
 		isOpen = false;
 	}
 
-	function focusTrap(node) {
-		let focusableElements = [];
-		let firstElement, lastElement;
+	function focusTrap(node: HTMLElement) {
+		let focusableElements: HTMLElement[] = [];
+		let firstElement: HTMLElement | undefined;
+		let lastElement: HTMLElement | undefined;
 
 		function updateFocusableElements() {
 			focusableElements = Array.from(
-				node.querySelectorAll(
+				node.querySelectorAll<HTMLElement>(
 					'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
 				),
 			).filter((el) => !el.hasAttribute("disabled"));
@@ -34,7 +35,7 @@
 			lastElement = focusableElements[focusableElements.length - 1];
 		}
 
-		function handleKeydown(event) {
+		function handleKeydown(event: KeyboardEvent) {
 			if (!isOpen || event.key !== "Tab") return;
 
 			updateFocusableElements();
@@ -43,12 +44,12 @@
 			if (event.shiftKey) {
 				if (document.activeElement === firstElement) {
 					event.preventDefault();
-					lastElement.focus();
+					lastElement?.focus();
 				}
 			} else {
 				if (document.activeElement === lastElement) {
 					event.preventDefault();
-					firstElement.focus();
+					firstElement?.focus();
 				}
 			}
 		}
@@ -64,10 +65,6 @@
 </script>
 
 <svelte:window on:keydown={(e) => e.key === "Escape" && closeSidebar()} />
-
-<svelte:head>
-	<link rel="preconnect" href="https://images.cullanluther.com" crossorigin />
-</svelte:head>
 
 <a href="#main" class="skip-to-content">Skip to main content</a>
 

@@ -17,7 +17,7 @@
 	let toggleCodeOutput = false;
 	let sizeName = "bytes";
 	let codeOutOneLine = false;
-	let dialog: any;
+	let dialog: HTMLDialogElement;
 
 	function defaultValues() {
 		isValid = true;
@@ -45,8 +45,8 @@
 				errorMessage = "";
 				return json;
 			}
-		} catch (e: any) {
-			errorMessage = e.message;
+		} catch (e: unknown) {
+			errorMessage = (e as Error).message;
 		}
 		isValid = false;
 		return isValid;
@@ -92,7 +92,9 @@
 
 	function toggleDialog(state: boolean) {
 		if (browser) {
-			dialog = document.getElementById("code-output-fullscreen");
+			dialog = document.getElementById(
+				"code-output-fullscreen",
+			) as HTMLDialogElement;
 			state === true ? dialog.showModal() : dialog?.close();
 		}
 	}
@@ -110,7 +112,7 @@
 	}
 
 	if (browser) {
-		localStorage.autoProcess === "false" ? (auto = false) : (auto = true);
+		auto = localStorage.getItem("autoProcess") !== "false";
 	}
 
 	// Allow code to process when auto is checked
