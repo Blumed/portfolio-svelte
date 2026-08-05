@@ -1,7 +1,10 @@
 <script lang="ts">
     import CardsList from "$lib/components/Cards.svelte";
     import Seo from "$lib/components/Seo.svelte";
-    import art from "$lib/data/art.json";
+    import artJson from "$lib/data/art.json";
+    import type { Art } from "$lib/data/types";
+
+    const art = artJson satisfies Art;
 </script>
 
 <Seo title="Collection of Art Projects" pageCanonicalUrl="/art" />

@@ -1,21 +1,21 @@
-import wheniwork from "$lib/assets/images/company/wheniwork_logo.jpg";
 import agreatdayfarm from "$lib/assets/images/company/a_great_day_farm_foundation_logo.jpg";
-import tangletown from "$lib/assets/images/company/tangletown_bike_logo.jpg";
-import sunabloom from "$lib/assets/images/company/sunabloom_logo.jpg";
-import horizontal from "$lib/assets/images/company/horizontalinc_logo.jpg";
 import aspen from "$lib/assets/images/company/aspen_dental_logo.jpg";
+import capella from "$lib/assets/images/company/capella_university_logo.jpg";
 import caribou from "$lib/assets/images/company/caribou_coffee_logo.jpg";
-import subzerowolfcove from "$lib/assets/images/company/sub_zero_wolf_cove_logo.jpg";
-import raymondjames from "$lib/assets/images/company/raymond_james_financial_inc_logo.jpg";
-import uhg from "$lib/assets/images/company/unitedhealth_group_logo.jpg";
-import newyorklife from "$lib/assets/images/company/newyork_life_logo.jpg";
 import fisher from "$lib/assets/images/company/fisher_investments_logo.jpg";
 import hellomoon from "$lib/assets/images/company/hellomoon_logo.jpg";
-import newell from "$lib/assets/images/company/newell_rubbermaid_logo.jpg";
+import horizontal from "$lib/assets/images/company/horizontalinc_logo.jpg";
 import levolor from "$lib/assets/images/company/levolor_logo.jpg";
+import newell from "$lib/assets/images/company/newell_rubbermaid_logo.jpg";
+import newyorklife from "$lib/assets/images/company/newyork_life_logo.jpg";
+import raymondjames from "$lib/assets/images/company/raymond_james_financial_inc_logo.jpg";
 import sleepnumber from "$lib/assets/images/company/sleep_number_logo.jpg";
-import capella from "$lib/assets/images/company/capella_university_logo.jpg";
 import space2burn from "$lib/assets/images/company/space2burn_new_media_logo.jpg";
+import subzerowolfcove from "$lib/assets/images/company/sub_zero_wolf_cove_logo.jpg";
+import sunabloom from "$lib/assets/images/company/sunabloom_logo.jpg";
+import tangletown from "$lib/assets/images/company/tangletown_bike_logo.jpg";
+import uhg from "$lib/assets/images/company/unitedhealth_group_logo.jpg";
+import wheniwork from "$lib/assets/images/company/wheniwork_logo.jpg";
 
 const employers = [
     {
@@ -348,4 +348,3 @@ const employers = [
 ];
 
 export default employers;
-

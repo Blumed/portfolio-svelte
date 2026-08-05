@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
     import { browser } from "$app/environment";
+    import CircleIcon from "$lib/assets/svgeez/icon-circle.svelte";
     import PlusIcon from "$lib/assets/svgeez/icon-plus.svelte";
     import Seo from "$lib/components/Seo.svelte";
-    import sculptures from "$lib/data/sculptures.ts";
-    import CircleIcon from "$lib/assets/svgeez/icon-circle.svelte";
+    import sculptures from "$lib/data/sculptures";
 
     const iconsSvg =
         "font-size: 1rem; width: 20.5px; height: 20.5px; position: absolute; right: -32px;top: 40px; color: var(--pure-black);";
@@ -30,7 +30,11 @@
                 class="button button-expand"
                 onclick={() =>
                     browser &&
-                    document.getElementById(`dialog-${i}`).showModal()}
+                    (
+                        document.getElementById(
+                            `dialog-${i}`,
+                        ) as HTMLDialogElement | null
+                    )?.showModal()}
             >
                 <CircleIcon class="regular-old-circle" style={iconsSvg} /><span
                     class="sr-only">Open Bigger Image Dialog</span
@@ -47,7 +51,12 @@
                 type="button"
                 class="button button-close"
                 onclick={() =>
-                    browser && document.getElementById(`dialog-${i}`).close()}
+                    browser &&
+                    (
+                        document.getElementById(
+                            `dialog-${i}`,
+                        ) as HTMLDialogElement | null
+                    )?.close()}
                 ><span class="sr-only">Close Dialog</span><PlusIcon
                     style={`${iconsSvg} rotate: 45deg;`}
                 /></button

@@ -41,11 +41,9 @@
 			<div class="field">
 				<textarea
 					class="-m-break"
-					type="text"
 					placeholder="Enter Your Haiku's Here"
 					name="message"
 					required
-					pattern="/^\S.*(?:\r?\n\S.*)*$/u"
 				></textarea>
 				<label for="frmMessage">Message</label>
 			</div>

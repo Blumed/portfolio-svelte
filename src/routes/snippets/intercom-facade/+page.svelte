@@ -1,5 +1,4 @@
 <script lang="ts">
-	/** biome-ignore-all lint/style/useConst: <explanation> */
 	import Button from "$lib/components/Button.svelte";
 
 	import Prism from "$lib/components/code-snippet/prisma-js.svelte";

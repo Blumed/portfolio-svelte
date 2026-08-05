@@ -26,51 +26,22 @@
 		document.head.append(script);
 
 		script.onload = () => {
-			let langJS = false;
-			let lang_script: HTMLScriptElement;
-			let lang_module: string;
-
-			// This switch statement, evaluates what language is being used, if one of a key language is being used, it will
+			// This map, evaluates what language is being used, if one of a key language is being used, it will
 			// load the proper Prisim support tool, like Python requires "prism-python.js" to modify the raw code so that
 			// Prisim can render it properly.
-			switch (language) {
-				case "json":
-					lang_module =
-						"https://prismjs.com/components/prism-json.js";
-					langJS = true;
-					break;
+			const langModules: Record<string, string> = {
+				json: "https://prismjs.com/components/prism-json.js",
+				bash: "https://prismjs.com/components/prism-bash.js",
+				css: "https://prismjs.com/components/prism-css.js",
+				js: "https://prismjs.com/components/prism-javascript.js",
+				html: "https://prismjs.com/components/prism-html.js",
+				graphql: "https://prismjs.com/components/prism-graphql.js",
+			};
 
-				case "bash":
-					lang_module =
-						"https://prismjs.com/components/prism-bash.js";
-					langJS = true;
-					break;
+			const lang_module = langModules[language];
 
-				case "css":
-					lang_module = "https://prismjs.com/components/prism-css.js";
-					langJS = true;
-					break;
-
-				case "js":
-					lang_module =
-						"https://prismjs.com/components/prism-javascript.js";
-					langJS = true;
-					break;
-
-				case "html":
-					lang_module =
-						"https://prismjs.com/components/prism-html.js";
-					langJS = true;
-					break;
-				case "graphql":
-					lang_module =
-						"https://prismjs.com/components/prism-graphql.js";
-					langJS = true;
-					break;
-			}
-
-			if (langJS === true) {
-				lang_script = document.createElement("script");
+			if (lang_module) {
+				const lang_script = document.createElement("script");
 				lang_script.src = lang_module;
 				lang_script.async = true;
 				document.head.append(lang_script);

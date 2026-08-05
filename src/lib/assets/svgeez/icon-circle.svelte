@@ -1,5 +1,5 @@
 <script>
-    let { style } = $props();
+    let { style, class: className } = $props();
 </script>
 
 <svg
@@ -8,6 +8,7 @@
     role="presentation"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
+    class={className}
     {style}
     ><path
         fill="currentColor"
